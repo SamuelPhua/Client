@@ -1,0 +1,14 @@
+// About Us
+
+- There are several images inside About Us
+- Under the images, we need to check if the images are clickable and if there will be an enquiry form
+
+- Check the number of cookies
+
+// Contact Us
+
+- Check if there will be an enquiry form
+
+// Enquiry form
+
+- Check what should be inside the enquiry form
