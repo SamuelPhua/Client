@@ -6,12 +6,10 @@ const Cart = () => {
 
   /*
    ** Functionality of the cart must check if the items added to Cart have any stock from Product Page
-   **
-   **
-   **
-   **
-   **
-   **
+   ** We are able to edit the quantity of the added items
+   ** Clicking the images will route back to the Product Page ?? *Must Check
+   ** The total amount of all the added items must appear inside
+   ** A button to route to the checkout page
    */
 
   // To check if the added items in the cart have stock in place
