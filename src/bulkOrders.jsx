@@ -1,7 +1,7 @@
 import React from "react";
 
-const bulkOrders = () => {
+const BulkOrders = () => {
   return <div></div>;
 };
 
-export default bulkOrders;
+export default BulkOrders;
