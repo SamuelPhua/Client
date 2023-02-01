@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-    
-    /*
+  /*
    ** Functionality of the cart must check if the items added to Cart have any stock from Product Page
    ** We are able to edit the quantity of the added items
    ** Clicking the images will route back to the Product Page ?? *Must Check -- this one isn't done yet
@@ -12,9 +11,9 @@ const Cart = () => {
    */
 
   const [cartItems, setCartItems] = useState([]);
+
   // Navigate to the checkout page
   const navigate = useNavigate();
-
   const handleCheckOut = () => {
     navigate("/checkout");
   };
