@@ -1,11 +1,4 @@
 import React from "react";
-
-const AboutUs = () => {
-  return <div></div>;
-};
-
-export default AboutUs;
-import React from "react";
 import banner from "../assets/imagesAboutUs/About Us-Banner.png";
 import cookieCrafter from "../assets/imagesAboutUs/FP-Image3.png";
 import inclusiveHiring from "../assets/imagesAboutUs/FP Team Photo.jpeg";
