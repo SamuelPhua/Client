@@ -1,6 +1,6 @@
 import React from "react";
 import bigimage from "../assets/bigimage.png";
-import {images, description} from "../Varlables/Constants"
+import { images, description } from "../Varlables/Constants";
 
 const numberOfImages = 17;
 
@@ -19,9 +19,8 @@ function Shop() {
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
           gridGap: "16px",
-          width: "100%"
+          width: "100%",
         }}
-        
       >
         {Array.from({ length: numberOfImages }, (_, i) => {
           const imageNumber = i + 1;
@@ -37,10 +36,10 @@ function Shop() {
             >
               <img
                 src={images[i]}
-                style={{ width: "50%" }}
+                style={{ width: "50%", height: "70%" }}
                 onClick={() => handleClick(imageNumber)}
               />
-              <p style={{}}>{description[i]}</p>
+              <p style={{ color: "black" }}>{description[i]}</p>
             </div>
           );
         })}

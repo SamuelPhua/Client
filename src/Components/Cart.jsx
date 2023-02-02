@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
@@ -7,6 +7,7 @@ const Cart = () => {
    ** We are able to edit the quantity of the added items
    ** Clicking the images will route back to the Product Page ?? *Must Check -- this one isn't done yet
    ** The total amount of all the added items must appear inside
+   ** Local Storage
    ** A button to route to the checkout page
    */
 
@@ -47,6 +48,20 @@ const Cart = () => {
     (total, item) => total + item.price * item.quantity,
     0
   );
+
+  // The first useEffect hook retrieves the saved cartItems from localStorage when the component is mounted. 
+  // If there are saved items, it will set the state cartItems with the saved data.
+  useEffect(() => {
+    const savedCartItems = localStorage.getItem("cartItems");
+    if (savedCartItems) {
+      setCartItems(JSON.parse(savedCartItems));
+    }
+  }, []);
+
+  // The second useEffect hook updates the localStorage with the updated cartItems state whenever it changes.
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   return (
     <>
