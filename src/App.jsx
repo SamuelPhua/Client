@@ -1,19 +1,33 @@
 import React from "react";
 import Shop from "./Components/Shop";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import AboutUs from "./Components/AboutUs";
+import Header from "./Components/Header";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="Shop" element={<h1>Shop</h1>}></Route>
-          <Route path="About us" element={<h1>About us</h1>}></Route>
-          <Route path="Bulk Orders" element={<h1>Bulk Orders</h1>}></Route>
-          <Route path="Contact Us" element={<h1>Contact us</h1>}></Route>
-        </Routes>
-      </Router>
+      <Header />
+      <Routes>
+        <Route
+          path="shop"
+          element={
+            <h1>
+              <Shop />
+            </h1>
+          }
+        ></Route>
+        <Route
+          path="about-us"
+          element={
+            <h1>
+              <AboutUs />
+            </h1>
+          }
+        ></Route>
+        <Route path="Bulk Orders" element={<h1>Bulk Orders</h1>}></Route>
+        <Route path="Contact Us" element={<h1>Contact us</h1>}></Route>
+      </Routes>
     </div>
   );
 }

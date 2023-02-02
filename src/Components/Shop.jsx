@@ -1,5 +1,5 @@
 import React from "react";
-import bigimage from "../assets/bigimage.png";
+import bigimage from "../assets/imagesShop/bigimage.png";
 import { images, description } from "../Varlables/Constants";
 
 const numberOfImages = 17;
@@ -12,7 +12,7 @@ function Shop() {
   return (
     <div>
       <h1>
-        <img src={bigimage} style={{ width: "100%" }} />
+        `<img src={bigimage} style={{ width: "100%" }} />`
       </h1>
       <div
         style={{
