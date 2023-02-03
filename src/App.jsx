@@ -3,6 +3,7 @@ import Shop from "./Components/Shop";
 import { Routes, Route } from "react-router-dom";
 import AboutUs from "./Components/AboutUs";
 import Header from "./Components/Header";
+import ContactUs from "./Components/ContactUs";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           }
         ></Route>
         <Route path="Bulk Orders" element={<h1>Bulk Orders</h1>}></Route>
-        <Route path="Contact Us" element={<h1>Contact us</h1>}></Route>
+        <Route path="Contact Us" element={<ContactUs />}></Route>
       </Routes>
     </div>
   );
