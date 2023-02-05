@@ -4,6 +4,10 @@ import { Routes, Route } from "react-router-dom";
 import AboutUs from "./Components/AboutUs";
 import Header from "./Components/Header";
 import ContactUs from "./Components/ContactUs";
+import FAQ from "./Components/footerPages/FAQ";
+import PrivacyPolicy from "./Components/footerPages/PrivacyPolicy";
+import TermsAndConditions from "./Components/footerPages/TermsAndConditions";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -28,7 +32,11 @@ function App() {
         ></Route>
         <Route path="Bulk Orders" element={<h1>Bulk Orders</h1>}></Route>
         <Route path="Contact Us" element={<ContactUs />}></Route>
+        <Route path="faq" element={<FAQ />}></Route>
+        <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>
+        <Route path="t&c" element={<TermsAndConditions />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }

@@ -8,7 +8,7 @@ import Footer from "./Footer";
 
 const ContactUs = () => {
   return (
-    <div className="App motion-safe:animate-fadeIn">
+    <div className="motion-safe:animate-fadeIn">
       <Banner />
       <div>
         <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-sm md:text-xs mb-14">
@@ -23,7 +23,7 @@ const ContactUs = () => {
         <Heading1 />
         <ContactLocationMap />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

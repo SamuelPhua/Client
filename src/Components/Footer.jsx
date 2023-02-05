@@ -1,6 +1,7 @@
 import React from "react";
 import ContactDetails from "./contactUs/ContactDetails";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -11,13 +12,19 @@ const Footer = () => {
           <table className="font-montserrat text-base">
             <tbody>
               <tr>
-                <td>FAQ</td>
+                <td>
+                  <Link to="/faq">FAQ</Link>
+                </td>
               </tr>
               <tr>
-                <td>Privacy Policy</td>
+                <td>
+                  <Link to="/privacy-policy">Privacy Policy</Link>
+                </td>
               </tr>
               <tr>
-                <td>Terms & Conditions</td>
+                <td>
+                  <Link to="/t&c">Terms & Conditions</Link>
+                </td>
               </tr>
             </tbody>
           </table>
