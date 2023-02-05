@@ -5,9 +5,14 @@ const BulkOrders = () => {
   return (
     <div className="motion-safe:animate-fadeIn">
       <Banner
-        img="src/assets/imagesContactUs/Contact-Banner.jpg"
+        img="src/assets/imagesBulkOrders/Corporate-HeaderBanner.jpg"
         title="BULK ORDERS"
       />
+      <div>
+        <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-sm md:text-xs mb-14">
+          WHAT CAN WE DO FOR YOU?
+        </h2>
+      </div>
     </div>
   );
 };
