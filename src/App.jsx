@@ -30,7 +30,7 @@ function App() {
             </h1>
           }
         ></Route>
-        <Route path="Bulk Orders" element={<h1>Bulk Orders</h1>}></Route>
+        <Route path="bulk-orders" element={<h1>Bulk Orders</h1>}></Route>
         <Route path="contact-us" element={<ContactUs />}></Route>
         <Route path="faq" element={<FAQ />}></Route>
         <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>
