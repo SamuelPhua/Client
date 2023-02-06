@@ -8,7 +8,7 @@ import FAQ from "./Components/footerPages/FAQ";
 import PrivacyPolicy from "./Components/footerPages/PrivacyPolicy";
 import TermsAndConditions from "./Components/footerPages/TermsAndConditions";
 import Footer from "./Components/Footer";
-import BulkOrders from "./Components/bulkOrders";
+import BulkOrders from "./Components/BulkOrders";
 
 function App() {
   return (
