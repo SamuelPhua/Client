@@ -1,6 +1,7 @@
 import React from "react";
 // import "./Header.css";
 import { Link } from "react-router-dom";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Header = () => {
   return (
@@ -12,11 +13,16 @@ const Header = () => {
         <Link to="/about-us" style={{ textDecoration: "none" }}>
           <span>About us</span>
         </Link>
-        <Link to="/Bulk Orders" style={{ textDecoration: "none" }}>
+        <Link to="/bulk-orders" style={{ textDecoration: "none" }}>
           <span>Bulk Orders</span>
         </Link>
-        <Link to="/Contact Us" style={{ textDecoration: "none" }}>
+        <Link to="contact-us" style={{ textDecoration: "none" }}>
           <span>Contact Us</span>
+        </Link>
+        <Link to="/cart" style={{ textDecoration: "none" }}>
+          <span>
+            <AiOutlineShoppingCart />
+          </span>
         </Link>
       </div>
     </div>
