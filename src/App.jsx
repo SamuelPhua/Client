@@ -31,8 +31,8 @@ function App() {
             </h1>
           }
         ></Route>
-        <Route path="Bulk Orders" element={<BulkOrders />}></Route>
-        <Route path="Contact Us" element={<ContactUs />}></Route>
+        <Route path="bulk-orders" element={<BulkOrders />}></Route>
+        <Route path="contact-us" element={<ContactUs />}></Route>
         <Route path="faq" element={<FAQ />}></Route>
         <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>
         <Route path="t&c" element={<TermsAndConditions />}></Route>
