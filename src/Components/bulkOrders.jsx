@@ -1,7 +1,12 @@
 import React from "react";
-import Banner from "./Banner";
+import Banner from "./reusables/Banner";
+import Button from "./reusables/Button";
 
 const BulkOrders = () => {
+  const handleCLick = () => {
+    console.log("routing to contact-us page");
+  };
+
   return (
     <div className="motion-safe:animate-fadeIn">
       <Banner img="bulk-orders" title="BULK ORDERS" />
@@ -28,10 +33,12 @@ const BulkOrders = () => {
       </div>
 
       <div className="w-auto mx-auto mb-16">
-        <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-2">
+        <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-10">
           LIKE WHAT YOU SEE? CONTACT US HERE!
         </h2>
-        <Button />
+        <div className="mx-auto">
+          <Button displayName="CONTACT US" onClick={handleCLick} />
+        </div>
       </div>
     </div>
   );
