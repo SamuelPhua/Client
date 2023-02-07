@@ -16,6 +16,15 @@ const BulkOrders = () => {
           WHAT CAN WE DO FOR YOU?
         </h2>
         <div className="w-1/5 text-center mx-auto border-orange border-t-4" />
+        <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-xs md:text-xs">
+          Planning a corporate event, wedding, birthday party, or any other
+        </p>
+        <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-xs md:text-xs mb-2">
+          special event? We’d love to be a part of it!
+        </p>
+        <p>
+          Speak with us to customise our sweet treats as gifts for any occasion!
+        </p>
       </div>
 
       <div className="w-auto mx-auto mb-16">
