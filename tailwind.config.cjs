@@ -46,6 +46,7 @@ module.exports = {
         mediumNegative: "-150px",
         negative: "-50px",
       },
+
       animation: {
         fadeIn: "fadeIn 1s ease-in forwards",
         bounceShort: "bounce 1s ease-in-out 2",
