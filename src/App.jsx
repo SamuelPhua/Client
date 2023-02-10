@@ -2,6 +2,7 @@ import React from "react";
 import Shop from "./Components/Shop";
 import { Routes, Route } from "react-router-dom";
 import AboutUs from "./Components/AboutUs";
+import ShippingAlert from "./Components/ShippingAlert";
 import Header from "./Components/Header";
 import ContactUs from "./Components/ContactUs";
 import FAQ from "./Components/footerPages/FAQ";
@@ -13,6 +14,7 @@ import Shipping from "./Components/Shipping";
 function App() {
   return (
     <div className="App">
+      <ShippingAlert />
       <Header />
       <Routes>
         <Route

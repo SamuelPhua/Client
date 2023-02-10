@@ -5,7 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Header = () => {
   return (
-    <div className="header text-darkBlueFont text-montserrat text-xxs flex flex-row justify-around mt-5">
+    <div className="header text-darkBlueFont text-montserrat text-xxs flex flex-row justify-around my-5">
       <div>
         <img
           src="src/assets/FlourPowerLogo.png"
