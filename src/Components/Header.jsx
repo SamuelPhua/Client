@@ -6,13 +6,15 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 const Header = () => {
   return (
     <div className="header text-darkBlueFont text-montserrat text-xxs flex flex-row justify-around my-5">
-      <div>
-        <img
-          src="src/assets/FlourPowerLogo.png"
-          alt="logo"
-          className="w-32 h-16 lg:w-44 lg:h-20"
-        ></img>
-      </div>
+      <Link to="/">
+        <div>
+          <img
+            src="src/assets/FlourPowerLogo.png"
+            alt="logo"
+            className="w-32 h-16 lg:w-44 lg:h-20"
+          ></img>
+        </div>
+      </Link>
 
       <div className="headerLeft flex flex-row justify-between items-center tracking-widest">
         <Link to="/shop" style={{ textDecoration: "none" }} className="pl-10">
