@@ -9,7 +9,10 @@ const BulkOrders = () => {
 
   return (
     <div className="motion-safe:animate-fadeIn">
-      <Banner img="bulk-orders" title="BULK ORDERS" />
+      <Banner
+        img="src/assets/imagesBulkOrders/Corporate-HeaderBanner.jpg"
+        title="BULK ORDERS"
+      />
 
       <div className="w-auto mx-auto mb-16">
         <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-2">
