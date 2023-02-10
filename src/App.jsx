@@ -9,6 +9,7 @@ import FAQ from "./Components/footerPages/FAQ";
 import PrivacyPolicy from "./Components/footerPages/PrivacyPolicy";
 import TermsAndConditions from "./Components/footerPages/TermsAndConditions";
 import Footer from "./Components/Footer";
+import BulkOrders from "./Components/BulkOrders";
 import Shipping from "./Components/Shipping";
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
             </h1>
           }
         ></Route>
-        <Route path="bulk-orders" element={<h1>Bulk Orders</h1>}></Route>
+        <Route path="bulk-orders" element={<BulkOrders />}></Route>
         <Route path="contact-us" element={<ContactUs />}></Route>
         <Route path="faq" element={<FAQ />}></Route>
         <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>

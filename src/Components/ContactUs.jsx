@@ -2,13 +2,13 @@ import React from "react";
 import ContactForm from "./contactUs/ContactForm";
 import ContactInfo from "./contactUs/ContactInfo";
 import ContactLocationMap from "./contactUs/ContactLocationMap";
-import Banner from "./Banner";
+import Banner from "./reusables/Banner";
 import Heading1 from "./Heading1";
 
 const ContactUs = () => {
   return (
     <div className="motion-safe:animate-fadeIn">
-      <Banner />
+      <Banner img="contact-us" title="CONTACT US" />
       <div>
         <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-sm md:text-xs mb-14">
           We'd love to hear from you! Please reach out to us here.

@@ -57,6 +57,11 @@ module.exports = {
           "100%": { opacity: 1 },
         },
       },
+      backgroundImage: {
+        "bulk-orders":
+          "url('src/assets/imagesBulkOrders/Corporate-HeaderBanner.jpg')",
+        "contact-us": "url('src/assets/imagesContactUs/Contact-Banner.jpg')",
+      },
     },
   },
   variants: {
