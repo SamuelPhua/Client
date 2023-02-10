@@ -4,7 +4,6 @@ import ContactInfo from "./contactUs/ContactInfo";
 import ContactLocationMap from "./contactUs/ContactLocationMap";
 import Banner from "./reusables/Banner";
 import Heading1 from "./Heading1";
-import Footer from "./Footer";
 
 const ContactUs = () => {
   return (
