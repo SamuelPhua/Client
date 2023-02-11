@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Routes, Route } from "react-router-dom";
 import ShippingAlert from "./Components/ShippingAlert";
 import Header from "./Components/Header";
+import Home from "./Components/Home";
 import Shop from "./Components/Shop";
 import Product from "./Components/Product";
 import AboutUs from "./Components/AboutUs";
@@ -12,14 +13,18 @@ import FAQ from "./Components/footerPages/FAQ";
 import PrivacyPolicy from "./Components/footerPages/PrivacyPolicy";
 import TermsAndConditions from "./Components/footerPages/TermsAndConditions";
 import Footer from "./Components/Footer";
-import Shipping from "./Components/Shipping";
+import Checkout from "./Components/Checkout";
 
 function App() {
+  const [showShipAlert, setShowShipAlert] = useState(true);
+  const [showNav, setShowNav] = useState(true);
+  const [showFooter, setShowFooter] = useState(true);
   return (
     <div className="App">
-      <ShippingAlert />
-      <Header />
+      {showShipAlert && <ShippingAlert />}
+      {showNav && <Header />}
       <Routes>
+        <Route path="/" element={<Home />}></Route>
         <Route path="shop" element={<Shop />}></Route>
         <Route path="product/:name" element={<Product />}></Route>
         <Route path="about-us" element={<AboutUs />}></Route>
@@ -28,8 +33,18 @@ function App() {
         <Route path="faq" element={<FAQ />}></Route>
         <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>
         <Route path="t&c" element={<TermsAndConditions />}></Route>
+        <Route
+          path="checkout"
+          element={
+            <Checkout
+              setShowShipAlert={setShowShipAlert}
+              setShowNav={setShowNav}
+              setShowFooter={setShowFooter}
+            />
+          }
+        ></Route>
       </Routes>
-      <Footer />
+      {showFooter && <Footer />}
     </div>
   );
 }
