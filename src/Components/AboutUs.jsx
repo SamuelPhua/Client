@@ -9,7 +9,21 @@ import packaging from "../assets/imagesAboutUs/AboutUs-SustainablePackaging.png"
 import apac from "../assets/imagesAboutUs/Featured-APAC.png";
 import fairmarch from "../assets/imagesAboutUs/Featured-Fairmarch.png";
 import philstar from "../assets/imagesAboutUs/Featured-Philstar.png";
-import logos from "./logosData";
+import img1 from "../assets/imagesAboutUs/AboutUs-DBSLogo.png";
+import img2 from "../assets/imagesAboutUs/AboutUs-AppleLogo.png";
+import img3 from "../assets/imagesAboutUs/AboutUs-MindefLogo.png";
+import img4 from "../assets/imagesAboutUs/AboutUs-CPFfLogo.png";
+import img5 from "../assets/imagesAboutUs/AboutUs-IRASLogo.png";
+import img6 from "../assets/imagesAboutUs/AboutUs-NUSLogo.png";
+import img7 from "../assets/imagesAboutUs/AboutUs-MetaLogo.png";
+import img8 from "../assets/imagesAboutUs/ AboutUs-MandarinOrientalLogo.png";
+import img9 from "../assets/imagesAboutUs/AboutUs-FrasersHospitalityLogo.png";
+import img10 from "../assets/imagesAboutUs/AboutUs-NTULogo.png";
+import img11 from "../assets/imagesAboutUs/AboutUs-STEngineeringLogo.png";
+import img12 from "../assets/imagesAboutUs/AboutUs-MSFLogo.png";
+import img13 from "../assets/imagesAboutUs/AboutUs-SMULogo.png";
+import img14 from "../assets/imagesAboutUs/AboutUs-KPMGLogo.png";
+import img15 from "../assets/imagesAboutUs/About Us-NationalUniversityHospital.png";
 
 const AboutUs = () => {
   return (
@@ -84,7 +98,6 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-
       {/* About Our Cookies */}
       <div className="text-center mt-[-200px] text-sm font-permanentMarker text-darkBlue underline underline-offset-22 decoration-orange">
         About Our Cookies
@@ -95,7 +108,7 @@ const AboutUs = () => {
           <h1 className="absolute w-80 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             QUALITY INGREDIENTS
           </h1>
-          <p className="absolute w-80 text-center text-xs font-montserrat text-lightBlue top-[550px] left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <p className="absolute w-80 text-center text-xs font-montserrat text-lightBlue top-[580px] left-1/2 -translate-x-1/2 -translate-y-1/2">
             Our cookies are made from ingredients which are carefully sourced by
             us to ensure the best quality and flavour.
           </p>
@@ -106,7 +119,7 @@ const AboutUs = () => {
           <h1 className="absolute w-80 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             INNOVATIVE RECIPES
           </h1>
-          <p className="absolute w-80 text-center text-xs font-montserrat text-lightBlue top-[565px] left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <p className="absolute w-80 text-center text-xs font-montserrat text-lightBlue top-[590px] left-1/2 -translate-x-1/2 -translate-y-1/2">
             There's no such thing as a "perfect" recipe. We are always improving
             our recipes so that we continue bringing you the best quality
             cookies possible.
@@ -118,7 +131,7 @@ const AboutUs = () => {
           <h1 className="absolute w-80 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             SUSTAINABLE PACKAGING
           </h1>
-          <p className="absolute w-80 text-center text-xs font-montserrat text-lightBlue top-[565px] left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <p className="absolute w-80 text-center text-xs font-montserrat text-lightBlue top-[590px] left-1/2 -translate-x-1/2 -translate-y-1/2">
             Our packaging is sustainable and preserves the freshness of our
             cookies. You can enjoy them as fresh as hwen they were taken out of
             the oven!
@@ -158,14 +171,57 @@ const AboutUs = () => {
       <div className="mt-[-250px] text-center text-sm font-permanentMarker text-darkBlue underline underline-offset-22 decoration-orange">
         Our Past clients
       </div>
-      <div className="grid grid-cols-5 gap-2 mt-20">
-        {logos.map((logo, index) => {
-          return (
-            <div key={index}>
-              <img src={logo} />
-            </div>
-          );
-        })}
+      <div className="grid grid-cols-7 mt-20">
+        <div className="col-start-2 flex justify-center items-center">
+          <img className="w-40 h-16" src={img1} />
+        </div>
+        <div className="col-start-3 flex justify-center items-center">
+          <img className="w-28 h-24" src={img2} />
+        </div>
+        <div className="col-start-4 flex justify-center items-center">
+          <img className="w-48 h-20" src={img3} />
+        </div>
+        <div className="col-start-5 flex justify-center items-center">
+          <img className="w-32 h-32" src={img4} />
+        </div>
+        <div className="col-start-6 flex justify-center items-center">
+          <img className="w-28 h-28" src={img5} />
+        </div>
+      </div>
+      <div className="grid grid-cols-7 mt-20">
+        <div className="col-start-2 flex justify-center items-center">
+          <img className="w-32 h-16" src={img6} />
+        </div>
+        <div className="col-start-3 flex justify-center items-center">
+          <img className="w-48 h-10" src={img7} />
+        </div>
+        <div className="col-start-4 flex justify-center items-center">
+          <img className="w-24 h-20" src={img8} />
+        </div>
+        <div className="col-start-5 flex justify-center items-center">
+          <img className="w-32 h-24" src={img9} />
+        </div>
+        <div className="col-start-6 flex justify-center items-center">
+          <img className="w-40 h-16" src={img10} />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-7 mt-20">
+        <div className="col-start-2 flex justify-center items-center">
+          <img className="w-52 h-10" src={img11} />
+        </div>
+        <div className="col-start-3 flex justify-center items-center">
+          <img className="w-32 h-32" src={img12} />
+        </div>
+        <div className="col-start-4 flex justify-center items-center">
+          <img className="w-32 h-16" src={img13} />
+        </div>
+        <div className="col-start-5 flex justify-center items-center">
+          <img className="w-28 h-32" src={img14} />
+        </div>
+        <div className="col-start-6 flex justify-center items-center">
+          <img className="w-48 h-16" src={img15} />
+        </div>
       </div>
     </div>
   );
