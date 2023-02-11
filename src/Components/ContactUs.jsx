@@ -8,7 +8,10 @@ import Heading1 from "./Heading1";
 const ContactUs = () => {
   return (
     <div className="motion-safe:animate-fadeIn">
-      <Banner img="contact-us" title="CONTACT US" />
+      <Banner
+        img="src/assets/imagesContactUs/Contact-Banner.jpg"
+        title="CONTACT US"
+      />
       <div>
         <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-sm md:text-xs mb-14">
           We'd love to hear from you! Please reach out to us here.
