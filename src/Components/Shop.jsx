@@ -1,6 +1,7 @@
 import React from "react";
 import bigimage from "../assets/imagesShop/bigimage.png";
 import { images, description } from "../Varlables/Constants";
+import Banner from "./reusables/Banner";
 
 const numberOfImages = 17;
 
@@ -11,9 +12,12 @@ function Shop() {
   };
   return (
     <div>
-      <h1>
-        `<img src={bigimage} style={{ width: "100%" }} />`
-      </h1>
+      <Banner
+        img="src/assets/imagesShop/bigimage.png"
+        title="SHOP ALL"
+        titleColor="white"
+      />
+
       <div
         style={{
           display: "grid",

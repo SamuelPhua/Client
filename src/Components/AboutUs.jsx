@@ -9,7 +9,7 @@ import packaging from "../assets/imagesAboutUs/AboutUs-SustainablePackaging.png"
 import apac from "../assets/imagesAboutUs/Featured-APAC.png";
 import fairmarch from "../assets/imagesAboutUs/Featured-Fairmarch.png";
 import philstar from "../assets/imagesAboutUs/Featured-Philstar.png";
-import logos from "./logosData";
+import logos from "./LogosData";
 
 const AboutUs = () => {
   return (
