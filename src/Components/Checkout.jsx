@@ -13,6 +13,7 @@ const Shipping = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
     setShowNav(false);
     setShowFooter(false);
   });
+
   return (
     <div className="motion-safe:animate-fadeIn">
       <div className="grid grid-cols-3 h-screen">
