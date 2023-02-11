@@ -46,7 +46,7 @@ const Carousel = () => {
     carouselData.map((item, index) => (
       <div key={index}>
         <a target="_blank" href={item.articleUrl}>
-          <img className="w-10/12 h-5/5 overflow-hidden" src={item.imgUrl} />
+          <img className="w-10/12 h-5/5" src={item.imgUrl} />
           <div className="mt-5 ml-[-100px] text-xs font-montserrat text-black text-center">
             {item.text}
           </div>
