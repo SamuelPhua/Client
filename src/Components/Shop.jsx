@@ -18,37 +18,24 @@ function Shop() {
         titleColor="white"
       />
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gridGap: "16px",
-          width: "100%",
-        }}
-      >
+      <div className="grid grid-cols-3 w-10/12 mt-20 mb-10 place-items-center mx-auto gap-y-24">
         {Array.from({ length: numberOfImages }, (_, i) => {
           const imageNumber = i + 1;
 
           return (
-            <div
-              key={imageNumber}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
+            <div key={imageNumber} className="items-center">
               <img
                 src={images[i]}
-                style={{ width: "50%", height: "70%" }}
+                className="w-48 h-48 mx-auto"
                 onClick={() => handleClick(imageNumber)}
               />
-              <p style={{ color: "black" }}>{description[i]}</p>
+              <p className="text-darkBlueFont mt-4 text-center">
+                {description[i]}
+              </p>
             </div>
           );
         })}
       </div>
-      {/* <Footer Bar /> */}
     </div>
   );
 }
