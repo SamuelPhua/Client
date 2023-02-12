@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CartHeader from "./cart/CartHeader";
 import CartProgressBar from "./cart/CartProgressBar";
 import CartContactInfo from "./cart/CartContactInfo";
@@ -7,7 +7,13 @@ import CartDeliveryAddress from "./cart/CartDeliveryAddress";
 import CartFooter from "./cart/CartFooter";
 import CartTotal from "./cart/CartTotal";
 
-const Shipping = () => {
+const Shipping = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
+  useEffect(() => {
+    setShowShipAlert(false);
+    setShowNav(false);
+    setShowFooter(false);
+  });
+
   return (
     <div className="motion-safe:animate-fadeIn">
       <div className="grid grid-cols-3 h-screen">

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import bigimage from "../assets/imagesShop/bigimage.png";
 import { images, description } from "../Varlables/Constants";
 import Banner from "./reusables/Banner";
@@ -6,10 +7,12 @@ import Banner from "./reusables/Banner";
 const numberOfImages = 17;
 
 function Shop() {
-  const handleClick = (imageNumber) => {
-    // perform our routes here (can use useNavigate to route to the individual cookie)
-    console.log(`Image${imageNumber} clicked`);
+  const navigate = useNavigate();
+
+  const navigateToProduct = (productName) => {
+    navigate(`/product/${productName}`);
   };
+
   return (
     <div>
       <Banner
@@ -23,13 +26,16 @@ function Shop() {
           const imageNumber = i + 1;
 
           return (
-            <div key={imageNumber} className="items-center">
+            <div key={imageNumber} className="items-center cursor-pointer">
               <img
                 src={images[i]}
                 className="w-48 h-48 mx-auto"
-                onClick={() => handleClick(imageNumber)}
+                onClick={() => navigateToProduct(description[i])}
               />
-              <p className="text-darkBlueFont mt-4 text-center">
+              <p
+                className="text-darkBlueFont mt-4 text-center"
+                onClick={() => navigateToProduct(description[i])}
+              >
                 {description[i]}
               </p>
             </div>
