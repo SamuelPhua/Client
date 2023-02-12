@@ -15,33 +15,45 @@ const BulkOrders = () => {
       />
 
       <div className="w-auto mx-auto mb-16">
-        <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-2">
-          WHAT CAN WE DO FOR YOU?
+        <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-14">
+          WHAT{" "}
+          <span className="underline underline-offset-22 decoration-orange">
+            CAN WE DO FOR
+          </span>{" "}
+          YOU?
         </h2>
-        <div className="w-1/5 text-center mx-auto border-orange border-t-4" />
-        <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-xs md:text-xs">
+        <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-xs md:text-xs mb-1">
           Planning a corporate event, wedding, birthday party, or any other
+          special event?
         </p>
-        <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-xs md:text-xs mb-2">
-          special event? We’d love to be a part of it!
+        <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+          We'd love to be a part of it!
         </p>
-        <p>
+        <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-xs md:text-xs mb-20">
           Speak with us to customise our sweet treats as gifts for any occasion!
         </p>
       </div>
 
       <div className="w-auto mx-auto mb-16">
-        <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-2">
-          CUSTOMISATION OPTIONS
+        <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-14">
+          CU
+          <span className="underline underline-offset-22 decoration-orange">
+            STOMISATION OPTIO
+          </span>
+          NS
         </h2>
-        <div className="w-1/5 text-center mx-auto border-orange border-t-4" />
+        {/* <div className="w-1/5 text-center mx-auto border-orange border-t-4" /> */}
       </div>
 
       <div className="w-auto mx-auto mb-16">
-        <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-2">
-          OUR PREVIOUS CUSTOMISATIONS
+        <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-14">
+          OUR PR
+          <span className="underline underline-offset-22 decoration-orange">
+            EVIOUS CUSTOM
+          </span>
+          ISATIONS
         </h2>
-        <div className="w-1/5 text-center mx-auto border-orange border-t-4" />
+        {/* <div className="w-1/5 text-center mx-auto border-orange border-t-4" /> */}
       </div>
 
       <div className="w-auto mx-auto mb-16">
