@@ -14,6 +14,9 @@ import PrivacyPolicy from "./Components/footerPages/PrivacyPolicy";
 import TermsAndConditions from "./Components/footerPages/TermsAndConditions";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
+import BulkOrders from "./Components/BulkOrders";
+import Shipping from "./Components/Shipping";
+import Cart from "./Components/Cart";
 
 function App() {
   const [showShipAlert, setShowShipAlert] = useState(true);
@@ -30,6 +33,7 @@ function App() {
         <Route path="about-us" element={<AboutUs />}></Route>
         <Route path="bulk-orders" element={<BulkOrders />}></Route>
         <Route path="contact-us" element={<ContactUs />}></Route>
+        <Route path="cart" element={<Cart />}></Route>
         <Route path="faq" element={<FAQ />}></Route>
         <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>
         <Route path="t&c" element={<TermsAndConditions />}></Route>
