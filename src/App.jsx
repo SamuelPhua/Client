@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-
 import { Routes, Route } from "react-router-dom";
-import ShippingAlert from "./Components/ShippingAlert";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Shop from "./Components/Shop";
 import Product from "./Components/Product";
 import AboutUs from "./Components/AboutUs";
-import BulkOrders from "./Components/BulkOrders";
 import ContactUs from "./Components/ContactUs";
 import FAQ from "./Components/footerPages/FAQ";
 import PrivacyPolicy from "./Components/footerPages/PrivacyPolicy";
@@ -15,7 +12,7 @@ import TermsAndConditions from "./Components/footerPages/TermsAndConditions";
 import Footer from "./Components/Footer";
 import Checkout from "./Components/Checkout";
 import BulkOrders from "./Components/BulkOrders";
-import Shipping from "./Components/Shipping";
+import ShippingAlert from "./Components/ShippingAlert";
 import Cart from "./Components/Cart";
 
 function App() {

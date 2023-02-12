@@ -21,10 +21,6 @@ import img13 from "../assets/imagesAboutUs/AboutUs-SMULogo.png";
 import img14 from "../assets/imagesAboutUs/AboutUs-KPMGLogo.png";
 import img15 from "../assets/imagesAboutUs/About Us-NationalUniversityHospital.png";
 import Carousel from "./Carousel";
-import apac from "../assets/imagesAboutUs/Featured-APAC.png";
-import fairmarch from "../assets/imagesAboutUs/Featured-Fairmarch.png";
-import philstar from "../assets/imagesAboutUs/Featured-Philstar.png";
-import logos from "./LogosData";
 
 const AboutUs = () => {
   return (
