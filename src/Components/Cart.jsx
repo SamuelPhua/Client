@@ -19,7 +19,7 @@ const Cart = () => {
 
   // Navigate to the checkout page
   const navigate = useNavigate();
-  const handleCheckOut = () => {
+  const navigateToCheckout = () => {
     navigate("/checkout");
   };
 
@@ -160,7 +160,7 @@ const Cart = () => {
       {/* Last Row */}
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10">
         <div className="col-start-7 flex justify-end items-center">
-          <Button displayName="CHECKOUT" />
+          <Button displayName="CHECKOUT" onClick={navigateToCheckout} />
         </div>
       </div>
     </>
