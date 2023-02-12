@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./Components/Header";
+import ShippingAlert from "./Components/reusables/ShippingAlert";
+import Header from "./Components/reusables/Header";
 import Home from "./Components/Home";
 import Shop from "./Components/Shop";
 import Product from "./Components/Product";
@@ -9,10 +10,9 @@ import ContactUs from "./Components/ContactUs";
 import FAQ from "./Components/footerPages/FAQ";
 import PrivacyPolicy from "./Components/footerPages/PrivacyPolicy";
 import TermsAndConditions from "./Components/footerPages/TermsAndConditions";
-import Footer from "./Components/Footer";
+import Footer from "./Components/reusables/Footer";
 import Checkout from "./Components/Checkout";
 import BulkOrders from "./Components/BulkOrders";
-import ShippingAlert from "./Components/ShippingAlert";
 import Cart from "./Components/Cart";
 
 function App() {
