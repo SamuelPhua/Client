@@ -3,7 +3,7 @@ import React from "react";
 const CartDeliveryAddress = () => {
   return (
     <div className=" text-darkBlueFont text-montserrat mb-10">
-      <h1 className="tracking-widest text-3xl">Delivery Address</h1>
+      <h1 className="tracking-widest text-2xl">Delivery Address</h1>
       <div className="flex flex-col">
         <select
           type="deliveryCountry"

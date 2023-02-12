@@ -3,7 +3,7 @@ import React from "react";
 const CartDeliveryMethod = () => {
   return (
     <div className="text-darkBlueFont text-montserrat">
-      <h1 className="tracking-widest text-3xl">Delivery Methods</h1>
+      <h1 className="tracking-widest text-2xl">Delivery Methods</h1>
       <section className="text-lightGrey/[0.75]">
         <div className="px-3.5 pt-5">
           <input
@@ -12,7 +12,7 @@ const CartDeliveryMethod = () => {
             name="deliveryMethod"
             className="ml-5 mr-2"
           ></input>
-          <label htmlFor="selfPickUp" className="text-base">
+          <label htmlFor="selfPickUp" className="text-xxs">
             Self Pickup (Wednesday, 10am - 4pm)
           </label>
         </div>
@@ -23,7 +23,7 @@ const CartDeliveryMethod = () => {
             name="deliveryMethod"
             className="ml-5 mr-2"
           ></input>
-          <label htmlFor="delivery" className="text-base">
+          <label htmlFor="delivery" className="text-xxs">
             Delivery ($12.00)
           </label>
         </div>

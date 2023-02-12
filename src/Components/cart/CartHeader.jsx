@@ -8,7 +8,7 @@ const CartHeader = () => {
         <img
           src="src/assets/FlourPowerLogo.png"
           alt="logo"
-          className="w-32 h-16 lg:w-44 lg:h-20"
+          className="w-20 h-12 lg:w-36 lg:h-16"
         ></img>
       </Link>
     </div>
