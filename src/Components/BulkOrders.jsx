@@ -104,25 +104,25 @@ const BulkOrders = () => {
         {/* row 1 images */}
         <div className="flex flex-wrap justify-evenly w-10/12 mt-20 mx-auto">
           <div className="w-4/12 px-10">
-            <img src="src/assets/imagesBulkOrders/Corporate-Image1.png" />
+            <img src="src/assets/imagesBulkOrders/Corporate-Customisation1.png" />
           </div>
           <div className="w-4/12 px-10">
-            <img src="src/assets/imagesBulkOrders/Corporate-Image2.png" />
+            <img src="src/assets/imagesBulkOrders/Corporate-Customisation2.png" />
           </div>
           <div className="w-4/12 px-10">
-            <img src="src/assets/imagesBulkOrders/Corporate-Image3.png" />
+            <img src="src/assets/imagesBulkOrders/Corporate-Customisation3.png" />
           </div>
         </div>
         {/* row 2 images */}
         <div className="flex flex-wrap justify-evenly w-10/12 mt-20 mx-auto">
           <div className="w-4/12 px-10">
-            <img src="src/assets/imagesBulkOrders/Corporate-Image1.png" />
+            <img src="src/assets/imagesBulkOrders/Corporate-Customisation4.png" />
           </div>
           <div className="w-4/12 px-10">
-            <img src="src/assets/imagesBulkOrders/Corporate-Image2.png" />
+            <img src="src/assets/imagesBulkOrders/Corporate-Customisation5.png" />
           </div>
           <div className="w-4/12 px-10">
-            <img src="src/assets/imagesBulkOrders/Corporate-Image3.png" />
+            <img src="src/assets/imagesBulkOrders/57.png" />
           </div>
         </div>
       </div>
