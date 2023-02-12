@@ -14,7 +14,8 @@ const BulkOrders = () => {
         title="BULK ORDERS"
       />
 
-      <div className="w-auto mx-auto mb-16">
+      {/* #1 INTRO - what can we do for you? */}
+      <div className="w-auto mx-auto mt-20 mb-16">
         <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-14">
           WHAT{" "}
           <span className="underline underline-offset-22 decoration-orange">
@@ -34,6 +35,7 @@ const BulkOrders = () => {
         </p>
       </div>
 
+      {/* #2 - Customisation Options (3 divs side by side) */}
       <div className="w-auto mx-auto mb-16">
         <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-14">
           CU
@@ -43,8 +45,52 @@ const BulkOrders = () => {
           NS
         </h2>
         {/* <div className="w-1/5 text-center mx-auto border-orange border-t-4" /> */}
+
+        {/* images */}
+        <div className="flex flex-wrap justify-evenly w-10/12 mt-20 mx-auto">
+          <div className="w-4/12 px-10">
+            <img src="src/assets/imagesBulkOrders/Corporate-Image1.png" />
+          </div>
+          <div className="w-4/12 px-10">
+            <img src="src/assets/imagesBulkOrders/Corporate-Image2.png" />
+          </div>
+          <div className="w-4/12 px-10">
+            <img src="src/assets/imagesBulkOrders/Corporate-Image3.png" />
+          </div>
+        </div>
+        {/* text */}
+        <div className="flex flex-wrap justify-evenly w-10/12 mx-auto">
+          <div className="w-4/12 px-10">
+            <h4 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-2xl md:text-2xl mt-14 mb-5">
+              Personalised Packaging
+            </h4>
+            <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-xxs md:text-xxs mb-1">
+              Personalise your cookie gifts with your company logo or other
+              customised labels!
+            </p>
+          </div>
+          <div className="w-4/12 px-10">
+            <h4 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-2xl md:text-2xl mt-14 mb-5">
+              Gift Hamper Packaging
+            </h4>
+            <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-xxs md:text-xxs mb-1">
+              Work with us to curate a gift hamper featuring our lovely bakes
+              just for your event.
+            </p>
+          </div>
+          <div className="w-4/12 px-10">
+            <h4 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-2xl md:text-2xl mt-14 mb-5">
+              Dietary Requirements
+            </h4>
+            <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-xxs md:text-xxs mb-1">
+              Customise our cookie recipes to meet dietary needs, such as
+              gluten-free or lactose-free.
+            </p>
+          </div>
+        </div>
       </div>
 
+      {/* #3 Previous customisations grid display */}
       <div className="w-auto mx-auto mb-16">
         <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-14">
           OUR PR
@@ -54,13 +100,39 @@ const BulkOrders = () => {
           ISATIONS
         </h2>
         {/* <div className="w-1/5 text-center mx-auto border-orange border-t-4" /> */}
+
+        {/* row 1 images */}
+        <div className="flex flex-wrap justify-evenly w-10/12 mt-20 mx-auto">
+          <div className="w-4/12 px-10">
+            <img src="src/assets/imagesBulkOrders/Corporate-Image1.png" />
+          </div>
+          <div className="w-4/12 px-10">
+            <img src="src/assets/imagesBulkOrders/Corporate-Image2.png" />
+          </div>
+          <div className="w-4/12 px-10">
+            <img src="src/assets/imagesBulkOrders/Corporate-Image3.png" />
+          </div>
+        </div>
+        {/* row 2 images */}
+        <div className="flex flex-wrap justify-evenly w-10/12 mt-20 mx-auto">
+          <div className="w-4/12 px-10">
+            <img src="src/assets/imagesBulkOrders/Corporate-Image1.png" />
+          </div>
+          <div className="w-4/12 px-10">
+            <img src="src/assets/imagesBulkOrders/Corporate-Image2.png" />
+          </div>
+          <div className="w-4/12 px-10">
+            <img src="src/assets/imagesBulkOrders/Corporate-Image3.png" />
+          </div>
+        </div>
       </div>
 
+      {/* #4 contact us - button route */}
       <div className="w-auto mx-auto mb-16">
         <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-10">
           LIKE WHAT YOU SEE? CONTACT US HERE!
         </h2>
-        <div className="mx-auto">
+        <div className="text-center mx-auto">
           <Button displayName="CONTACT US" onClick={handleCLick} />
         </div>
       </div>
