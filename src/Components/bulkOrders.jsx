@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Banner from "./reusables/Banner";
 import Button from "./reusables/OrangeButton";
 
 const BulkOrders = () => {
-  const handleCLick = () => {
-    console.log("routing to contact-us page");
+  // Navigate to the contact us page
+  const navigate = useNavigate();
+  const navigateToContactUs = () => {
+    navigate("/contact-us");
   };
 
   return (
@@ -136,7 +139,7 @@ const BulkOrders = () => {
           <Button
             displayName="CONTACT US"
             width="10rem"
-            onClick={handleCLick}
+            onClick={navigateToContactUs}
           />
         </div>
       </div>
