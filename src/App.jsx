@@ -11,6 +11,7 @@ import TermsAndConditions from "./Components/footerPages/TermsAndConditions";
 import Footer from "./Components/Footer";
 import BulkOrders from "./Components/BulkOrders";
 import Shipping from "./Components/Shipping";
+import Cart from "./Components/Cart";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         ></Route>
         <Route path="bulk-orders" element={<BulkOrders />}></Route>
         <Route path="contact-us" element={<ContactUs />}></Route>
+        <Route path="cart" element={<Cart />}></Route>
         <Route path="faq" element={<FAQ />}></Route>
         <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>
         <Route path="t&c" element={<TermsAndConditions />}></Route>
