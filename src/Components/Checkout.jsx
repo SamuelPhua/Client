@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import useFetch from "../customHooks/useFetch";
+
 import CartHeader from "./cart/CartHeader";
 import CartProgressBar from "./cart/CartProgressBar";
 import CartContactInfo from "./cart/CartContactInfo";
@@ -8,11 +10,70 @@ import CartFooter from "./cart/CartFooter";
 import CartTotal from "./cart/CartTotal";
 
 const Shipping = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
+  const { fetchData, isLoading, data, error } = useFetch();
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [checkoutInputs, setCheckoutInputs] = useState({
+    firstName: "Mervin",
+    lastName: "Ng",
+    email: "mervin.test@mail.com",
+    phone: "+65 4321 0987",
+    deliveryMethod: "express",
+    address: "General assembly Road",
+    apartment: "20-02",
+    postalCode: "123456",
+    deliveryCountry: "Singapore",
+    orderCurrency: "SGD",
+    discountCode: "123456",
+    deliveryCharge: "1.00",
+    checkoutAmount: "60.00",
+    paymentMethod: "Paylah",
+    paymentAmount: "61.00",
+    orderStatus: "confirmed",
+    cart: [
+      {
+        name: "Chocolate Chip Cookies",
+        weight: "100g",
+        packaging: "Kraft pouch",
+        price: "5.80",
+        quantity: "1",
+        itemTotal: "5.80",
+      },
+      {
+        name: "Macademia Chocolate Cookies",
+        weight: "200g",
+        packaging: "Bottle",
+        price: "9.30",
+        quantity: "2",
+        itemTotal: "18.60",
+      },
+    ],
+  });
+
   useEffect(() => {
     setShowShipAlert(false);
     setShowNav(false);
     setShowFooter(false);
   });
+
+  // PUT: when checkout form is submitted
+  useEffect(() => {
+    // call PUT API here
+    const fetchURL = "http://127.0.0.1:5001/checkout/createOrder";
+    const fetchOptions = {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: Json.stringify(checkoutInputs),
+    };
+
+    if (hasSubmitted) fetchData(fetchURL, fetchOptions);
+  }, [hasSubmitted]);
+
+  const handleCheckoutSubmission = (event) => {
+    event.preventDefault();
+    setHasSubmitted(true);
+  };
 
   return (
     <div className="motion-safe:animate-fadeIn">

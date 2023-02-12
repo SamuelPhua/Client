@@ -67,6 +67,11 @@ const Cart = () => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  // checkout button click > route to checkout page
+  const handleClick = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <>
       {/* // Updating the quantity via button function
@@ -160,7 +165,7 @@ const Cart = () => {
       {/* Last Row */}
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10">
         <div className="col-start-7 flex justify-end items-center">
-          <Button displayName="CHECKOUT" />
+          <Button displayName="CHECKOUT" onClick={handleClick} />
         </div>
       </div>
     </>
