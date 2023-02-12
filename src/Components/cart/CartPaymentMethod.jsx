@@ -3,11 +3,14 @@ import React from "react";
 const CartPaymentMethod = () => {
   return (
     <div className="px-10 py-8 text-montserrat">
+      {/* Customer email */}
       <div>
         <p className="text-slate-700 mb-2">Email</p>
         <p>custEmail@gmail.com.sg</p>
         <hr className="mb-6" />
       </div>
+
+      {/* Select payment method */}
       <div>
         <p className="text-slate-700 mb-2">Select Payment Method</p>
         <div className="grid grid-cols-3 gap-2">
@@ -47,6 +50,7 @@ const CartPaymentMethod = () => {
         </div>
       </div>
 
+      {/* Paynow QR and static messages */}
       <img
         src="src/assets/imagesCheckout/PaymentHitpay-QR.png"
         alt="QR Code"
@@ -67,6 +71,8 @@ const CartPaymentMethod = () => {
           </span>{" "}
           on behalf of <span className="font-bold">"Seeteey Pte Ltd"</span>
         </p>
+
+        {/* Button does nothing */}
         <button
           type="button"
           className=" text-white text-xxxs bg-orange focus:outline-none focus:ring-4 hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-3 lg:w-fit px-8 mx-auto"
