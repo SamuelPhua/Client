@@ -5,7 +5,6 @@ import training from "../assets/imagesAboutUs/AboutUs-Training.png";
 import ingredients from "../assets/imagesAboutUs/AboutUs-QualityIngredients.png";
 import recipe from "../assets/imagesAboutUs/AboutUs-InnovativeRecipie.png";
 import packaging from "../assets/imagesAboutUs/AboutUs-SustainablePackaging.png";
-
 import img1 from "../assets/imagesAboutUs/AboutUs-DBSLogo.png";
 import img2 from "../assets/imagesAboutUs/AboutUs-AppleLogo.png";
 import img3 from "../assets/imagesAboutUs/AboutUs-MindefLogo.png";
@@ -22,6 +21,10 @@ import img13 from "../assets/imagesAboutUs/AboutUs-SMULogo.png";
 import img14 from "../assets/imagesAboutUs/AboutUs-KPMGLogo.png";
 import img15 from "../assets/imagesAboutUs/About Us-NationalUniversityHospital.png";
 import Carousel from "./Carousel";
+import apac from "../assets/imagesAboutUs/Featured-APAC.png";
+import fairmarch from "../assets/imagesAboutUs/Featured-Fairmarch.png";
+import philstar from "../assets/imagesAboutUs/Featured-Philstar.png";
+import logos from "./LogosData";
 
 const AboutUs = () => {
   return (
