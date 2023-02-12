@@ -27,6 +27,7 @@ module.exports = {
         darkBlue: "#2D65A2",
         lightBlue: "#3670AD",
         darkBlueFont: "#2A64A0",
+        buttonHoverOrange: "#F7C8B2",
         lightOrange: "#FFF6E8",
         orange: "#F7921B",
         darkOrange: "#FF7C40",

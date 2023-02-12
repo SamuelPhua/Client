@@ -15,7 +15,7 @@ const BulkOrders = () => {
       />
 
       {/* #1 INTRO - what can we do for you? */}
-      <div className="w-auto mx-auto mt-20 mb-16">
+      <div className="w-auto mt-24 mx-auto mb-16">
         <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-14">
           WHAT{" "}
           <span className="underline underline-offset-22 decoration-orange">
@@ -36,7 +36,7 @@ const BulkOrders = () => {
       </div>
 
       {/* #2 - Customisation Options (3 divs side by side) */}
-      <div className="w-auto mx-auto mb-16">
+      <div className="w-auto mt-24 mx-auto mb-16">
         <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-14">
           CU
           <span className="underline underline-offset-22 decoration-orange">
@@ -91,7 +91,7 @@ const BulkOrders = () => {
       </div>
 
       {/* #3 Previous customisations grid display */}
-      <div className="w-auto mx-auto mb-16">
+      <div className="w-auto mt-24 mx-auto mb-16">
         <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-14">
           OUR PR
           <span className="underline underline-offset-22 decoration-orange">
@@ -104,7 +104,7 @@ const BulkOrders = () => {
         {/* row 1 images */}
         <div className="flex flex-wrap justify-evenly w-10/12 mt-20 mx-auto">
           <div className="w-4/12 px-10">
-            <img src="src/assets/imagesBulkOrders/Corporate-Customisation1.png" />
+            <img src="src/assets/imagesBulkOrders/Corporate-Customisation1.png " />
           </div>
           <div className="w-4/12 px-10">
             <img src="src/assets/imagesBulkOrders/Corporate-Customisation2.png" />
@@ -128,12 +128,16 @@ const BulkOrders = () => {
       </div>
 
       {/* #4 contact us - button route */}
-      <div className="w-auto mx-auto mb-16">
+      <div className="w-auto mt-24 mx-auto mb-16">
         <h2 className="tracking-wide text-center font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-10">
           LIKE WHAT YOU SEE? CONTACT US HERE!
         </h2>
         <div className="text-center mx-auto">
-          <Button displayName="CONTACT US" onClick={handleCLick} />
+          <Button
+            displayName="CONTACT US"
+            width="10rem"
+            onClick={handleCLick}
+          />
         </div>
       </div>
     </div>
