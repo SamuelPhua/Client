@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 // Start of CSS Stuff:
 import placeholderImg from "../assets/imagesAboutUs/CartPage-KraftPouch.jpg";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
-import Button from "./reusables/Button";
+import Button from "./reusables/OrangeButton";
 
 const Cart = () => {
   /*

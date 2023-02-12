@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "./reusables/Banner";
-import Button from "./reusables/Button";
+import Button from "./reusables/OrangeButton";
 
 const BulkOrders = () => {
   const handleCLick = () => {
