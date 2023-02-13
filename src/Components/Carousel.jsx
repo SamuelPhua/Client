@@ -55,7 +55,7 @@ const Carousel = () => {
     ));
 
   return (
-    <div className="p-20 ml-28">
+    <div className="p-20 ml-24">
       <Slider
         dots={true}
         slidesToShow={3}

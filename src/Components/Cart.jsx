@@ -100,21 +100,28 @@ const Cart = ({ shoppingCart }) => {
       <button onClick={handleCheckOut} /> */}
 
       {/* Start of CSS for View Cart with Items */}
-      <div className="relative h-[300px] w-full bg-cover bg-center">
-        <h1 className="absolute text-lg font-permanentMarker text-darkBlue  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="relative h-[15rem] w-full bg-cover bg-center">
+        <div className="absolute text-lg font-permanentMarker text-darkBlue  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           Cart
-        </h1>
+        </div>
       </div>
+
       {/* First Row */}
-      <div className="mt-[-40px] w-11/12 grid grid-cols-7 ml-20 p-10 border-b-2 border-[#999999] ">
-        <div className="col-start-1 flex justify-start items-center ml-[-25px]">
-          <h2 className="text-4xl font-montserrat text-lightBlue">Product</h2>
+      <div className="mt-[-2rem] w-11/12 grid grid-cols-7 ml-20 p-6 border-b-2 border-[#999999] ">
+        <div className="col-start-1 flex justify-start items-center">
+          <div className="text-[2.3rem] font-montserrat text-lightBlue">
+            Product
+          </div>
         </div>
         <div className="col-start-5 flex justify-center items-center">
-          <h2 className="text-4xl font-montserrat text-lightBlue">Qty</h2>
+          <div className="text-[2.3rem] font-montserrat text-lightBlue">
+            Qty
+          </div>
         </div>
         <div className="col-start-7 flex justify-end items-center">
-          <h2 className="text-4xl font-montserrat text-lightBlue">Total</h2>
+          <div className="text-[2.3rem] font-montserrat text-lightBlue">
+            Total
+          </div>
         </div>
       </div>
 
@@ -125,25 +132,25 @@ const Cart = ({ shoppingCart }) => {
 
       {/* Third Row */}
       <div className="w-11/12 grid grid-cols-7 p-10">
-        <div className="col-start-1 col-end-6 flex justify-start items-center ml-10">
-          <h2 className="text-[1.3rem] font-montserrat text-lightBlue">
+        <div className="col-start-1 col-end-8 flex justify-start items-center ml-10">
+          <div className="text-[1.2rem] font-montserrat text-lightBlue">
             Note: As out Bakes are baked to order with love, please allow 3-5
             days buffer for both delivery or self collection.
-          </h2>
+          </div>
         </div>
       </div>
       {/* Fourth Row */}
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10">
-        <div className="col-startf-7 flex justify-end items-center">
-          <h2 className="text-[1.5rem] font-montserrat text-lightBlue font-bold">
+        <div className="col-start-7 flex justify-end items-center">
+          <div className="text-[1.3rem] font-montserrat text-lightBlue font-bold mr-[-2rem] mt-[-5rem]">
             Total: $5.80
-          </h2>
+          </div>
         </div>
       </div>
 
       {/* Last Row */}
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10">
-        <div className="col-start-7 flex justify-end items-center">
+        <div className="col-start-7 flex justify-end items-center mr-[-7.8rem] mt-[-7.5rem]">
           <Button displayName="CHECKOUT" onClick={navigateToCheckout} />
         </div>
       </div>
