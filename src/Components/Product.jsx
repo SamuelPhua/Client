@@ -33,7 +33,8 @@ const Product = () => {
       <div className="flex flex-wrap w-7/10 mx-auto mt-10">
         {/* #3 LEFT: Cookie displays */}
         <div className="w-5/12">
-          <div className="bg-slate-600">HELLO</div>
+          {/* Object.keys(productImages) */}
+          {<img src={productImages[name].jar}></img>}
         </div>
 
         {/* #4 Cookie options and descriptions */}
