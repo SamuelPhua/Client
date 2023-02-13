@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { productImages } from "../Varlables/Constants";
 
 const Product = () => {
   // params :name to get cookie product
