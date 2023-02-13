@@ -23,19 +23,15 @@ function App() {
   //////////////////
   // STATE for carts
   //////////////////
-  const [shoppingCart, setShoppingCart] = useState({
-    cookieName: "",
-    unitPrice: "",
-    weight: "",
-    packaging: "",
-    quantity: 0,
-  });
+  const [shoppingCart, setShoppingCart] = useState([]);
 
   //////////////////
   // event handlers
   //////////////////
   const handleAddToCart = (cartInputs) => {
-    setShoppingCart(cartInputs);
+    setShoppingCart((prevCartInputs) => {
+      return [...prevCartInputs, cartInputs];
+    });
   };
 
   return (
@@ -52,7 +48,7 @@ function App() {
         <Route path="about-us" element={<AboutUs />}></Route>
         <Route path="bulk-orders" element={<BulkOrders />}></Route>
         <Route path="contact-us" element={<ContactUs />}></Route>
-        <Route path="cart" element={<Cart />}></Route>
+        <Route path="cart" element={<Cart cart={shoppingCart} />}></Route>
         <Route path="faq" element={<FAQ />}></Route>
         <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>
         <Route path="t&c" element={<TermsAndConditions />}></Route>
