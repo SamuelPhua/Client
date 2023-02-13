@@ -19,6 +19,21 @@ function App() {
   const [showShipAlert, setShowShipAlert] = useState(true);
   const [showNav, setShowNav] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
+
+  //////////////////
+  // STATE for carts
+  //////////////////
+  const [shoppingCart, setShoppingCart] = useState([]);
+
+  //////////////////
+  // event handlers
+  //////////////////
+  const handleAddToCart = (cartInputs) => {
+    setShoppingCart((prevCartInputs) => {
+      return [...prevCartInputs, cartInputs];
+    });
+  };
+
   return (
     <div className="App">
       {showShipAlert && <ShippingAlert />}
@@ -26,11 +41,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="shop" element={<Shop />}></Route>
-        <Route path="product/:name" element={<Product />}></Route>
+        <Route
+          path="product/:name"
+          element={<Product onAddToCart={handleAddToCart} />}
+        ></Route>
         <Route path="about-us" element={<AboutUs />}></Route>
         <Route path="bulk-orders" element={<BulkOrders />}></Route>
         <Route path="contact-us" element={<ContactUs />}></Route>
-        <Route path="cart" element={<Cart />}></Route>
+        <Route path="cart" element={<Cart cart={shoppingCart} />}></Route>
         <Route path="faq" element={<FAQ />}></Route>
         <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>
         <Route path="t&c" element={<TermsAndConditions />}></Route>

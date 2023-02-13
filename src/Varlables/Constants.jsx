@@ -16,6 +16,23 @@ import image15 from "../assets/imagesShop/image15.png";
 import image16 from "../assets/imagesShop/image16.png";
 import image17 from "../assets/imagesShop/image17.jpg";
 
+// Product images for individual cookies
+import chocChipJar from "../assets/imagesProducts/ChocChip/Product-ChocChip-Jar.png";
+import chocChipPouch from "../assets/imagesProducts/ChocChip/Product-ChocChip-Pouch.png";
+import chocChipCookie from "../assets/imagesProducts/ChocChip/Product-SignatureChocolateChipCookie.png";
+import macaChocoJar from "../assets/imagesProducts/MacadamiaChocolateCookies/Product-MacadamiaChocolateCookies-Jar.png";
+import macaChocoPouch from "../assets/imagesProducts/MacadamiaChocolateCookies/Product-Macadamia-Pouch.png";
+import macaChocoCookie from "../assets/imagesProducts/MacadamiaChocolateCookies/Product-MacadamiaChocolateCookies.png";
+import oatmealCranberryJar from "../assets/imagesProducts/OatmealCranberry/Product-OatmealCranberry-Jar.png";
+import oatmealCranberryPouch from "../assets/imagesProducts/OatmealCranberry/Product-OatmealCranberry-Pouch.png";
+import oatmealCranberryCookie from "../assets/imagesProducts/OatmealCranberry/Product-OatmealCranberry.png";
+import pecanButterscotchJar from "../assets/imagesProducts/PecanButterscotchCookies/Product-PecanButterscotchCookies-Jar.png";
+import pecanButterscotchPouch from "../assets/imagesProducts/PecanButterscotchCookies/Product-PecanButterscotchCookies-Pouch.png";
+import pecanButterscotchCookie from "../assets/imagesProducts/PecanButterscotchCookies/Product-PecanButterscotchCookies.png";
+import seaSaltChocoJar from "../assets/imagesProducts/SeaSaltChocolateCookies/Product-SeaSaltChocolateCookies-Jar.png";
+import seaSaltChocoPouch from "../assets/imagesProducts/SeaSaltChocolateCookies/Product-SeaSaltChocolateCookies-Pouch.png";
+import seaSaltChocoCookie from "../assets/imagesProducts/SeaSaltChocolateCookies/Product-SeaSaltChocolateCookies.png";
+
 export const images = [
   image1,
   image2,
@@ -55,3 +72,31 @@ export const description = [
   "ROSE LYCHEE CHIFFON CAKE",
   "BIG COOKIES BOX SET",
 ];
+
+export const productImages = {
+  "CHOCOLATE CHIP COOKIES": {
+    pouch: chocChipPouch,
+    jar: chocChipJar,
+    cookie: chocChipCookie,
+  },
+  "MACADAMIA BUTTER COOKIES": {
+    pouch: macaChocoPouch,
+    jar: macaChocoJar,
+    cookie: macaChocoCookie,
+  },
+  "OATMEAL CRANBERRY COOKIES": {
+    pouch: oatmealCranberryPouch,
+    jar: oatmealCranberryJar,
+    cookie: oatmealCranberryCookie,
+  },
+  "PECAN BUTTERSCOTCH COOKIES": {
+    pouch: pecanButterscotchPouch,
+    jar: pecanButterscotchJar,
+    cookie: pecanButterscotchCookie,
+  },
+  "SEA SALT CHOCOLATE COOKIES": {
+    pouch: seaSaltChocoPouch,
+    jar: seaSaltChocoJar,
+    cookie: seaSaltChocoCookie,
+  },
+};

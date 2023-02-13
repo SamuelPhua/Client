@@ -14,7 +14,6 @@ module.exports = {
         permanentMarker: ['"Permanent Marker"'],
         montserrat: ['"Montserrat"'],
       },
-
       fontSize: {
         smallNote: "12px",
         xxxs: "14px",
@@ -62,6 +61,16 @@ module.exports = {
         "bulk-orders":
           "url('src/assets/imagesBulkOrders/Corporate-HeaderBanner.jpg')",
         "contact-us": "url('src/assets/imagesContactUs/Contact-Banner.jpg')",
+      },
+      width: {
+        "3/10": "30%",
+        "9/15": "60%",
+        "10/15": "66.667%",
+        "7/10": "70%",
+        "11/15": "73.333%",
+        "12/15": "80%",
+        "13/15": "86.667%",
+        "14/15": "93.333%",
       },
     },
   },
