@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+import useFetch from "../customHooks/useFetch";
 import { useParams, useNavigate } from "react-router-dom";
 import { productImages } from "../Varlables/Constants";
 import OrangeButton from "../Components/reusables/OrangeButton";
 
 const Product = ({ shoppingCart, handleAddToCart }) => {
+  /////////////////////////
+  // route const variables
+  /////////////////////////
   // params :name to get cookie product
   const { name } = useParams();
   // Navigate back to the shop all page
@@ -12,10 +16,16 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     navigate("/shop");
   };
 
+  ///////////////
+  // custom Hook
+  ///////////////
+  const { fetchData, isLoading, data, error } = useFetch();
+
   ///////////
   // STATES
   ///////////
   const [displayedProductType, setDisplayedProductType] = useState("pouch");
+  const [hasAdded, setHasAdded] = useState(false);
   const [cartInputs, setCartInputs] = useState({
     name: "",
     price: "",
