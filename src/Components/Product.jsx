@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { productImages } from "../Varlables/Constants";
+import OrangeButton from "../Components/reusables/OrangeButton";
 
-const Product = () => {
+const Product = (props) => {
   // params :name to get cookie product
   const { name } = useParams();
   // Navigate back to the shop all page
@@ -11,8 +12,17 @@ const Product = () => {
     navigate("/shop");
   };
 
-  // State to toggle displayed cookie type image
+  ///////////
+  // STATES
+  ///////////
   const [displayedProductType, setDisplayedProductType] = useState("pouch");
+  const [cartInputs, setCartInputs] = useState({
+    cookieName: "",
+    unitPrice: "",
+    weight: "",
+    packaging: "",
+    quantity: 0,
+  });
 
   // check if product exists
   let productExists = false;
@@ -23,24 +33,23 @@ const Product = () => {
       break;
     }
   }
-  // Object.keys(productImages).map((item) => {
-  //   if (item.includes(name)) productExists = true;
-  // });
-  // useEffect(() => {
-  //   console.log(name);
-  //   console.log(Object.keys(productImages));
-  //   for (let i = 0; i < Object.keys(productImages).length; i++) {
-  //     if (Object.keys(productImages)[i].includes(name)) console.log(true);
-  //   }
-  //   Object.keys(productImages).map((item) => {
-  //     if (item.includes(name)) productExists = true;
-  //   });
-  // }, []);
 
   // handle toggled selection of cookie type display
   const handleProductSelection = (event) => {
     event.preventDefault();
     setDisplayedProductType(event.target.id);
+  };
+
+  const handleAddToCart = (event) => {
+    event.preventDefault();
+    setCartInputs({
+      cookieName: { name },
+      unitPrice: "5.80",
+      weight: "100g",
+      packaging: "Kraft Pouch",
+      quantity: 2,
+    });
+    props.onAddToCart(cartInputs);
   };
 
   return (
@@ -91,6 +100,13 @@ const Product = () => {
           <div className="w-7/12">
             <div className="bg-slate-600">HELLO</div>
           </div>
+
+          {/* #5 Add to cart button */}
+          <OrangeButton
+            displayName={"ADD TO CART"}
+            width="10rem"
+            onClick={handleAddToCart}
+          />
         </div>
       )}
       {!productExists && (
