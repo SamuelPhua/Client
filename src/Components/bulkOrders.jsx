@@ -8,6 +8,7 @@ const BulkOrders = () => {
   const navigate = useNavigate();
   const navigateToContactUs = () => {
     navigate("/contact-us");
+    }
 
     return (
       <div className="motion-safe:animate-fadeIn">
@@ -146,6 +147,6 @@ const BulkOrders = () => {
       </div>
     );
   };
-};
+
 
 export default BulkOrders;
