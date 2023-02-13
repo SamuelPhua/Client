@@ -8,12 +8,15 @@ import FAQ from "./Components/footerPages/FAQ";
 import PrivacyPolicy from "./Components/footerPages/PrivacyPolicy";
 import TermsAndConditions from "./Components/footerPages/TermsAndConditions";
 import Footer from "./Components/Footer";
+import Home from "./Components/Home";
 
 function App() {
   return (
     <div className="App">
       <Header />
+
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route
           path="shop"
           element={
