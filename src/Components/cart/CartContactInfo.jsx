@@ -2,8 +2,8 @@ import React from "react";
 
 const CartContactInfo = () => {
   return (
-    <div className=" text-darkBlueFont text-montserrat mb-10">
-      <h1 className="tracking-widest text-3xl">Contact Information</h1>
+    <div className=" text-darkBlueFont text-montserrat mb-6">
+      <h1 className="tracking-widest text-2xl">Contact Information</h1>
       <div className="flex flex-col">
         <input
           type="tel"
