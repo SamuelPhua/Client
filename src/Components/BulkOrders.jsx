@@ -3,7 +3,7 @@ import Banner from "./reusables/Banner";
 import Button from "./reusables/OrangeButton";
 
 const BulkOrders = () => {
-  const handleCLick = () => {
+  const handleClick = () => {
     console.log("routing to contact-us page");
   };
 
@@ -136,7 +136,7 @@ const BulkOrders = () => {
           <Button
             displayName="CONTACT US"
             width="10rem"
-            onClick={handleCLick}
+            onClick={handleClick}
           />
         </div>
       </div>
