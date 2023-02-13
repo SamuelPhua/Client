@@ -1,6 +1,51 @@
 import React from "react";
 
 const ContactForm = () => {
+<<<<<<< Updated upstream
+=======
+  const initFormState = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  };
+
+  // states
+  const { fetchData, isLoading, data, error } = useFetch();
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [enquiryInput, setEnquiryInput] = useState(initFormState);
+
+  // PUT: when form is submitted
+  useEffect(() => {
+    const MONGGODB_CREATEENQUIRY_URI =
+      "http://127.0.0.1:5001/enquiryForm/createEnquiry";
+    const requestOptions = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(enquiryInput),
+    };
+    console.log("contact form useEffect", enquiryInput);
+    fetchData(MONGGODB_CREATEENQUIRY_URI, requestOptions);
+    setHasSubmitted(false);
+    setEnquiryInput((prevState) => {
+      return { ...prevState, ...initFormState };
+    });
+  }, [hasSubmitted]);
+
+  // Control form input
+  const handleInputChange = (e) => {
+    setEnquiryInput((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
+    });
+  };
+
+  const handleFormSubmission = (e) => {
+    e.preventDefault();
+    setHasSubmitted(true);
+  };
+
+>>>>>>> Stashed changes
   return (
     <form
       id="contactForm"
@@ -49,9 +94,14 @@ const ContactForm = () => {
       </label>
       <input
         type="text"
-        id="tel"
-        name="tel"
+        id="phone"
+        name="phone"
         placeholder="Phone"
+<<<<<<< Updated upstream
+=======
+        value={enquiryInput.phone}
+        onChange={handleInputChange}
+>>>>>>> Stashed changes
         className="border-2 border-darkBlueFont focus:ring-4 focus:bg-slate-200 rounded-full px-3.5 py-1.5 text-base placeholder:text-xxs "
       />
       <label htmlFor="message" className="leading-7 mt-5">
