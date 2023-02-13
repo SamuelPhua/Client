@@ -1,10 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import useFetch from "../../customHooks/useFetch";
 
 const ContactForm = () => {
+  const { fetchData, isLoading, data, error } = useFetch();
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [enquiryInput, setEnquiryInput] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    tel: "",
+    message: "",
+  });
+
+  // PUT: when form is submitted
+  useEffect(() => {
+    // call PUT API here
+  }, [hasSubmitted]);
+
+  // Control form input
+  const handleInputChange = (e) => {
+    setEnquiryInput((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
+    });
+  };
+
+  const handleFormSubmission = (e) => {
+    e.preventDefault();
+    setHasSubmitted(true);
+  };
+
   return (
     <form
       id="contactForm"
       className="flex flex-col basis-1/2 tracking-wide font-montserrat text-darkBlueFont text-xs"
+      onSubmit={handleFormSubmission}
     >
       <div className="flex flex-col md:flex-row">
         <div className="basis-1/2 md:mr-2">
@@ -16,6 +45,8 @@ const ContactForm = () => {
             id="firstName"
             name="firstName"
             placeholder="First Name"
+            value={enquiryInput.firstName}
+            onChange={handleInputChange}
             required
             className="border-2 border-darkBlueFont focus:ring-4 focus:bg-slate-200 rounded-full px-3.5 py-1.5 w-full text-base placeholder:text-xxs"
           />
@@ -29,6 +60,8 @@ const ContactForm = () => {
             id="lastName"
             name="lastName"
             placeholder="Last Name"
+            value={enquiryInput.lastName}
+            onChange={handleInputChange}
             className="border-2 border-darkBlueFont focus:ring-4 focus:bg-slate-200 rounded-full px-3.5 py-1.5 w-full text-base placeholder:text-xxs"
           />
         </div>
@@ -41,6 +74,8 @@ const ContactForm = () => {
         id="email"
         name="email"
         placeholder="Email"
+        value={enquiryInput.email}
+        onChange={handleInputChange}
         required
         className="border-2 border-darkBlueFont focus:ring-4 focus:bg-slate-200 rounded-full px-3.5 py-1.5 text-base placeholder:text-xxs"
       />
@@ -52,6 +87,8 @@ const ContactForm = () => {
         id="tel"
         name="tel"
         placeholder="Phone"
+        value={enquiryInput.tel}
+        onChange={handleInputChange}
         className="border-2 border-darkBlueFont focus:ring-4 focus:bg-slate-200 rounded-full px-3.5 py-1.5 text-base placeholder:text-xxs "
       />
       <label htmlFor="message" className="leading-7 mt-5">
@@ -62,11 +99,13 @@ const ContactForm = () => {
         name="message"
         required
         placeholder="Type your message here..."
+        value={enquiryInput.message}
+        onChange={handleInputChange}
         rows="8"
         className="border-2 border-darkBlueFont focus:ring-4 focus:bg-slate-200 rounded-xl px-3.5 py-1.5 text-base placeholder:text-xxs"
       />
       <button
-        type="button"
+        type="submit"
         id="submitContactForm"
         className="text-white bg-orange focus:outline-none focus:ring-4 hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-2 w-28 md:w-32 lg:w-36 mx-auto"
       >
