@@ -31,17 +31,17 @@ const Home = () => {
 
           <div class="col-span-3 md:col-span-1 flex flex-col items-center">
             <img src="src\assets\imagesShop\image1.png" class="rounded-full " />
-            <h2>cookie1</h2>
+            <h2>SIGNATURE PINEAPPLE BALL</h2>
           </div>
 
           <div class="col-span-3 md:col-span-1 flex flex-col items-center">
             <img src="src\assets\imagesShop\image2.png" class="rounded-full" />
-            <h2>cookie2</h2>
+            <h2>SIGNATURE CHOCOLATE CHIP COOKIE</h2>
           </div>
 
           <div class="col-span-3 md:col-span-1 flex flex-col items-center">
             <img src="src\assets\imagesShop\image3.png" class="rounded-full" />
-            <h2>cookie3</h2>
+            <h2>DOUBLE CHOCO CHIP COOKIES</h2>
           </div>
         </div>
 
