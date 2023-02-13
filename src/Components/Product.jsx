@@ -42,7 +42,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
 
   const handleAddToCartButton = (event) => {
     // event.preventDefault();
-    // pop up modal to show:
+    // TODO - pop up modal to show:
     // 1. added cart item
     // 2. + previous cart items
     // 3 lift new item up to App and add to cart (DONE)
@@ -80,7 +80,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
           <div className="w-5/12">
             {/* main image - toggled by selection */}
             <img
-              className="border-2 rounded-md p-8"
+              className="border-2 rounded-md p-8 w-full"
               src={productImages[name][displayedProductType]}
             ></img>
 
@@ -101,16 +101,54 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
           </div>
 
           {/* #4 Cookie options and descriptions */}
-          <div className="w-7/12">
-            <div className="bg-slate-600">HELLO</div>
-          </div>
+          <div className="w-7/12 pl-20">
+            <h2 className="tracking-wide text-left font-permanentMarker text-darkBlueFont text-3xl md:text-3xl mb-8">
+              {name}
+            </h2>
+            <h3 className="tracking-wide text-left font-montserrat text-darkBlueFont text-3xl md:text-3xl mb-8">
+              $ 5.80
+            </h3>
+            <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+              Melt-in-your mouth and packed with chunks of chocolate goodness,
+              our signature chocolate chip cookies are perfect if you are
+              looking to satisfy your sweet tooth!
+            </p>
+            <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+              All our cookies are baked to order and will be ready to be
+              delivered to you within 2-4 working days of placing your order.
+            </p>
 
-          {/* #5 Add to cart button */}
-          <OrangeButton
-            displayName={"ADD TO CART"}
-            width="10rem"
-            onClick={handleAddToCartButton}
-          />
+            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+              Weight
+            </h5>
+            {/* buttons for options */}
+            <div className="flex flex-wrap mb-8">
+              <h2>display buttons</h2>
+            </div>
+
+            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+              Packaging
+            </h5>
+            {/* buttons for options */}
+            <div className="flex flex-wrap mb-8">
+              <h2>display buttons</h2>
+            </div>
+
+            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+              Quantity
+            </h5>
+            {/* buttons for adding and reducing */}
+            <div className="flex flex-wrap mb-8">
+              <h2>display quantity</h2>
+
+              {/* #5 Add to cart button */}
+              <OrangeButton
+                displayName={"ADD TO CART"}
+                width="10rem"
+                onClick={handleAddToCartButton}
+              />
+            </div>
+          </div>
         </div>
       )}
       {!productExists && (

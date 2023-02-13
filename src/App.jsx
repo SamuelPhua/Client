@@ -39,7 +39,7 @@ function App() {
 
   const handleAddToCart = (cartInputs) => {
     setShoppingCart((prevCartInputs) => {
-      // add compare function
+      // TODO - add compare function:
       // (check if everything other than qty is the same, combine qty)
       return [...prevCartInputs, cartInputs];
     });
