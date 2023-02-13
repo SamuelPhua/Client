@@ -28,7 +28,7 @@ const Header = () => {
           <span>ABOUT US</span>
         </Link>
         <Link
-          to="/bulk-orders"
+          to="bulk-orders"
           style={{ textDecoration: "none" }}
           className="pl-10"
         >

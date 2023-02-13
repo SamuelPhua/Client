@@ -12,7 +12,7 @@ import PrivacyPolicy from "./Components/footerPages/PrivacyPolicy";
 import TermsAndConditions from "./Components/footerPages/TermsAndConditions";
 import Footer from "./Components/reusables/Footer";
 import Checkout from "./Components/Checkout";
-import BulkOrders from "./Components/BulkOrders";
+import BulkOrder from "./Components/BulkOrder";
 import Cart from "./Components/Cart";
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
           element={<Product onAddToCart={handleAddToCart} />}
         ></Route>
         <Route path="about-us" element={<AboutUs />}></Route>
-        <Route path="bulk-orders" element={<BulkOrders />}></Route>
+        <Route path="bulk-orders" element={<BulkOrder />}></Route>
         <Route path="contact-us" element={<ContactUs />}></Route>
         <Route path="cart" element={<Cart cart={shoppingCart} />}></Route>
         <Route path="faq" element={<FAQ />}></Route>
