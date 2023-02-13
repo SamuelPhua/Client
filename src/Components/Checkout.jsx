@@ -13,7 +13,7 @@ import CartPaymentMethod from "./cart/CartPaymentMethod";
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-const Shipping = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
+const Checkout = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
   const { fetchData, isLoading, data, error } = useFetch();
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [checkoutInputs, setCheckoutInputs] = useState({
@@ -83,7 +83,7 @@ const Shipping = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
       headers: {
         "Content-type": "application/json",
       },
-      body: Json.stringify(checkoutInputs),
+      body: JSON.stringify(checkoutInputs),
     };
 
     if (hasSubmitted) fetchData(fetchURL, fetchOptions);
