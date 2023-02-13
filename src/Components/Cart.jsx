@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 // Start of CSS Stuff:
 import placeholderImg from "../assets/imagesAboutUs/CartPage-KraftPouch.jpg";
-import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
-import Button from "./reusables/OrangeButton";
 
-const Cart = () => {
+import Button from "./reusables/OrangeButton";
+import CartProduct from "./CartProduct";
+import DataContext from "./context/DataContext";
+
+const Cart = ({ shoppingCart }) => {
+  const data = useContext(DataContext);
   /*
    ** Functionality of the cart must check if the items added to Cart have any stock from Product Page
    ** We are able to edit the quantity of the added items
@@ -16,6 +19,8 @@ const Cart = () => {
    */
 
   const [cartItems, setCartItems] = useState([]);
+  // const [deleteFromCart, setDeleteFromCart] = useState([]);
+  const [count, setCount] = useState(1);
 
   // Navigate to the checkout page
   const navigate = useNavigate();
@@ -114,35 +119,9 @@ const Cart = () => {
       </div>
 
       {/* Second Row */}
-      <div className="w-11/12 grid grid-cols-7 ml-20 p-10 border-b-2 border-[#999999] ">
-        <div className="col-start-1 flex justify-center items-center">
-          <img className="w-48 h-48" src={placeholderImg} />
-        </div>
-        <div className="ml-20 col-start-2 col-end-4 flex">
-          <h2 className="self-center text-[1.5rem] font-montserrat text-lightBlue">
-            <span className="font-bold">Chocolate Chip Cookies</span>
-            <p className="mt-5 text-[1.3rem]">100g</p>
-            <p className="mt-5 text-[1.3rem]">100g</p>
-          </h2>
-        </div>
-        <div className="justify-center items-center col-start-5 flex">
-          <h2>
-            <AiFillMinusCircle className="inline-block text-lightBlue text-6xl" />
-            <p className="inline-block ml-8 mr-8 text-darkBlueFont text-[1.5rem] ">
-              4
-            </p>
-            <AiFillPlusCircle className="inline-block text-lightBlue text-6xl" />
-            <p className="block text-[1rem] font-montserrat text-center text-darkBlueFont underline">
-              Remove
-            </p>
-          </h2>
-        </div>
-        <div className="col-start-7 flex justify-end items-center">
-          <h2 className="text-[1.5rem] font-montserrat text-lightBlue">
-            $5.80
-          </h2>
-        </div>
-      </div>
+      {shoppingCart.map((product, index) => {
+        return <CartProduct key={index} {...product} index={index} />;
+      })}
 
       {/* Third Row */}
       <div className="w-11/12 grid grid-cols-7 p-10">
@@ -155,7 +134,7 @@ const Cart = () => {
       </div>
       {/* Fourth Row */}
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10">
-        <div className="col-start-7 flex justify-end items-center">
+        <div className="col-startf-7 flex justify-end items-center">
           <h2 className="text-[1.5rem] font-montserrat text-lightBlue font-bold">
             Total: $5.80
           </h2>

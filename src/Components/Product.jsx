@@ -17,8 +17,8 @@ const Product = (props) => {
   ///////////
   const [displayedProductType, setDisplayedProductType] = useState("pouch");
   const [cartInputs, setCartInputs] = useState({
-    cookieName: "",
-    unitPrice: "",
+    name: "",
+    price: "",
     weight: "",
     packaging: "",
     quantity: 0,
@@ -26,7 +26,7 @@ const Product = (props) => {
 
   // check if product exists
   let productExists = false;
-  console.log(Object.keys(productImages));
+  // console.log(Object.keys(productImages));
   for (let i = 0; i < Object.keys(productImages).length; i++) {
     if (Object.keys(productImages)[i].includes(name)) {
       productExists = true;
@@ -41,15 +41,16 @@ const Product = (props) => {
   };
 
   const handleAddToCart = (event) => {
-    event.preventDefault();
-    setCartInputs({
-      cookieName: { name },
-      unitPrice: "5.80",
+    // event.preventDefault();
+    props.handleAddToCart({
+      name: name,
+      price: "5.80",
       weight: "100g",
       packaging: "Kraft Pouch",
       quantity: 2,
     });
-    props.onAddToCart(cartInputs);
+    // TODO: rename to same keys as server
+    // props.handleAddToCart(cartInputs);
   };
 
   return (
@@ -83,9 +84,10 @@ const Product = (props) => {
 
             {/* div of 3 options > click to replace ^ */}
             <div className="flex flex-wrap justify-around mt-20">
-              {Object.keys(productImages[name]).map((productType) => {
+              {Object.keys(productImages[name]).map((productType, ind) => {
                 return (
                   <img
+                    key={ind}
                     id={productType}
                     className="border-2 rounded-md opacity-50 hover:opacity-100 focus:opacity-100 w-3/12 p-2"
                     src={productImages[name][productType]}

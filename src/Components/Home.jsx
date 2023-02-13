@@ -1,10 +1,10 @@
-import React from "react";
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            import React from "react";
 
 const Home = () => {
   return (
     <>
       <div>
-        <div className="navBAR"></div>
+        <div className="navBAR"></div>                                                                                                                                                                                                                                                              
         <div className="banner4">
           <video
             playsInline

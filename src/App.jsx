@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import ShippingAlert from "./Components/reusables/ShippingAlert";
 import Header from "./Components/reusables/Header";
@@ -14,57 +14,86 @@ import Footer from "./Components/reusables/Footer";
 import Checkout from "./Components/Checkout";
 import BulkOrder from "./Components/BulkOrder";
 import Cart from "./Components/Cart";
+import DataContext from "./Components/context/DataContext";
 
 function App() {
   const [showShipAlert, setShowShipAlert] = useState(true);
   const [showNav, setShowNav] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
 
-  //////////////////
-  // STATE for carts
-  //////////////////
-  const [shoppingCart, setShoppingCart] = useState([]);
+  /*
+   ** STATE for carts
+   */
 
-  //////////////////
-  // event handlers
-  //////////////////
+  const [shoppingCart, setShoppingCart] = useState([]);
+  console.log("App.jsx", shoppingCart);
+
+  /*
+   ** event handlers
+   */
+
   const handleAddToCart = (cartInputs) => {
     setShoppingCart((prevCartInputs) => {
       return [...prevCartInputs, cartInputs];
     });
   };
 
+  const handlePlusQty = (id) => {
+    const newArray = [...shoppingCart];
+    newArray[id].quantity = newArray[id].quantity + 1;
+    setShoppingCart(newArray);
+  };
+
+  const handleMinusQty = (id) => {
+    const newArray = [...shoppingCart];
+    console.log("MINUS");
+    newArray[id].quantity = newArray[id].quantity - 1;
+    setShoppingCart(newArray);
+  };
+
+  const handleDelete = (id) => {
+    const newCart = shoppingCart.filter((data, index) => index !== id);
+    setShoppingCart(newCart);
+  };
+
   return (
-    <div className="App">
-      {showShipAlert && <ShippingAlert />}
-      {showNav && <Header />}
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="shop" element={<Shop />}></Route>
-        <Route
-          path="product/:name"
-          element={<Product onAddToCart={handleAddToCart} />}
-        ></Route>
-        <Route path="about-us" element={<AboutUs />}></Route>
-        <Route path="bulk-orders" element={<BulkOrder />}></Route>
-        <Route path="contact-us" element={<ContactUs />}></Route>
-        <Route path="cart" element={<Cart cart={shoppingCart} />}></Route>
-        <Route path="faq" element={<FAQ />}></Route>
-        <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>
-        <Route path="t&c" element={<TermsAndConditions />}></Route>
-        <Route
-          path="checkout"
-          element={
-            <Checkout
-              setShowShipAlert={setShowShipAlert}
-              setShowNav={setShowNav}
-              setShowFooter={setShowFooter}
-            />
-          }
-        ></Route>
-      </Routes>
-      {showFooter && <Footer />}
-    </div>
+    <DataContext.Provider
+      value={{ handleDelete, handlePlusQty, handleMinusQty }}
+    >
+      <div className="App">
+        {showShipAlert && <ShippingAlert />}
+        {showNav && <Header />}
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="shop" element={<Shop />}></Route>
+          <Route
+            path="product/:name"
+            element={<Product handleAddToCart={handleAddToCart} />}
+          ></Route>
+          <Route path="about-us" element={<AboutUs />}></Route>
+          <Route path="bulk-orders" element={<BulkOrder />}></Route>
+          <Route path="contact-us" element={<ContactUs />}></Route>
+          <Route
+            path="cart"
+            element={<Cart shoppingCart={shoppingCart} />}
+          ></Route>
+          <Route path="faq" element={<FAQ />}></Route>
+          <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>
+          <Route path="t&c" element={<TermsAndConditions />}></Route>
+          <Route
+            path="checkout"
+            element={
+              <Checkout
+                setShowShipAlert={setShowShipAlert}
+                setShowNav={setShowNav}
+                setShowFooter={setShowFooter}
+              />
+            }
+          ></Route>
+        </Routes>
+        {showFooter && <Footer />}
+      </div>
+    </DataContext.Provider>
   );
 }
 
