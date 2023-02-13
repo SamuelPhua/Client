@@ -1,20 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import useFetch from "../../customHooks/useFetch";
 
 const ContactForm = () => {
-  const { fetchData, isLoading, data, error } = useFetch();
-  const [hasSubmitted, setHasSubmitted] = useState(false);
-  const [enquiryInput, setEnquiryInput] = useState({
+  const initFormState = {
     firstName: "",
     lastName: "",
     email: "",
-    tel: "",
+    phone: "",
     message: "",
-  });
+  };
+  const { fetchData, isLoading, data, error } = useFetch();
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [enquiryInput, setEnquiryInput] = useState(initFormState);
+  const isMounted = useRef(false);
 
   // PUT: when form is submitted
   useEffect(() => {
-    // call PUT API here
+    const MONGGODB_CREATEENQUIRY_URI =
+      "http://127.0.0.1:5001/enquiryForm/createEnquiry";
+
+    const requestOptions = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(enquiryInput),
+    };
+
+    // fetch data and restore states
+    if (isMounted.current) {
+      console.log("contact form useEffect", enquiryInput);
+      fetchData(MONGGODB_CREATEENQUIRY_URI, requestOptions);
+      setHasSubmitted(false);
+      setEnquiryInput((prevState) => {
+        return { ...prevState, ...initFormState };
+      });
+    } else {
+      isMounted.current = true;
+    }
   }, [hasSubmitted]);
 
   // Control form input
@@ -24,6 +45,7 @@ const ContactForm = () => {
     });
   };
 
+  // form submission
   const handleFormSubmission = (e) => {
     e.preventDefault();
     setHasSubmitted(true);
@@ -36,6 +58,7 @@ const ContactForm = () => {
       onSubmit={handleFormSubmission}
     >
       <div className="flex flex-col md:flex-row">
+        {/* First name */}
         <div className="basis-1/2 md:mr-2">
           <label htmlFor="firstName" className="leading-7">
             FIRST NAME
@@ -51,6 +74,8 @@ const ContactForm = () => {
             className="border-2 border-darkBlueFont focus:ring-4 focus:bg-slate-200 rounded-full px-3.5 py-1.5 w-full text-base placeholder:text-xxs"
           />
         </div>
+
+        {/* Last name */}
         <div className="basis-1/2 md:ml-2 mt-5 md:mt-0">
           <label htmlFor="lastName" className="leading-7">
             LAST NAME
@@ -66,6 +91,8 @@ const ContactForm = () => {
           />
         </div>
       </div>
+
+      {/* Email */}
       <label htmlFor="email" className="leading-7 mt-5">
         EMAIL
       </label>
@@ -79,18 +106,22 @@ const ContactForm = () => {
         required
         className="border-2 border-darkBlueFont focus:ring-4 focus:bg-slate-200 rounded-full px-3.5 py-1.5 text-base placeholder:text-xxs"
       />
-      <label htmlFor="tel" className="leading-7 mt-5">
+
+      {/* Phone */}
+      <label htmlFor="phone" className="leading-7 mt-5">
         TEL
       </label>
       <input
         type="text"
-        id="tel"
-        name="tel"
+        id="phone"
+        name="phone"
         placeholder="Phone"
-        value={enquiryInput.tel}
+        value={enquiryInput.phone}
         onChange={handleInputChange}
         className="border-2 border-darkBlueFont focus:ring-4 focus:bg-slate-200 rounded-full px-3.5 py-1.5 text-base placeholder:text-xxs "
       />
+
+      {/* Message */}
       <label htmlFor="message" className="leading-7 mt-5">
         MESSAGE
       </label>
@@ -104,6 +135,8 @@ const ContactForm = () => {
         rows="8"
         className="border-2 border-darkBlueFont focus:ring-4 focus:bg-slate-200 rounded-xl px-3.5 py-1.5 text-base placeholder:text-xxs"
       />
+
+      {/* Submit button */}
       <button
         type="submit"
         id="submitContactForm"
