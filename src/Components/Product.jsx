@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { productImages } from "../Varlables/Constants";
 import OrangeButton from "../Components/reusables/OrangeButton";
 
-const Product = (props) => {
+const Product = ({ shoppingCart, handleAddToCart }) => {
   // params :name to get cookie product
   const { name } = useParams();
   // Navigate back to the shop all page
@@ -40,17 +40,19 @@ const Product = (props) => {
     setDisplayedProductType(event.target.id);
   };
 
-  const handleAddToCart = (event) => {
+  const handleAddToCartButton = (event) => {
     // event.preventDefault();
-    props.handleAddToCart({
+    // pop up modal to show:
+    // 1. added cart item
+    // 2. + previous cart items
+    // 3 lift new item up to App and add to cart (DONE)
+    handleAddToCart({
       name: name,
       price: "5.80",
       weight: "100g",
       packaging: "Kraft Pouch",
       quantity: 2,
     });
-    // TODO: rename to same keys as server
-    // props.handleAddToCart(cartInputs);
   };
 
   return (
@@ -107,7 +109,7 @@ const Product = (props) => {
           <OrangeButton
             displayName={"ADD TO CART"}
             width="10rem"
-            onClick={handleAddToCart}
+            onClick={handleAddToCartButton}
           />
         </div>
       )}

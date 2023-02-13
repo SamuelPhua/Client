@@ -18,6 +18,10 @@ import DataContext from "./Components/context/DataContext";
 import CheckoutPage1 from "./Components/checkout/CheckoutPage1";
 
 function App() {
+  /*
+   ** STATE for common display elements
+   */
+
   const [showShipAlert, setShowShipAlert] = useState(true);
   const [showNav, setShowNav] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
@@ -35,6 +39,8 @@ function App() {
 
   const handleAddToCart = (cartInputs) => {
     setShoppingCart((prevCartInputs) => {
+      // add compare function
+      // (check if everything other than qty is the same, combine qty)
       return [...prevCartInputs, cartInputs];
     });
   };
@@ -57,6 +63,10 @@ function App() {
     setShoppingCart(newCart);
   };
 
+  /*
+   ** render
+   */
+
   return (
     <DataContext.Provider
       value={{ handleDelete, handlePlusQty, handleMinusQty }}
@@ -64,12 +74,18 @@ function App() {
       <div className="App">
         {showShipAlert && <ShippingAlert />}
         {showNav && <Header />}
+
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="shop" element={<Shop />}></Route>
           <Route
             path="product/:name"
-            element={<Product handleAddToCart={handleAddToCart} />}
+            element={
+              <Product
+                shoppingCart={shoppingCart}
+                handleAddToCart={handleAddToCart}
+              />
+            }
           ></Route>
           <Route path="about-us" element={<AboutUs />}></Route>
           <Route path="bulk-orders" element={<BulkOrder />}></Route>
@@ -92,6 +108,7 @@ function App() {
             }
           ></Route>
         </Routes>
+
         {showFooter && <Footer />}
       </div>
     </DataContext.Provider>
