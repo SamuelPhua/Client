@@ -4,10 +4,14 @@ import Banner from "./reusables/Banner";
 import Button from "./reusables/OrangeButton";
 
 const BulkOrders = () => {
+
   // Navigate to the contact us page
   const navigate = useNavigate();
   const navigateToContactUs = () => {
     navigate("/contact-us");
+
+  const handleClick = () => {
+    console.log("routing to contact-us page");
   };
 
   return (
@@ -140,6 +144,7 @@ const BulkOrders = () => {
             displayName="CONTACT US"
             width="10rem"
             onClick={navigateToContactUs}
+            onClick={handleClick}
           />
         </div>
       </div>

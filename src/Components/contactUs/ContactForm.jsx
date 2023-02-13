@@ -2,19 +2,34 @@ import React, { useEffect, useState } from "react";
 import useFetch from "../../customHooks/useFetch";
 
 const ContactForm = () => {
-  const { fetchData, isLoading, data, error } = useFetch();
-  const [hasSubmitted, setHasSubmitted] = useState(false);
-  const [enquiryInput, setEnquiryInput] = useState({
+  const initFormState = {
     firstName: "",
     lastName: "",
     email: "",
-    tel: "",
+    phone: "",
     message: "",
-  });
+  };
+
+  // states
+  const { fetchData, isLoading, data, error } = useFetch();
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [enquiryInput, setEnquiryInput] = useState(initFormState);
 
   // PUT: when form is submitted
   useEffect(() => {
-    // call PUT API here
+    const MONGGODB_CREATEENQUIRY_URI =
+      "http://127.0.0.1:5001/enquiryForm/createEnquiry";
+    const requestOptions = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(enquiryInput),
+    };
+    console.log("contact form useEffect", enquiryInput);
+    fetchData(MONGGODB_CREATEENQUIRY_URI, requestOptions);
+    setHasSubmitted(false);
+    setEnquiryInput((prevState) => {
+      return { ...prevState, ...initFormState };
+    });
   }, [hasSubmitted]);
 
   // Control form input
@@ -84,8 +99,8 @@ const ContactForm = () => {
       </label>
       <input
         type="text"
-        id="tel"
-        name="tel"
+        id="phone"
+        name="phone"
         placeholder="Phone"
         value={enquiryInput.tel}
         onChange={handleInputChange}
