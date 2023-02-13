@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { productImages } from "../Varlables/Constants";
 
@@ -10,6 +10,19 @@ const Product = () => {
   const navigateToShop = () => {
     navigate("/shop");
   };
+
+  // check if product exists
+  let productExists = false;
+  useEffect(() => {
+    console.log(name);
+    console.log(Object.keys(productImages));
+    for (let i = 0; i < Object.keys(productImages).length; i++) {
+      if (Object.keys(productImages)[i].includes(name)) console.log(true);
+    }
+    Object.keys(productImages).map((item) => {
+      if (item.includes(name)) productExists = true;
+    });
+  }, []);
 
   return (
     <>
@@ -33,8 +46,27 @@ const Product = () => {
       <div className="flex flex-wrap w-7/10 mx-auto mt-10">
         {/* #3 LEFT: Cookie displays */}
         <div className="w-5/12">
-          {/* Object.keys(productImages) */}
-          {<img src={productImages[name].jar}></img>}
+          {/* main image */}
+          <img
+            className="border-2 rounded-md"
+            src={productImages[name].pouch}
+          ></img>
+          {/* {!productExists && <h2>{name} is currently not in stock.</h2>} */}
+          {/* div of 3 options > click to replace ^ */}
+          <div className="flex flex-wrap justify-around mt-20">
+            <img
+              className="border-2 rounded-md w-4/12 p-4"
+              src={productImages[name].pouch}
+            ></img>
+            <img
+              className="border-2 rounded-md w-4/12 p-4"
+              src={productImages[name].pouch}
+            ></img>
+            <img
+              className="border-2 rounded-md w-4/12 p-4"
+              src={productImages[name].pouch}
+            ></img>
+          </div>
         </div>
 
         {/* #4 Cookie options and descriptions */}

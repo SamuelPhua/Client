@@ -83,7 +83,7 @@ const Checkout = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
       headers: {
         "Content-type": "application/json",
       },
-      body: Json.stringify(checkoutInputs),
+      body: JSON.stringify(checkoutInputs),
     };
 
     if (hasSubmitted) fetchData(fetchURL, fetchOptions);

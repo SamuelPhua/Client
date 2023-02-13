@@ -63,6 +63,7 @@ module.exports = {
         "contact-us": "url('src/assets/imagesContactUs/Contact-Banner.jpg')",
       },
       width: {
+        "3/10": "30%",
         "9/15": "60%",
         "10/15": "66.667%",
         "7/10": "70%",
