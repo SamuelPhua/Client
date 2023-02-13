@@ -1,5 +1,5 @@
 import React from "react";
-import ContactDetails from "./contactUs/ContactDetails";
+import ContactDetails from "../contactUs/ContactDetails";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
