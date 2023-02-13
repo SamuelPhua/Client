@@ -77,26 +77,26 @@ export const productImages = {
   "CHOCOLATE CHIP COOKIES": {
     jar: chocChipJar,
     pouch: chocChipPouch,
-    Cookie: chocChipCookie,
+    cookie: chocChipCookie,
   },
   "MACADAMIA BUTTER COOKIES": {
     jar: macaChocoJar,
     pouch: macaChocoPouch,
-    Cookie: macaChocoCookie,
+    cookie: macaChocoCookie,
   },
   "OATMEAL CRANBERRY COOKIES": {
     jar: oatmealCranberryJar,
     pouch: oatmealCranberryPouch,
-    Cookie: oatmealCranberryCookie,
+    cookie: oatmealCranberryCookie,
   },
   "PECAN BUTTERSCOTCH COOKIES": {
     jar: pecanButterscotchJar,
     pouch: pecanButterscotchPouch,
-    Cookie: pecanButterscotchCookie,
+    cookie: pecanButterscotchCookie,
   },
   "SEA SALT CHOCOLATE COOKIES": {
     jar: seaSaltChocoJar,
     pouch: seaSaltChocoPouch,
-    Cookie: seaSaltChocoCookie,
+    cookie: seaSaltChocoCookie,
   },
 };

@@ -48,23 +48,32 @@ const Product = () => {
         <div className="w-5/12">
           {/* main image */}
           <img
-            className="border-2 rounded-md"
+            className="border-2 rounded-md p-8"
             src={productImages[name].pouch}
           ></img>
           {/* {!productExists && <h2>{name} is currently not in stock.</h2>} */}
           {/* div of 3 options > click to replace ^ */}
+          {/* {Object.keys(productImages).map((cookie) => {
+            return (
+              {}
+              <img
+                className="border-2 rounded-md w-3/12 p-2"
+                src={productImages[cookie].pouch}
+              ></img>
+            );
+          })} */}
           <div className="flex flex-wrap justify-around mt-20">
             <img
-              className="border-2 rounded-md w-4/12 p-4"
+              className="border-2 rounded-md w-3/12 p-2"
               src={productImages[name].pouch}
             ></img>
             <img
-              className="border-2 rounded-md w-4/12 p-4"
-              src={productImages[name].pouch}
+              className="border-2 rounded-md w-3/12 p-2"
+              src={productImages[name].jar}
             ></img>
             <img
-              className="border-2 rounded-md w-4/12 p-4"
-              src={productImages[name].pouch}
+              className="border-2 rounded-md w-3/12 p-2"
+              src={productImages[name].cookie}
             ></img>
           </div>
         </div>
