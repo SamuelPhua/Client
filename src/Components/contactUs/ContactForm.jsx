@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import useFetch from "../../customHooks/useFetch";
 
 const ContactForm = () => {
-
   const initFormState = {
     firstName: "",
     lastName: "",
@@ -103,8 +102,6 @@ const ContactForm = () => {
         id="phone"
         name="phone"
         placeholder="Phone"
-        value={enquiryInput.phone}
-        onChange={handleInputChange}
         value={enquiryInput.tel}
         onChange={handleInputChange}
         className="border-2 border-darkBlueFont focus:ring-4 focus:bg-slate-200 rounded-full px-3.5 py-1.5 text-base placeholder:text-xxs "
