@@ -1,50 +1,47 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import bigimage from "../assets/imagesShop/bigimage.png";
 import { images, description } from "../Varlables/Constants";
+import Banner from "./reusables/Banner";
 
 const numberOfImages = 17;
 
 function Shop() {
-  const handleClick = (imageNumber) => {
-    // perform our routes here (can use useNavigate to route to the individual cookie)
-    console.log(`Image${imageNumber} clicked`);
+  const navigate = useNavigate();
+
+  const navigateToProduct = (productName) => {
+    navigate(`/product/${productName}`);
   };
+
   return (
     <div>
-      <h1>
-        `<img src={bigimage} style={{ width: "100%" }} />`
-      </h1>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gridGap: "16px",
-          width: "100%",
-        }}
-      >
+      <Banner
+        img="src/assets/imagesShop/bigimage.png"
+        title="SHOP ALL"
+        titleColor="white"
+      />
+
+      <div className="grid grid-cols-3 w-10/12 mt-20 mb-10 place-items-center mx-auto gap-y-24">
         {Array.from({ length: numberOfImages }, (_, i) => {
           const imageNumber = i + 1;
 
           return (
-            <div
-              key={imageNumber}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
+            <div key={imageNumber} className="items-center cursor-pointer">
               <img
                 src={images[i]}
-                style={{ width: "50%", height: "70%" }}
-                onClick={() => handleClick(imageNumber)}
+                className="w-48 h-48 mx-auto"
+                onClick={() => navigateToProduct(description[i])}
               />
-              <p style={{ color: "black" }}>{description[i]}</p>
+              <p
+                className="text-darkBlueFont mt-4 text-center"
+                onClick={() => navigateToProduct(description[i])}
+              >
+                {description[i]}
+              </p>
             </div>
           );
         })}
       </div>
-      {/* <Footer Bar /> */}
     </div>
   );
 }
