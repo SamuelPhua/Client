@@ -19,14 +19,36 @@ const CartTotal = () => {
       quantity: 2,
       itemTotal: 16.6,
     },
+    {
+      name: "Seasalt Chocolate Chip Cookies",
+      weight: "150g",
+      packaging: "Bottle",
+      price: 8.3,
+      quantity: 2,
+      itemTotal: 16.6,
+    },
   ];
 
+  // calculate cartTotal
+  const sumCartTotal = (shoppingCart) => {
+    let sum = shoppingCart.reduce((cartTotal, item) => {
+      return cartTotal + item.itemTotal;
+    }, 0);
+
+    return (Math.round(sum * 100) / 100).toFixed(2);
+  };
+
+  let cartSum = sumCartTotal(shoppingCart);
+
   return (
-    <div className="bg-lightOrange h-full text-montserrat px-3 pt-16">
+    <div className="bg-lightOrange h-full text-montserrat text-xxxs px-4 pt-16">
+      {/* Return individual cart item */}
       {shoppingCart.map((item, index) => {
         return <CartItem {...item} key={index} />;
       })}
-      <div className="flex flex-row space-x-4 justify-around items-center border-t-[1px] border-t-lightGrey/[.5] pt-5 px-3">
+
+      {/* Calculate checkout total */}
+      <div className="flex flex-row space-x-4 justify-between items-center  border-t-[1px] border-t-lightGrey/[.5] pt-5 px-4">
         <input
           type="text"
           id="discountCode"
@@ -41,20 +63,21 @@ const CartTotal = () => {
           Apply
         </button>
       </div>
+
       {/* Cart total */}
-      <div className="flex flex-row justify-between mx-3 my-5">
+      <div className="flex flex-row justify-between mx-4 my-5">
         <p>Cart:</p>
-        <p>$5.80</p>
+        <p>${cartSum}</p>
       </div>
 
       {/* Delivery charges */}
-      <div className="flex flex-row justify-between mx-3 my-5">
+      <div className="flex flex-row justify-between mx-4 my-5">
         <p>Delivery:</p>
         <p>$12.00</p>
       </div>
 
       {/* Checkout total */}
-      <div className="flex flex-row justify-between px-3 my-5 border-t-[1px] border-t-lightGrey/[.5] py-5">
+      <div className="flex flex-row justify-between px-4 my-5 border-t-[1px] border-t-lightGrey/[.5] py-5">
         <p>Total:</p>
         <p>$17.80</p>
       </div>

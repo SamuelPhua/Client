@@ -8,7 +8,7 @@ const CartItem = ({ name, weight, packaging, price, quantity, itemTotal }) => {
         alt={name}
         className="h-24 w-24 mr-2"
       ></img>
-      <div className="flex-grow text-xxxs">
+      <div className="flex-grow">
         <p>{name}</p>
         <div className="text-lightGrey/[.5] flex flex-row justify-between">
           <p>
