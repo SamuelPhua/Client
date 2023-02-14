@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 // Start of CSS Stuff:
 import placeholderImg from "../assets/imagesAboutUs/CartPage-KraftPouch.jpg";
 
-import Button from "./reusables/OrangeButton";
+import ButtonOrange from "./reusables/ButtonOrange";
 import CartProduct from "./CartProduct";
 import DataContext from "./context/DataContext";
 
@@ -151,7 +151,7 @@ const Cart = ({ shoppingCart }) => {
       {/* Last Row */}
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10">
         <div className="col-start-7 flex justify-end items-center mr-[-7.8rem] mt-[-7.5rem]">
-          <Button displayName="CHECKOUT" onClick={navigateToCheckout} />
+          <ButtonOrange displayName="CHECKOUT" onClick={navigateToCheckout} />
         </div>
       </div>
     </>
