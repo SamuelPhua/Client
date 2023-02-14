@@ -10,9 +10,9 @@ const CheckoutContact = () => {
         {/* Phone */}
         <input
           type="tel"
-          id="custPhone"
-          name="custPhone"
-          value={checkoutInput.custPhone}
+          id="phone"
+          name="phone"
+          value={checkoutInput.phone}
           onChange={handleInputChange}
           placeholder="Your Phone Number"
           className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
@@ -21,9 +21,9 @@ const CheckoutContact = () => {
         {/* Email */}
         <input
           type="email"
-          id="custEmail"
-          name="custEmail"
-          value={checkoutInput.custEmail}
+          id="email"
+          name="email"
+          value={checkoutInput.email}
           onChange={handleInputChange}
           placeholder="Your Email Address"
           className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"

@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import DataContext from "../context/DataContext";
 
 const CheckoutDeliveryAddress = () => {
@@ -23,10 +23,10 @@ const CheckoutDeliveryAddress = () => {
           {/* First name */}
           <input
             type="text"
-            id="custFirstName"
-            name="custFirstName"
+            id="firstName"
+            name="firstName"
             placeholder="First Name"
-            value={checkoutInput.custFirstName}
+            value={checkoutInput.firstName}
             onChange={handleInputChange}
             className="basis-1/2 mr-2 border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
           ></input>
@@ -34,10 +34,10 @@ const CheckoutDeliveryAddress = () => {
           {/* Last name */}
           <input
             type="text"
-            id="custLastName"
-            name="custLastName"
-            placeholder="LastName"
-            value={checkoutInput.custLastName}
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            value={checkoutInput.lastName}
             onChange={handleInputChange}
             className="basis-1/2 ml-2 border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
           ></input>
@@ -46,10 +46,10 @@ const CheckoutDeliveryAddress = () => {
         {/* Delivery address */}
         <input
           type="text"
-          id="deliveryAddress"
-          name="deliveryAddress"
+          id="address"
+          name="address"
           placeholder="Address"
-          value={checkoutInput.deliveryAddress}
+          value={checkoutInput.address}
           onChange={handleInputChange}
           className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
@@ -57,10 +57,10 @@ const CheckoutDeliveryAddress = () => {
         {/* Delivery apartment */}
         <input
           type="text"
-          id="deliveryApartment"
-          name="deliveryApartment"
+          id="apartment"
+          name="apartment"
           placeholder="Apartment, Suite, etc. (Optional)"
-          value={checkoutInput.deliveryApartment}
+          value={checkoutInput.apartment}
           onChange={handleInputChange}
           className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
@@ -68,10 +68,10 @@ const CheckoutDeliveryAddress = () => {
         {/* Delivery postal */}
         <input
           type="text"
-          id="deliveryPostal"
-          name="deliveryPostal"
+          id="postalCode"
+          name="postalCode"
           placeholder="Postal Code"
-          value={checkoutInput.deliveryPostal}
+          value={checkoutInput.postalCode}
           onChange={handleInputChange}
           className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>

@@ -5,7 +5,12 @@ import CheckoutDeliveryAddress from "./CheckoutDeliveryAddress";
 import CheckoutFooter from "./CheckoutFooter";
 import CheckoutCartTotal from "./CheckoutCartTotal";
 
-const CheckoutPage2 = ({setShowShipAlert, setShowNav, setShowFooter, handleNext}) => {
+const CheckoutPage2 = ({
+  setShowShipAlert,
+  setShowNav,
+  setShowFooter,
+  handleNext,
+}) => {
   return (
     <div>
       <div className="motion-safe:animate-fadeIn">
@@ -27,7 +32,6 @@ const CheckoutPage2 = ({setShowShipAlert, setShowNav, setShowFooter, handleNext}
                 CONTINUE TO PAYMENT
               </button>
             </form>
-
             {/* Page footer */}
             <CheckoutFooter />
           </div>

@@ -6,21 +6,25 @@ import DataContext from "../context/DataContext";
 // define delivery charge based on delivery option.
 const CheckoutCartTotal = () => {
   const { shoppingCart, checkoutInput } = useContext(DataContext);
-  let deliveryCharge = checkoutInput.deliveryMethod === "delivery" ? 12 : 0;
+  checkoutInput.deliveryCharge = (
+    (Math.round(checkoutInput.deliveryMethod === "delivery" ? 12 : 0) * 100) /
+    100
+  ).toFixed(2);
 
   // fx: calculate cartTotal
   const sumCartTotal = (shoppingCart) => {
     let sum = shoppingCart.reduce((cartTotal, item) => {
       return cartTotal + item.itemTotal;
     }, 0);
-
     return (Math.round(sum * 100) / 100).toFixed(2);
   };
 
   let cartSum = sumCartTotal(shoppingCart);
-  let deliverySum = Math.round((deliveryCharge * 100) / 100).toFixed(2);
-  let totalSum = (
-    Math.round((parseFloat(cartSum) + parseFloat(deliverySum)) * 100) / 100
+
+  checkoutInput.checkoutAmount = (
+    Math.round(
+      (parseFloat(cartSum) + parseFloat(checkoutInput.deliveryCharge)) * 100
+    ) / 100
   ).toFixed(2);
 
   return (
@@ -58,13 +62,13 @@ const CheckoutCartTotal = () => {
       {/* Delivery charges */}
       <div className="flex flex-row justify-between mx-4 my-5">
         <p>Delivery:</p>
-        <p>${deliverySum}</p>
+        <p>${checkoutInput.deliveryCharge}</p>
       </div>
 
       {/* Checkout total */}
       <div className="flex flex-row justify-between px-4 my-5 border-t-[1px] border-t-lightGrey/[.5] py-5">
         <p>Total:</p>
-        <p>${totalSum}</p>
+        <p>${checkoutInput.checkoutAmount}</p>
       </div>
     </div>
   );

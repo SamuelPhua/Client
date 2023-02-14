@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import DataContext from "../context/DataContext";
 
 const CheckoutPaymentMethod = () => {
-  const { checkoutInput, handleInputChange } = useContext(DataContext);
+  const { checkoutInput, handleInputChange, handlePaymentConfirmation } =
+    useContext(DataContext);
   return (
     <div className="px-10 py-8 text-montserrat">
       {/* Customer email */}
@@ -92,8 +93,9 @@ const CheckoutPaymentMethod = () => {
         <button
           type="button"
           className=" text-white text-xxxs bg-orange focus:outline-none focus:ring-4 hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-3 lg:w-fit px-8 mx-auto"
+          onClick={handlePaymentConfirmation}
         >
-          Waiting for payment...
+          Confirm
         </button>
       </div>
     </div>

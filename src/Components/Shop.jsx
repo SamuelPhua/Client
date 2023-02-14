@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import bigimage from "../assets/imagesShop/bigimage.png";
 import { images, description } from "../Varlables/Constants";
 import Banner from "./reusables/Banner";
 

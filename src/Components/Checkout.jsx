@@ -45,15 +45,15 @@ const Checkout = ({
   //   paymentMethod: "Paylah",
   //   paymentAmount: "61.00",
   //   orderStatus: "confirmed",
-  //   cart: [
-  //     {
-  //       name: "Chocolate Chip Cookies",
-  //       weight: "100g",
-  //       packaging: "Kraft pouch",
-  //       price: "5.80",
-  //       quantity: "1",
-  //       itemTotal: "5.80",
-  //     },
+    // cart: [
+    //   {
+    //     name: "Chocolate Chip Cookies",
+    //     weight: "100g",
+    //     packaging: "Kraft pouch",
+    //     price: "5.80",
+    //     quantity: "1",
+    //     itemTotal: "5.80",
+    //   },
   //     {
   //       name: "Macademia Chocolate Cookies",
   //       weight: "200g",
@@ -73,17 +73,23 @@ const Checkout = ({
 
   const [step, setStep] = useState(1);
   const [checkoutInput, setCheckoutInput] = useState({
-    custPhone: "",
-    custEmail: "",
+    phone: "",
+    email: "",
     subscription: "",
     deliveryMethod: "delivery",
+    deliveryCharge: 12,
     deliveryCountry: "Singapore",
-    custFirstName: "",
-    custLastName: "",
-    deliveryAddress: "",
-    deliveryApartment: "",
-    deliveryPostal: "",
+    firstName: "",
+    lastName: "",
+    address: "",
+    apartment: "",
+    postalCode: "",
     paymentMethod: "paynow",
+    orderCurrency: "SGD",
+    discountCode: "",
+    checkoutAmount: "",
+    paymentAmount: "",
+    orderStatus: "O",
     // TODO: Pending cart and payment method page
   });
 
@@ -98,6 +104,7 @@ const Checkout = ({
   // PUT: when checkout form is submitted
   useEffect(() => {
     // call PUT API here
+    console.log("useEffect", checkoutInput);
     const fetchURL = "http://127.0.0.1:5001/checkout/createOrder";
     const fetchOptions = {
       method: "PUT",
@@ -110,8 +117,11 @@ const Checkout = ({
     if (hasSubmitted) fetchData(fetchURL, fetchOptions);
   }, [hasSubmitted]);
 
-  const handleCheckoutSubmission = (event) => {
+  const handlePaymentConfirmation = (event) => {
     event.preventDefault();
+    setCheckoutInput((prevCheckoutInput) => {
+      return { ...prevCheckoutInput, cart: shoppingCart };
+    });
     setHasSubmitted(true);
   };
 
@@ -126,7 +136,14 @@ const Checkout = ({
   };
 
   return (
-    <DataContext.Provider value={{ checkoutInput, handleInputChange, shoppingCart }}>
+    <DataContext.Provider
+      value={{
+        checkoutInput,
+        handleInputChange,
+        shoppingCart,
+        handlePaymentConfirmation,
+      }}
+    >
       {checkStep(1) && (
         <CheckoutPage1
           setShowShipAlert={setShowShipAlert}
