@@ -31,81 +31,85 @@ const AboutUs = () => {
           About Us
         </h1>
       </div>
+
       {/* Cookie Crafters */}
-      <div className="mt-20 ml-72 w-4/5 flex h-screen justify-center">
+      <div className="mt-20 ml-48 w-4/5 flex h-screen justify-center gap-18">
         <div className="basis-1/2">
-          <img className="h-2/3" src={cookieCrafter} />
+          <img className="h-3/5" src={cookieCrafter} />
         </div>
 
-        <div className="basis-1/2 mt-[150px]">
-          <div className="mb-11 text-sm font-permanentMarker text-darkBlue text-left underline underline-offset-22 decoration-orange">
+        <div className="basis-1/2 mt-[100px]">
+          <div className="mb-8 text-sm font-permanentMarker text-darkBlue text-left underline underline-offset-22 decoration-orange">
             Cookie Crafters
           </div>
 
-          <div className="mb-3 w-4/6 text-xs font-montserrat text-lightBlue text-left leading-8">
+          <div className="mb-3 w-5/6 text-xs font-montserrat text-lightBlue text-left leading-7">
             Flour Power is a homegrown bakery that is passionate about creating
             delicious handcrafted bakes.
           </div>
-          <div className="mt-8 w-4/6 text-xs font-montserrat text-lightBlue text-left leading-8">
+          <div className="mt-8 w-5/6 text-xs font-montserrat text-lightBlue text-left leading-7">
             We specialise in cookie creations, but we love to explore and dabble
             in other baked goods like cakes too!
           </div>
         </div>
       </div>
+
       {/* Inclusive Hiring */}
-      <div className="mt-[-300px] ml-80 w-4/5 flex h-screen justify-center">
+      <div className="mt-[-350px] ml-[220px] w-6/6 flex h-screen justify-center">
         <div className="basis-1/2 mt-[110px]">
-          <div className="mb-11 text-sm font-permanentMarker text-darkBlue text-left underline underline-offset-22 decoration-orange">
+          <div className="mb-8 text-sm font-permanentMarker text-darkBlue text-left underline underline-offset-22 decoration-orange">
             Inclusive Hiring
           </div>
 
-          <div className="mb-3 w-4/6 text-xs font-montserrat text-lightBlue text-left leading-8">
+          <div className="mb-3 w-5/6 text-xs font-montserrat text-lightBlue text-left leading-7">
             Founded in 2016, we are a social enterprise that advocates for
             inclusive practices in the workplace and society at large.
           </div>
-          <div className="mt-8 w-4/6 text-xs font-montserrat text-lightBlue text-left leading-8">
+          <div className="mt-8 w-5/6 text-xs font-montserrat text-lightBlue text-left leading-7">
             At Flour Power, we work alongside individuals with special needs or
             those recovering from mental illness to create our deletable bakes.
           </div>
         </div>
 
         <div className="basis-1/2">
-          <img className="h-3/5" src={inclusiveHiring} />
+          <img className="h-3/6 ml-[-10px] mt-[60px]" src={inclusiveHiring} />
         </div>
       </div>
+
       {/* Training and Workshops */}
-      <div className="mt-[-300px] ml-72 w-4/5 flex h-screen justify-center">
+      <div className="mt-[-300px] ml-52 w-4/5 flex h-screen justify-center">
         <div className="basis-1/2">
-          <img className="h-2/3" src={training} />
+          <img className="h-3/5" src={training} />
         </div>
 
-        <div className="basis-1/2 mt-[150px]">
-          <div className="mb-11 text-sm font-permanentMarker text-darkBlue text-left underline underline-offset-22 decoration-orange">
+        <div className="basis-1/2 mt-[60px]">
+          <div className="mb-8 text-sm font-permanentMarker text-darkBlue text-left underline underline-offset-22 decoration-orange">
             Training and Workshops
           </div>
 
-          <div className="mb-3 w-4/6 text-xs font-montserrat text-lightBlue text-left leading-8">
+          <div className="mb-3 w-5/6 text-xs font-montserrat text-lightBlue text-left leading-7">
             When we're not baking up a storm in the kitchen, we're busy
             designing and running workshops for partner beneficiaries or
             corporate clients.
           </div>
-          <div className="mt-8 w-4/6 text-xs font-montserrat text-lightBlue text-left leading-8">
-            Through this programmers, we work to educate emplpyers and learners
+          <div className="mt-8 w-5/6 text-xs font-montserrat text-lightBlue text-left leading-7">
+            Through this programmers, we work to educate employers and learners
             on how to build an inclusive workplace and community at large.
           </div>
         </div>
       </div>
+
       {/* About Our Cookies */}
       <div className="text-center mt-[-200px] text-sm font-permanentMarker text-darkBlue underline underline-offset-22 decoration-orange">
         About Our Cookies
       </div>
-      <div className="mt-20 mb-20 ml-48 w-4/5 flex h-screen justify-center space-x-10">
+      <div className="mt-20 mb-20 ml-40 w-4/5 flex h-screen justify-center space-x-10">
         <div className="relative">
           <img className="h-4/5" src={ingredients} />
           <h1 className="mt-14 absolute w-80 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             QUALITY INGREDIENTS
             <br />
-            <p className="mt-10 font-light">
+            <p className="mt-7 font-light">
               Our cookies are made from ingredients which are carefully sourced
               by us to ensure the best quality and flavour.
             </p>
@@ -117,7 +121,7 @@ const AboutUs = () => {
           <h1 className="mt-16 absolute w-80 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             INNOVATIVE RECIPES
             <br />
-            <p className="mt-10 font-light">
+            <p className="mt-8 font-light">
               There's no such thing as a "perfect" recipe. We are always
               improving our recipes so that we continue bringing you the best
               quality cookies possible.
@@ -130,9 +134,9 @@ const AboutUs = () => {
           <h1 className="mt-16 absolute w-80 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             SUSTAINABLE PACKAGING
             <br />
-            <p className="mt-10 font-light">
+            <p className="mt-8 font-light">
               Our packaging is sustainable and preserves the freshness of our
-              cookies. You can enjoy them as fresh as hwen they were taken out
+              cookies. You can enjoy them as fresh as when they were taken out
               of the oven!
             </p>
           </h1>
