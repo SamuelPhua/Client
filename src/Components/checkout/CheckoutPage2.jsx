@@ -23,14 +23,16 @@ const CheckoutPage2 = ({
             {/* Checkout form - Delivery address */}
             <form>
               <CheckoutDeliveryAddress />
-              <button
-                type="button"
-                id="cartDeliveryNext"
-                onClick={handleNext}
-                className=" text-white text-xxxs bg-orange focus:outline-none focus:ring-4 hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-3 lg:w-fit px-8 mx-auto"
-              >
-                CONTINUE TO PAYMENT
-              </button>
+              <div className="flex flex-row justify-end">
+                <button
+                  type="button"
+                  id="cartDeliveryNext"
+                  onClick={handleNext}
+                  className=" text-white text-xxxs bg-orange focus:outline-none focus:ring-2 hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-3 lg:w-fit px-8"
+                >
+                  CONTINUE TO PAYMENT
+                </button>
+              </div>
             </form>
             {/* Page footer */}
             <CheckoutFooter />

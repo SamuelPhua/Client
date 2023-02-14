@@ -18,21 +18,21 @@ const CheckoutSteps = ({ steps, currentStep }) => {
 
     while (count < newSteps.length) {
       // current step
-      if (count == stepNumber) {
+      if (count == stepNumber + 1) {
         newSteps[count] = {
           ...newSteps[count],
           highlighted: true,
           selected: true,
-          completed: true,
+          completed: false,
         };
         count++;
       }
       // step completed
-      else if (count < stepNumber) {
+      else if (count < stepNumber + 1) {
         newSteps[count] = {
           ...newSteps[count],
           highlighted: false,
-          selected: true,
+          selected: false,
           completed: true,
         };
         count++;
@@ -72,8 +72,6 @@ const CheckoutSteps = ({ steps, currentStep }) => {
   }, [steps, currentStep]);
 
   const displaySteps = newStep.map((step, index) => {
-    //let Icon = step.icon;
-    //console.log("iCON", Icon);
     return (
       <div
         key={index}
@@ -83,26 +81,27 @@ const CheckoutSteps = ({ steps, currentStep }) => {
             : "flex items-center"
         }
       >
-        <div className="relative flex flex-col items-center text-darkBlueFont">
+        <div className="relative flex flex-col items-center text-gray-300">
           <div
-            className={`rounded-full transition duration-500 ease-in-out border-2 border-gray-300 h-12 w-12 flex items-center justify-center py-3 ${
+            className={`rounded-full transition duration-500 ease-in-out border-[1px] border-gray-300 h-12 w-12 flex items-center justify-center py-3 ${
+              step.completed ? "border-darkBlueFont" : ""
+            } ${
               step.selected
-                ? "bg-darkBlueFont text-white font-bold border border-darkBlueFont"
+                ? `bg-darkBlueFont text-white font-bold border border-darkBlueFont `
                 : ""
             }`}
           >
             {/* display icons */}
             {step.completed ? (
-              <span className="text-white font-bold text-xl">&#10003;</span>
-            ) : (
-              //index + 1
-              <>
+              <span className="text-darkBlueFont text-xl after:block after:absolute after:rounded-[50%] after:w-4 after:h-4 after:bg-green-600 after:left-8 after:top-8 after:content-['']">
                 <step.icon />
-              </>
+              </span>
+            ) : (
+              <step.icon />
             )}
           </div>
           <div
-            className={`absolute top-0  text-center mt-16 w-32 text-xs font-medium ${
+            className={`absolute top-0  text-center mt-16 w-32 font-thin text-xxxs ${
               step.highlighted ? "text-gray-900" : "text-gray-400"
             }`}
           >
@@ -111,7 +110,7 @@ const CheckoutSteps = ({ steps, currentStep }) => {
           </div>
         </div>
         <div
-          className={`flex-auto border-t-4 transition duration-500 ease-in-out ${
+          className={`flex-auto border-t-2 transition duration-500 ease-in-out ${
             step.completed
               ? "border-darkBlueFont"
               : "border-gray-300 border-dashed"
@@ -124,9 +123,7 @@ const CheckoutSteps = ({ steps, currentStep }) => {
   });
 
   return (
-    <div className="mx-4 p-4 flex justify-between items-center">
-      {displaySteps}
-    </div>
+    <div className="flex justify-between items-center">{displaySteps}</div>
   );
 };
 
