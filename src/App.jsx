@@ -16,6 +16,7 @@ import BulkOrder from "./Components/BulkOrder";
 import Cart from "./Components/Cart";
 import DataContext from "./Components/context/DataContext";
 import CheckoutPage1 from "./Components/checkout/CheckoutPage1";
+import CheckoutReceipt from "./Components/checkout/CheckoutReceipt";
 
 function App() {
   const [showShipAlert, setShowShipAlert] = useState(true);
@@ -61,7 +62,14 @@ function App() {
 
   return (
     <DataContext.Provider
-      value={{ handleDelete, handlePlusQty, handleMinusQty }}
+      value={{
+        handleDelete,
+        handlePlusQty,
+        handleMinusQty,
+        setShowShipAlert,
+        setShowNav,
+        setShowFooter,
+      }}
     >
       <div className="App">
         {showShipAlert && <ShippingAlert />}
@@ -94,6 +102,7 @@ function App() {
               />
             }
           ></Route>
+          <Route path="receipt" element={<CheckoutReceipt />}></Route>
         </Routes>
         {showFooter && <Footer />}
       </div>

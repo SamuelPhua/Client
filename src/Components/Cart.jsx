@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-// Start of CSS Stuff:
-import placeholderImg from "../assets/imagesAboutUs/CartPage-KraftPouch.jpg";
-
 import ButtonOrange from "./reusables/ButtonOrange";
 import CartProduct from "./CartProduct";
 import DataContext from "./context/DataContext";
@@ -53,10 +50,15 @@ const Cart = ({ shoppingCart }) => {
   };
 
   // Total price of all the added items
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+  const sumCartTotal = (shoppingCart) => {
+    let sum = shoppingCart.reduce((cartTotal, item) => {
+      return cartTotal + item.itemTotal;
+    }, 0);
+
+    return sum.toFixed(2);
+  };
+
+  let cartSum = sumCartTotal(shoppingCart);
 
   // The first useEffect hook retrieves the saved cartItems from localStorage when the component is mounted.
   // If there are saved items, it will set the state cartItems with the saved data.
@@ -78,7 +80,7 @@ const Cart = ({ shoppingCart }) => {
   };
 
   return (
-    <>
+    <div className="motion-safe:animate-fadeIn">
       {/* // Updating the quantity via button function
       {cartItems.map((item, index) => {
         <div key={item.id}>
@@ -142,19 +144,19 @@ const Cart = ({ shoppingCart }) => {
       {/* Fourth Row */}
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10">
         <div className="col-start-7 flex justify-end items-center">
-          <div className="text-[1.3rem] font-montserrat text-lightBlue font-bold mr-[-2rem] mt-[-5rem]">
-            Total: $5.80
+          <div className="text-[1.3rem] font-montserrat text-lightBlue font-bold mt-[-5rem]">
+            {cartSum}
           </div>
         </div>
       </div>
 
       {/* Last Row */}
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10">
-        <div className="col-start-7 flex justify-end items-center mr-[-5.8rem] mt-[-7.5rem]">
+        <div className="col-start-7 flex justify-end items-center mr-[-5.8rem] mt-[-6.5rem]">
           <ButtonOrange displayName="CHECKOUT" onClick={navigateToCheckout} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
