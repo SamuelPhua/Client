@@ -34,6 +34,8 @@ function App() {
    */
 
   const handleAddToCart = (cartInputs) => {
+    // compute itemTotal based on price * qty
+    cartInputs.itemTotal = cartInputs.quantity * cartInputs.price;
     setShoppingCart((prevCartInputs) => {
       return [...prevCartInputs, cartInputs];
     });
@@ -84,7 +86,8 @@ function App() {
           <Route
             path="checkout"
             element={
-              <CheckoutPage1
+              <Checkout
+                shoppingCart={shoppingCart}
                 setShowShipAlert={setShowShipAlert}
                 setShowNav={setShowNav}
                 setShowFooter={setShowFooter}

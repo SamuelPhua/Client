@@ -6,12 +6,13 @@ import CheckoutDeliveryMethod from "./CheckoutDeliveryMethod";
 import CheckoutFooter from "./CheckoutFooter";
 import CheckoutCartTotal from "./CheckoutCartTotal";
 
-const CheckoutPage1 = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
+const CheckoutPage1 = ({ setShowShipAlert, setShowNav, setShowFooter, handleNext }) => {
   useEffect(() => {
     setShowShipAlert(false);
     setShowNav(false);
     setShowFooter(false);
   }, []);
+  
   return (
     <div>
       <div className="motion-safe:animate-fadeIn">
@@ -25,13 +26,17 @@ const CheckoutPage1 = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
             <form>
               <CheckoutContact />
               <CheckoutDeliveryMethod />
-              <button
-                type="button"
-                id="cartContactNext"
-                className=" text-white text-xxxs bg-orange focus:outline-none focus:ring-4 hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-3 lg:w-fit px-8 mx-auto"
-              >
-                NEXT
-              </button>
+              <div className="flex flex-row justify-between mt-5 mb-5 md:mt-10">
+                <p>Return to cart</p>
+                <button
+                  type="button"
+                  id="cartContactNext"
+                  onClick={handleNext}
+                  className=" text-white text-xxxs bg-orange focus:outline-none focus:ring-4 hover:bg-darkOrange focus:bg-darkOrange rounded-full  py-3 lg:w-fit px-8"
+                >
+                  NEXT
+                </button>
+              </div>
             </form>
 
             {/* Page footer */}

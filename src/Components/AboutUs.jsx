@@ -26,7 +26,7 @@ const AboutUs = () => {
   return (
     <div>
       {/* Banner */}
-      <div className="mb-20 relative h-[300px] w-full bg-cover bg-center bg-[url(src/assets/imagesAboutUs/AboutUs-Banner.png)]">
+      <div className="motion-safe:animate-fadeIn mb-20 relative h-[300px] w-full bg-cover bg-center bg-[url(src/assets/imagesAboutUs/AboutUs-Banner.png)]">
         <h1 className="absolute text-lg font-permanentMarker text-darkBlue  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           About Us
         </h1>

@@ -14,7 +14,7 @@ function Shop() {
   };
 
   return (
-    <div>
+    <div className="motion-safe:animate-fadeIn">
       <Banner
         img="src/assets/imagesShop/bigimage.png"
         title="SHOP ALL"

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import DataContext from "../context/DataContext";
 
 const CheckoutDeliveryMethod = () => {
+  const { checkoutInput, handleInputChange } = useContext(DataContext);
   return (
     <div className="text-darkBlueFont text-montserrat">
       <h1 className="tracking-widest text-2xl">Delivery Methods</h1>
@@ -11,6 +13,9 @@ const CheckoutDeliveryMethod = () => {
             type="radio"
             id="selfPickUp"
             name="deliveryMethod"
+            value="selfPickUp"
+            checked={checkoutInput.deliveryMethod === "selfPickUp"}
+            onChange={handleInputChange}
             className="ml-5 mr-2"
           ></input>
           <label htmlFor="selfPickUp" className="text-xxs">
@@ -24,6 +29,9 @@ const CheckoutDeliveryMethod = () => {
             type="radio"
             id="delivery"
             name="deliveryMethod"
+            value="delivery"
+            checked={checkoutInput.deliveryMethod === "delivery"}
+            onChange={handleInputChange}
             className="ml-5 mr-2"
           ></input>
           <label htmlFor="delivery" className="text-xxs">

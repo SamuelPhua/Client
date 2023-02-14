@@ -132,7 +132,7 @@ const Cart = ({ shoppingCart }) => {
 
       {/* Third Row */}
       <div className="w-11/12 grid grid-cols-7 p-10">
-        <div className="col-start-1 col-end-8 flex justify-start items-center ml-10">
+        <div className="col-start-1 col-end-9 flex justify-start items-center ml-10">
           <div className="text-[1.2rem] font-montserrat text-lightBlue">
             Note: As out Bakes are baked to order with love, please allow 3-5
             days buffer for both delivery or self collection.
@@ -150,7 +150,7 @@ const Cart = ({ shoppingCart }) => {
 
       {/* Last Row */}
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10">
-        <div className="col-start-7 flex justify-end items-center mr-[-7.8rem] mt-[-7.5rem]">
+        <div className="col-start-7 flex justify-end items-center mr-[-5.8rem] mt-[-7.5rem]">
           <ButtonOrange displayName="CHECKOUT" onClick={navigateToCheckout} />
         </div>
       </div>

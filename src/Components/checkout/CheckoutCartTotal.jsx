@@ -1,36 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import CheckoutCartItem from "./CheckoutCartItem";
+import DataContext from "../context/DataContext";
 
 // TODO: To prop down - 1. shopping cart array   2. delivery option
 // define delivery charge based on delivery option.
 const CheckoutCartTotal = () => {
-  let deliveryCharge = 0;
-  let shoppingCart = [
-    {
-      name: "Chocolate Chip Cookies",
-      weight: "100g",
-      packaging: "Kraft Pouch",
-      price: 5.8,
-      quantity: 2,
-      itemTotal: 11.6,
-    },
-    {
-      name: "Seasalt Chocolate Chip Cookies",
-      weight: "150g",
-      packaging: "Bottle",
-      price: 8.3,
-      quantity: 2,
-      itemTotal: 16.6,
-    },
-    {
-      name: "Seasalt Chocolate Chip Cookies",
-      weight: "150g",
-      packaging: "Bottle",
-      price: 8.3,
-      quantity: 2,
-      itemTotal: 16.6,
-    },
-  ];
+  const { shoppingCart, checkoutInput } = useContext(DataContext);
+  let deliveryCharge = checkoutInput.deliveryMethod === "delivery" ? 12 : 0;
 
   // fx: calculate cartTotal
   const sumCartTotal = (shoppingCart) => {
@@ -42,6 +18,10 @@ const CheckoutCartTotal = () => {
   };
 
   let cartSum = sumCartTotal(shoppingCart);
+  let deliverySum = Math.round((deliveryCharge * 100) / 100).toFixed(2);
+  let totalSum = (
+    Math.round((parseFloat(cartSum) + parseFloat(deliverySum)) * 100) / 100
+  ).toFixed(2);
 
   return (
     <div className="bg-lightOrange h-full text-montserrat text-xxxs px-4 pt-16">
@@ -78,13 +58,13 @@ const CheckoutCartTotal = () => {
       {/* Delivery charges */}
       <div className="flex flex-row justify-between mx-4 my-5">
         <p>Delivery:</p>
-        <p>${deliveryCharge}</p>
+        <p>${deliverySum}</p>
       </div>
 
       {/* Checkout total */}
       <div className="flex flex-row justify-between px-4 my-5 border-t-[1px] border-t-lightGrey/[.5] py-5">
         <p>Total:</p>
-        <p>${cartSum + deliveryCharge}</p>
+        <p>${totalSum}</p>
       </div>
     </div>
   );

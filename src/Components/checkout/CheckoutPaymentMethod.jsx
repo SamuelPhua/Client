@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import DataContext from "../context/DataContext";
 
 const CheckoutPaymentMethod = () => {
+  const { checkoutInput, handleInputChange } = useContext(DataContext);
   return (
     <div className="px-10 py-8 text-montserrat">
       {/* Customer email */}
       <div>
         <p className="text-slate-700 mb-2">Email</p>
-        <p>custEmail@gmail.com.sg</p>
+        <p>{checkoutInput.custEmail}</p>
         <hr className="mb-6" />
       </div>
 
@@ -20,6 +22,9 @@ const CheckoutPaymentMethod = () => {
               type="radio"
               id="paynow"
               name="paymentMethod"
+              value="paynow"
+              checked={checkoutInput.paymentMethod === "paynow"}
+              onChange={handleInputChange}
               className="ml-5 mr-2"
             ></input>
             <label htmlFor="paynow" className="text-base">
@@ -33,6 +38,9 @@ const CheckoutPaymentMethod = () => {
               type="radio"
               id="creditCard"
               name="paymentMethod"
+              value="creditCard"
+              checked={checkoutInput.paymentMethod === "creditCard"}
+              onChange={handleInputChange}
               className="ml-5 mr-2"
             ></input>
             <label htmlFor="creditCard" className="text-base">
@@ -46,6 +54,9 @@ const CheckoutPaymentMethod = () => {
               type="radio"
               id="alipay"
               name="paymentMethod"
+              value="alipay"
+              checked={checkoutInput.paymentMethod === "alipay"}
+              onChange={handleInputChange}
               className="ml-5 mr-2"
             ></input>
             <label htmlFor="alipay" className="text-base">

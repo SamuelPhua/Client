@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
+import DataContext from "../context/DataContext";
 
 const CheckoutDeliveryAddress = () => {
+  const { checkoutInput, handleInputChange } = useContext(DataContext);
   return (
     <div className=" text-darkBlueFont text-montserrat mb-10">
       <h1 className="tracking-widest text-2xl">Delivery Address</h1>
@@ -24,6 +26,8 @@ const CheckoutDeliveryAddress = () => {
             id="custFirstName"
             name="custFirstName"
             placeholder="First Name"
+            value={checkoutInput.custFirstName}
+            onChange={handleInputChange}
             className="basis-1/2 mr-2 border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
           ></input>
 
@@ -33,6 +37,8 @@ const CheckoutDeliveryAddress = () => {
             id="custLastName"
             name="custLastName"
             placeholder="LastName"
+            value={checkoutInput.custLastName}
+            onChange={handleInputChange}
             className="basis-1/2 ml-2 border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
           ></input>
         </div>
@@ -43,6 +49,8 @@ const CheckoutDeliveryAddress = () => {
           id="deliveryAddress"
           name="deliveryAddress"
           placeholder="Address"
+          value={checkoutInput.deliveryAddress}
+          onChange={handleInputChange}
           className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
 
@@ -52,6 +60,8 @@ const CheckoutDeliveryAddress = () => {
           id="deliveryApartment"
           name="deliveryApartment"
           placeholder="Apartment, Suite, etc. (Optional)"
+          value={checkoutInput.deliveryApartment}
+          onChange={handleInputChange}
           className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
 
@@ -61,6 +71,8 @@ const CheckoutDeliveryAddress = () => {
           id="deliveryPostal"
           name="deliveryPostal"
           placeholder="Postal Code"
+          value={checkoutInput.deliveryPostal}
+          onChange={handleInputChange}
           className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
       </div>
