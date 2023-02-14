@@ -21,7 +21,6 @@ const CartProduct = ({ name, price, weight, packaging, quantity, index }) => {
             <div className="mt-5 text-[1.2rem]">{packaging}</div>
           </div>
         </div>
-
         <div className="justify-center items-center col-start-5 flex">
           <div>
             <AiFillMinusCircle
