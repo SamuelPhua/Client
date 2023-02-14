@@ -129,7 +129,6 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               className="border-2 rounded-md p-8 w-full"
               src={productImages[name][displayedProductType]}
             ></img>
-
             {/* div of 3 options > click to replace ^ */}
             <div className="flex flex-wrap justify-around mt-20">
               {Object.keys(productImages[name]).map((productType, ind) => {

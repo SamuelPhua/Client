@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import useFetch from "../customHooks/useFetch";
 
-import CartHeader from "./cart/CartHeader";
-import CartProgressBar from "./cart/CartProgressBar";
-import CartContactInfo from "./cart/CartContactInfo";
-import CartDeliveryMethod from "./cart/CartDeliveryMethod";
-import CartDeliveryAddress from "./cart/CartDeliveryAddress";
-import CartFooter from "./cart/CartFooter";
-import CartTotal from "./cart/CartTotal";
-import CartPaymentTotal from "./cart/CartPaymentTotal";
-import CartPaymentMethod from "./cart/CartPaymentMethod";
+import CheckoutHeader from "./checkout/CheckoutHeader";
+import CheckoutProgressBar from "./checkout/CheckoutProgressBar";
+import CheckoutContact from "./checkout/CheckoutContact";
+import CheckoutDeliveryMethod from "./checkout/CheckoutDeliveryMethod";
+import CheckoutDeliveryAddress from "./checkout/CheckoutDeliveryAddress";
+import CheckoutFooter from "./checkout/CheckoutFooter";
+import CheckoutPaymentTotal from "./checkout/CheckoutPaymentTotal";
+import CheckoutPaymentMethod from "./checkout/CheckoutPaymentMethod";
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
@@ -100,12 +99,12 @@ const Checkout = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
     <div className="motion-safe:animate-fadeIn">
       <div className="grid grid-cols-3 h-screen">
         <div className="relative col-span-2 mx-36">
-          <CartHeader />
-          <CartProgressBar />
+          <CheckoutHeader />
+          <CheckoutProgressBar />
           {/* First checkout page */}
           <form>
-            <CartContactInfo />
-            <CartDeliveryMethod />
+            <CheckoutContact />
+            <CheckoutDeliveryMethod />
             <button
               type="button"
               id="cartContactNext"
@@ -127,10 +126,10 @@ const Checkout = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
             </button>
           </form> */}
 
-          <CartFooter />
+          <CheckoutFooter />
         </div>
         <div className="col-span-1">
-          <CartTotal />
+          <CheckoutPaymentTotal />
         </div>
       </div>
     </div>
