@@ -44,18 +44,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   ///////////
   // STATES
   ///////////
-  const [productInfo, setProductInfo] = useState({
-    name: "",
-    description: "",
-    about: {
-      ingredients: "",
-      allergens: "",
-      packaging: "",
-      storage: "",
-    },
-    price: { _id: false, weight: "", packaging: "", sgdPrice: 0 },
-    image: { _id: false, packaging: "", imageSrc: "" },
-  });
+  const [productInfo, setProductInfo] = useState({});
   const [displayedProductType, setDisplayedProductType] = useState("pouch");
   const [hasAdded, setHasAdded] = useState(false);
   const [cartInputs, setCartInputs] = useState({
@@ -80,16 +69,16 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     };
 
     fetchData(fetchURL, fetchOptions);
-    fillProductInfo();
   }, []);
+
+  useEffect(() => {
+    console.log(data);
+    setProductInfo(data);
+  }, [data]);
 
   //////////////////
   // event handlers
   //////////////////
-  const fillProductInfo = () => {
-    setProductInfo(data);
-  };
-
   // handle toggled selection of cookie type display
   const handleProductSelection = (event) => {
     event.preventDefault();
@@ -131,7 +120,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
       </div>
 
       {/* #2 flex div */}
-      {productExists && data.length > 0 && (
+      {productExists && !isLoading && data && (
         <div className="flex flex-wrap w-7/10 mx-auto mt-10">
           {/* #3 LEFT: Cookie displays */}
           <div className="w-5/12">
@@ -163,7 +152,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               {name}
             </h2>
             <h3 className="tracking-wide text-left font-montserrat text-darkBlueFont text-3xl md:text-3xl mb-8">
-              $ {data.price.sgdPrice}
+              $ {data.price[0].sgdPrice}
             </h3>
             <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
               {/* Melt-in-your mouth and packed with chunks of chocolate goodness,
@@ -208,6 +197,13 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
           </div>
         </div>
       )}
+      {productExists && isLoading && (
+        <div className="text-center">
+          {/* <LoadingSpinner /> */}
+          <h2>LOADING ...</h2>
+        </div>
+      )}
+      {!isLoading && error && <p> {error}</p>}
       {!productExists && (
         <h2 className="tracking-wide font-montserrat text-darkBlueFont text-xxs md:text-xxs w-7/10 mx-auto mt-10">
           Sorry, {name} is currently out of stock.
