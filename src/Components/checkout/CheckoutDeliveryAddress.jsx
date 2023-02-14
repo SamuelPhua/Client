@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import DataContext from "../context/DataContext";
 
 const CheckoutDeliveryAddress = () => {
+  const { checkoutInput, handleInputChange } = useContext(DataContext);
   return (
     <div className=" text-darkBlueFont text-montserrat mb-10">
       <h1 className="tracking-widest text-2xl">Delivery Address</h1>
@@ -21,18 +23,22 @@ const CheckoutDeliveryAddress = () => {
           {/* First name */}
           <input
             type="text"
-            id="custFirstName"
-            name="custFirstName"
+            id="firstName"
+            name="firstName"
             placeholder="First Name"
+            value={checkoutInput.firstName}
+            onChange={handleInputChange}
             className="basis-1/2 mr-2 border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
           ></input>
 
           {/* Last name */}
           <input
             type="text"
-            id="custLastName"
-            name="custLastName"
-            placeholder="LastName"
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            value={checkoutInput.lastName}
+            onChange={handleInputChange}
             className="basis-1/2 ml-2 border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
           ></input>
         </div>
@@ -40,27 +46,33 @@ const CheckoutDeliveryAddress = () => {
         {/* Delivery address */}
         <input
           type="text"
-          id="deliveryAddress"
-          name="deliveryAddress"
+          id="address"
+          name="address"
           placeholder="Address"
+          value={checkoutInput.address}
+          onChange={handleInputChange}
           className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
 
         {/* Delivery apartment */}
         <input
           type="text"
-          id="deliveryApartment"
-          name="deliveryApartment"
+          id="apartment"
+          name="apartment"
           placeholder="Apartment, Suite, etc. (Optional)"
+          value={checkoutInput.apartment}
+          onChange={handleInputChange}
           className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
 
         {/* Delivery postal */}
         <input
           type="text"
-          id="deliveryPostal"
-          name="deliveryPostal"
+          id="postalCode"
+          name="postalCode"
           placeholder="Postal Code"
+          value={checkoutInput.postalCode}
+          onChange={handleInputChange}
           className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
       </div>

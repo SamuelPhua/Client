@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import DataContext from "../context/DataContext";
 
 const CheckoutPaymentMethod = () => {
+  const { checkoutInput, handleInputChange, handlePaymentConfirmation } =
+    useContext(DataContext);
   return (
     <div className="px-10 py-8 text-montserrat">
       {/* Customer email */}
       <div>
         <p className="text-slate-700 mb-2">Email</p>
-        <p>custEmail@gmail.com.sg</p>
+        <p>{checkoutInput.custEmail}</p>
         <hr className="mb-6" />
       </div>
 
@@ -20,6 +23,9 @@ const CheckoutPaymentMethod = () => {
               type="radio"
               id="paynow"
               name="paymentMethod"
+              value="paynow"
+              checked={checkoutInput.paymentMethod === "paynow"}
+              onChange={handleInputChange}
               className="ml-5 mr-2"
             ></input>
             <label htmlFor="paynow" className="text-base">
@@ -33,6 +39,9 @@ const CheckoutPaymentMethod = () => {
               type="radio"
               id="creditCard"
               name="paymentMethod"
+              value="creditCard"
+              checked={checkoutInput.paymentMethod === "creditCard"}
+              onChange={handleInputChange}
               className="ml-5 mr-2"
             ></input>
             <label htmlFor="creditCard" className="text-base">
@@ -46,6 +55,9 @@ const CheckoutPaymentMethod = () => {
               type="radio"
               id="alipay"
               name="paymentMethod"
+              value="alipay"
+              checked={checkoutInput.paymentMethod === "alipay"}
+              onChange={handleInputChange}
               className="ml-5 mr-2"
             ></input>
             <label htmlFor="alipay" className="text-base">
@@ -81,8 +93,9 @@ const CheckoutPaymentMethod = () => {
         <button
           type="button"
           className=" text-white text-xxxs bg-orange focus:outline-none focus:ring-4 hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-3 lg:w-fit px-8 mx-auto"
+          onClick={handlePaymentConfirmation}
         >
-          Waiting for payment...
+          Confirm
         </button>
       </div>
     </div>

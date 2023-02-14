@@ -5,7 +5,12 @@ import CheckoutDeliveryAddress from "./CheckoutDeliveryAddress";
 import CheckoutFooter from "./CheckoutFooter";
 import CheckoutCartTotal from "./CheckoutCartTotal";
 
-const CheckoutPage2 = () => {
+const CheckoutPage2 = ({
+  setShowShipAlert,
+  setShowNav,
+  setShowFooter,
+  handleNext,
+}) => {
   return (
     <div>
       <div className="motion-safe:animate-fadeIn">
@@ -21,12 +26,12 @@ const CheckoutPage2 = () => {
               <button
                 type="button"
                 id="cartDeliveryNext"
+                onClick={handleNext}
                 className=" text-white text-xxxs bg-orange focus:outline-none focus:ring-4 hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-3 lg:w-fit px-8 mx-auto"
               >
                 CONTINUE TO PAYMENT
               </button>
             </form>
-
             {/* Page footer */}
             <CheckoutFooter />
           </div>

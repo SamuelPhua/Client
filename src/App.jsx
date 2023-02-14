@@ -38,6 +38,8 @@ function App() {
    */
 
   const handleAddToCart = (cartInputs) => {
+    // compute itemTotal based on price * qty
+    cartInputs.itemTotal = cartInputs.quantity * cartInputs.price;
     setShoppingCart((prevCartInputs) => {
       // TODO - add compare function:
       // (check if everything other than qty is the same, combine qty)
@@ -100,7 +102,8 @@ function App() {
           <Route
             path="checkout"
             element={
-              <CheckoutPage1
+              <Checkout
+                shoppingCart={shoppingCart}
                 setShowShipAlert={setShowShipAlert}
                 setShowNav={setShowNav}
                 setShowFooter={setShowFooter}
