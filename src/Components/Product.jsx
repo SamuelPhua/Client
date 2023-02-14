@@ -9,12 +9,32 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   // route const variables
   /////////////////////////
   // params :name to get cookie product
-  const { name } = useParams();
+  const { name } = useParams(); // name w/ all CAPS
+  const toPascalCase = (str) => {
+    const splitStr = str.toLowerCase().split(" ");
+    let newStr = "";
+    for (const word of splitStr) {
+      newStr += word[0].toUpperCase() + word.slice(1) + " ";
+    }
+    return newStr;
+  };
+  const pascalName = toPascalCase(name); // name w/ Capital Convention
+
   // Navigate back to the shop all page
   const navigate = useNavigate();
   const navigateToShop = () => {
     navigate("/shop");
   };
+
+  // check if product exists
+  let productExists = false;
+  // console.log(Object.keys(productImages));
+  for (let i = 0; i < Object.keys(productImages).length; i++) {
+    if (Object.keys(productImages)[i].includes(name)) {
+      productExists = true;
+      break;
+    }
+  }
 
   ///////////////
   // custom Hook
@@ -34,16 +54,25 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     quantity: 0,
   });
 
-  // check if product exists
-  let productExists = false;
-  // console.log(Object.keys(productImages));
-  for (let i = 0; i < Object.keys(productImages).length; i++) {
-    if (Object.keys(productImages)[i].includes(name)) {
-      productExists = true;
-      break;
-    }
-  }
+  ///////////
+  // EFFECT
+  ///////////
+  useEffect(() => {
+    // call GET API here
+    const fetchURL = `http://127.0.0.1:5001/products/getProduct/${pascalName}`;
+    const fetchOptions = {
+      method: "PUT", // change to POST if possible
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
 
+    fetchData(fetchURL, fetchOptions);
+  }, []);
+
+  //////////////////
+  // event handlers
+  //////////////////
   // handle toggled selection of cookie type display
   const handleProductSelection = (event) => {
     event.preventDefault();
@@ -53,6 +82,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   const handleAddToCartButton = (event) => {
     // event.preventDefault();
     // TODO - pop up modal to show:
+    console.log(data);
     // 1. added cart item
     // 2. + previous cart items
     // 3 lift new item up to App and add to cart (DONE)
@@ -79,7 +109,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
           &#62;
         </p>
         <p className="tracking-wide font-montserrat text-darkBlueFont text-xxs md:text-xxs mb-1">
-          {name}
+          {pascalName}
         </p>
       </div>
 
@@ -119,9 +149,9 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               $ 5.80
             </h3>
             <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
-              Melt-in-your mouth and packed with chunks of chocolate goodness,
+              {/* Melt-in-your mouth and packed with chunks of chocolate goodness,
               our signature chocolate chip cookies are perfect if you are
-              looking to satisfy your sweet tooth!
+              looking to satisfy your sweet tooth! */}
             </p>
             <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
               All our cookies are baked to order and will be ready to be
