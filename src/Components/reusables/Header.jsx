@@ -20,28 +20,28 @@ const Header = ({ shoppingCart }) => {
         <Link
           to="/shop"
           style={{ textDecoration: "none" }}
-          className="mx-5 pb-2 border-b-2 border-transparent hover:border-gray-300 transition duration-700 ease-in-out"
+          className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
           <span>SHOP</span>
         </Link>
         <Link
           to="/about-us"
           style={{ textDecoration: "none" }}
-          className="mx-5 pb-2 border-b-2 border-transparent hover:border-gray-300 transition duration-700 ease-in-out"
+          className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
           <span>ABOUT US</span>
         </Link>
         <Link
           to="bulk-orders"
           style={{ textDecoration: "none" }}
-          className="mx-5 pb-2 border-b-2 border-transparent hover:border-gray-300 transition duration-700 ease-in-out"
+          className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
           <span>BULK ORDERS</span>
         </Link>
         <Link
           to="contact-us"
           style={{ textDecoration: "none" }}
-          className="mx-5 pb-2 border-b-2 border-transparent hover:border-gray-300 transition duration-700 ease-in-out"
+          className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
           <span>CONTACT US</span>
         </Link>
