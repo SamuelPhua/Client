@@ -125,12 +125,19 @@ const Checkout = ({
     setHasSubmitted(true);
   };
 
+  const handlePrevious = (event) => {
+    setStep((prevStep) => {
+      return prevStep - 1;
+    });
+  };
+
   const handleNext = (event) => {
     setStep((prevStep) => {
       return prevStep + 1;
     });
   };
 
+  console.log("checkout step", step);
   const checkStep = (currStep) => {
     if (currStep === step) return true;
   };
@@ -158,6 +165,7 @@ const Checkout = ({
           setShowShipAlert={setShowShipAlert}
           setShowNav={setShowNav}
           setShowFooter={setShowFooter}
+          handlePrevious={handlePrevious}
           handleNext={handleNext}
         />
       )}

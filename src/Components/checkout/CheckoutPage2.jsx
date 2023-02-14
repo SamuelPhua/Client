@@ -4,11 +4,13 @@ import CheckoutProgressBar from "./CheckoutProgressBar";
 import CheckoutDeliveryAddress from "./CheckoutDeliveryAddress";
 import CheckoutFooter from "./CheckoutFooter";
 import CheckoutCartTotal from "./CheckoutCartTotal";
+import { MdArrowBackIosNew } from "react-icons/md";
 
 const CheckoutPage2 = ({
   setShowShipAlert,
   setShowNav,
   setShowFooter,
+  handlePrevious,
   handleNext,
 }) => {
   return (
@@ -23,7 +25,17 @@ const CheckoutPage2 = ({
             {/* Checkout form - Delivery address */}
             <form>
               <CheckoutDeliveryAddress />
-              <div className="flex flex-row justify-end">
+              <div
+                className="flex flex-row justify-between items-center"
+                // onClick={handlePrevious}
+              >
+                <div
+                  className="flex flex-row text-darkBlueFont space-x-4 items-center cursor-pointer"
+                  onClick={handlePrevious}
+                >
+                  <MdArrowBackIosNew />
+                  <p>Back to previous</p>
+                </div>
                 <button
                   type="button"
                   id="cartDeliveryNext"
