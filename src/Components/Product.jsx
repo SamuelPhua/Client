@@ -36,6 +36,8 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     navigate("/shop");
   };
 
+  // Navigate to view cart page (view cart button in modal)
+
   ///////////////
   // custom Hook
   ///////////////
@@ -45,6 +47,17 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   // STATES
   ///////////
   const [productInfo, setProductInfo] = useState({});
+  const [optionExist, setOptionExist] = useState({
+    "100g": false,
+    "150g": false,
+    "200g": false,
+    "350g": false,
+  });
+  const [optionsClicked, setOptionsClicked] = useState({
+    weight: "100g",
+    packaging: "Kraft Pouch",
+  });
+  // const [price, setPrice] = useState("");
   const [displayedProductType, setDisplayedProductType] = useState("pouch");
   const [hasAdded, setHasAdded] = useState(false);
   const [cartInputs, setCartInputs] = useState({
@@ -71,9 +84,21 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     fetchData(fetchURL, fetchOptions);
   }, []);
 
+  const optionExists = (wgt, pkg) => {
+    // set display options for available weight and packaging in data
+  };
+
+  const resetPrice = (wgt, pkg) => {
+    // set price display on weight and packaing option changes
+  };
+
   useEffect(() => {
-    console.log(data);
+    // console.log(data);
+    // check for the options that exist
+
     setProductInfo(data);
+
+    // dependency: on data load + option change
   }, [data]);
 
   //////////////////
@@ -199,7 +224,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
       {productExists && isLoading && (
         <div className="text-center">
           {/* <LoadingSpinner /> */}
-          <h2>LOADING ...</h2>
+          <h2>LOADING COOKIE...</h2>
         </div>
       )}
       {!isLoading && error && <p> {error}</p>}
