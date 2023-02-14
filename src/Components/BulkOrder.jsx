@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Banner from "./reusables/Banner";
-import Button from "./reusables/OrangeButton";
+import Button from "./reusables/ButtonOrange";
 
 const BulkOrder = () => {
   // Navigate to the contact us page

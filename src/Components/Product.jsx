@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import useFetch from "../customHooks/useFetch";
 import { useParams, useNavigate } from "react-router-dom";
 import { productImages } from "../Varlables/Constants";
-import OrangeButton from "../Components/reusables/OrangeButton";
+import ButtonOrange from "./reusables/ButtonOrange";
 
 const Product = ({ shoppingCart, handleAddToCart }) => {
   /////////////////////////
@@ -182,7 +182,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               <h2>display quantity</h2>
 
               {/* #5 Add to cart button */}
-              <OrangeButton
+              <ButtonOrange
                 displayName={"ADD TO CART"}
                 width="10rem"
                 onClick={handleAddToCartButton}

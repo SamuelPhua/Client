@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 // Start of CSS Stuff:
 import placeholderImg from "../assets/imagesAboutUs/CartPage-KraftPouch.jpg";
 
-import Button from "./reusables/OrangeButton";
+import Button from "./reusables/ButtonOrange";
 import CartProduct from "./CartProduct";
 import DataContext from "./context/DataContext";
 
