@@ -28,42 +28,6 @@ const Checkout = ({
 }) => {
   const { fetchData, isLoading, data, error } = useFetch();
   const [hasSubmitted, setHasSubmitted] = useState(false);
-  // const [checkoutInputs, setCheckoutInputs] = useState({
-  //   firstName: "Mervin",
-  //   lastName: "Ng",
-  //   email: "mervin.test@mail.com",
-  //   phone: "+65 4321 0987",
-  //   deliveryMethod: "express",
-  //   address: "General assembly Road",
-  //   apartment: "20-02",
-  //   postalCode: "123456",
-  //   deliveryCountry: "Singapore",
-  //   orderCurrency: "SGD",
-  //   discountCode: "123456",
-  //   deliveryCharge: "1.00",
-  //   checkoutAmount: "60.00",
-  //   paymentMethod: "Paylah",
-  //   paymentAmount: "61.00",
-  //   orderStatus: "confirmed",
-    // cart: [
-    //   {
-    //     name: "Chocolate Chip Cookies",
-    //     weight: "100g",
-    //     packaging: "Kraft pouch",
-    //     price: "5.80",
-    //     quantity: "1",
-    //     itemTotal: "5.80",
-    //   },
-  //     {
-  //       name: "Macademia Chocolate Cookies",
-  //       weight: "200g",
-  //       packaging: "Bottle",
-  //       price: "9.30",
-  //       quantity: "2",
-  //       itemTotal: "18.60",
-  //     },
-  //   ],
-  // });
 
   useEffect(() => {
     // setShowShipAlert(false);
@@ -125,12 +89,19 @@ const Checkout = ({
     setHasSubmitted(true);
   };
 
+  const handlePrevious = (event) => {
+    setStep((prevStep) => {
+      return prevStep - 1;
+    });
+  };
+
   const handleNext = (event) => {
     setStep((prevStep) => {
       return prevStep + 1;
     });
   };
 
+  console.log("checkout step", step);
   const checkStep = (currStep) => {
     if (currStep === step) return true;
   };
@@ -138,6 +109,7 @@ const Checkout = ({
   return (
     <DataContext.Provider
       value={{
+        step,
         checkoutInput,
         handleInputChange,
         shoppingCart,
@@ -157,6 +129,7 @@ const Checkout = ({
           setShowShipAlert={setShowShipAlert}
           setShowNav={setShowNav}
           setShowFooter={setShowFooter}
+          handlePrevious={handlePrevious}
           handleNext={handleNext}
         />
       )}

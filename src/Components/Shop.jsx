@@ -1,16 +1,31 @@
 import React from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { images, description } from "../Varlables/Constants";
 import Banner from "./reusables/Banner";
+import useFetch from "../customHooks/useFetch";
 
 const numberOfImages = 17;
 
 function Shop() {
   const navigate = useNavigate();
+  const { fetchData, isLoading, data, error } = useFetch();
 
   const navigateToProduct = (productName) => {
     navigate(`/product/${productName}`);
   };
+
+  useEffect(() => {
+    const fetchUrl = "http://127.0.0.1:5001/products/getAllProduct";
+    const fetchOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    fetchData(fetchUrl, fetchOptions);
+  }, []);
 
   return (
     <div className="motion-safe:animate-fadeIn">
@@ -46,3 +61,5 @@ function Shop() {
 }
 
 export default Shop;
+
+
