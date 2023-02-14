@@ -5,9 +5,9 @@ import { productImages } from "../Varlables/Constants";
 import ButtonOrange from "./reusables/ButtonOrange";
 
 const Product = ({ shoppingCart, handleAddToCart }) => {
-  /////////////////////////
-  // route const variables
-  /////////////////////////
+  ///////////////////
+  // const variables
+  ///////////////////
   // params :name to get cookie product
   const { name } = useParams(); // name w/ all CAPS
   const toPascalCase = (str) => {
@@ -20,12 +20,6 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   };
   const pascalName = toPascalCase(name); // name w/ Capital Convention
 
-  // Navigate back to the shop all page
-  const navigate = useNavigate();
-  const navigateToShop = () => {
-    navigate("/shop");
-  };
-
   // check if product exists
   let productExists = false;
   // console.log(Object.keys(productImages));
@@ -36,6 +30,12 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     }
   }
 
+  // Navigate back to the shop all page
+  const navigate = useNavigate();
+  const navigateToShop = () => {
+    navigate("/shop");
+  };
+
   ///////////////
   // custom Hook
   ///////////////
@@ -44,6 +44,18 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   ///////////
   // STATES
   ///////////
+  const [productInfo, setProductInfo] = useState({
+    name: "",
+    description: "",
+    about: {
+      ingredients: "",
+      allergens: "",
+      packaging: "",
+      storage: "",
+    },
+    price: { _id: false, weight: "", packaging: "", sgdPrice: 0 },
+    image: { _id: false, packaging: "", imageSrc: "" },
+  });
   const [displayedProductType, setDisplayedProductType] = useState("pouch");
   const [hasAdded, setHasAdded] = useState(false);
   const [cartInputs, setCartInputs] = useState({
@@ -68,11 +80,16 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     };
 
     fetchData(fetchURL, fetchOptions);
+    fillProductInfo();
   }, []);
 
   //////////////////
   // event handlers
   //////////////////
+  const fillProductInfo = () => {
+    setProductInfo(data);
+  };
+
   // handle toggled selection of cookie type display
   const handleProductSelection = (event) => {
     event.preventDefault();
@@ -114,7 +131,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
       </div>
 
       {/* #2 flex div */}
-      {productExists && (
+      {productExists && data.length > 0 && (
         <div className="flex flex-wrap w-7/10 mx-auto mt-10">
           {/* #3 LEFT: Cookie displays */}
           <div className="w-5/12">
@@ -146,7 +163,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               {name}
             </h2>
             <h3 className="tracking-wide text-left font-montserrat text-darkBlueFont text-3xl md:text-3xl mb-8">
-              $ 5.80
+              $ {data.price.sgdPrice}
             </h3>
             <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
               {/* Melt-in-your mouth and packed with chunks of chocolate goodness,
