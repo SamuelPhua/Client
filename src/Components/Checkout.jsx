@@ -45,15 +45,15 @@ const Checkout = ({
   //   paymentMethod: "Paylah",
   //   paymentAmount: "61.00",
   //   orderStatus: "confirmed",
-    // cart: [
-    //   {
-    //     name: "Chocolate Chip Cookies",
-    //     weight: "100g",
-    //     packaging: "Kraft pouch",
-    //     price: "5.80",
-    //     quantity: "1",
-    //     itemTotal: "5.80",
-    //   },
+  // cart: [
+  //   {
+  //     name: "Chocolate Chip Cookies",
+  //     weight: "100g",
+  //     packaging: "Kraft pouch",
+  //     price: "5.80",
+  //     quantity: "1",
+  //     itemTotal: "5.80",
+  //   },
   //     {
   //       name: "Macademia Chocolate Cookies",
   //       weight: "200g",
@@ -125,12 +125,19 @@ const Checkout = ({
     setHasSubmitted(true);
   };
 
+  const handlePrevious = (event) => {
+    setStep((prevStep) => {
+      return prevStep - 1;
+    });
+  };
+
   const handleNext = (event) => {
     setStep((prevStep) => {
       return prevStep + 1;
     });
   };
 
+  console.log("checkout step", step);
   const checkStep = (currStep) => {
     if (currStep === step) return true;
   };
@@ -138,6 +145,7 @@ const Checkout = ({
   return (
     <DataContext.Provider
       value={{
+        step,
         checkoutInput,
         handleInputChange,
         shoppingCart,
@@ -157,6 +165,7 @@ const Checkout = ({
           setShowShipAlert={setShowShipAlert}
           setShowNav={setShowNav}
           setShowFooter={setShowFooter}
+          handlePrevious={handlePrevious}
           handleNext={handleNext}
         />
       )}
