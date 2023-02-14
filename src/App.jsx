@@ -15,6 +15,7 @@ import Checkout from "./Components/Checkout";
 import BulkOrder from "./Components/BulkOrder";
 import Cart from "./Components/Cart";
 import DataContext from "./Components/context/DataContext";
+import CheckoutPage1 from "./Components/checkout/CheckoutPage1";
 
 function App() {
   const [showShipAlert, setShowShipAlert] = useState(true);
@@ -83,7 +84,7 @@ function App() {
           <Route
             path="checkout"
             element={
-              <Checkout
+              <CheckoutPage1
                 setShowShipAlert={setShowShipAlert}
                 setShowNav={setShowNav}
                 setShowFooter={setShowFooter}
