@@ -18,7 +18,11 @@ const CheckoutPaymentMethod = () => {
         <p className="text-slate-700 mb-2">Select Payment Method</p>
         <div className="grid grid-cols-3 gap-2">
           {/* Paynow */}
-          <div className="border-[1px] rounded-md py-2">
+          <div
+            className={`border-[1px] rounded-md py-2 ${
+              checkoutInput.paymentMethod === "paynow" ? "bg-gray-300" : ""
+            }`}
+          >
             <input
               type="radio"
               id="paynow"
@@ -34,7 +38,11 @@ const CheckoutPaymentMethod = () => {
           </div>
 
           {/* Credit card */}
-          <div className="border-[1px] rounded-md py-2">
+          <div
+            className={`border-[1px] rounded-md py-2 ${
+              checkoutInput.paymentMethod === "creditCard" ? "bg-gray-300" : ""
+            }`}
+          >
             <input
               type="radio"
               id="creditCard"
@@ -50,7 +58,11 @@ const CheckoutPaymentMethod = () => {
           </div>
 
           {/* Alipay */}
-          <div className="border-[1px] rounded-md py-2">
+          <div
+            className={`border-[1px] rounded-md py-2 ${
+              checkoutInput.paymentMethod === "alipay" ? "bg-gray-300" : ""
+            }`}
+          >
             <input
               type="radio"
               id="alipay"
