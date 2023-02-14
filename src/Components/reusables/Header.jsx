@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-const Header = () => {
+const Header = ({ shoppingCart }) => {
   return (
     <div className="header text-darkBlueFont text-montserrat text-xxs flex flex-row justify-around my-5">
       <Link to="/">
@@ -17,37 +17,47 @@ const Header = () => {
       </Link>
 
       <div className="headerLeft flex flex-row justify-between items-center tracking-widest">
-        <Link to="/shop" style={{ textDecoration: "none" }} className="pl-10">
+        <Link
+          to="/shop"
+          style={{ textDecoration: "none" }}
+          className="mx-5 pb-2 border-b-4 border-transparent hover:border-gray-300 transition duration-700 ease-in-out"
+        >
           <span>SHOP</span>
         </Link>
         <Link
           to="/about-us"
           style={{ textDecoration: "none" }}
-          className="pl-10"
+          className="mx-5 pb-2 border-b-4 border-transparent hover:border-gray-300 transition duration-700 ease-in-out"
         >
           <span>ABOUT US</span>
         </Link>
         <Link
           to="bulk-orders"
           style={{ textDecoration: "none" }}
-          className="pl-10"
+          className="mx-5 pb-2 border-b-4 border-transparent hover:border-gray-300 transition duration-700 ease-in-out"
         >
           <span>BULK ORDERS</span>
         </Link>
         <Link
           to="contact-us"
           style={{ textDecoration: "none" }}
-          className="pl-10"
+          className="mx-5 pb-2 border-b-4 border-transparent hover:border-gray-300 transition duration-700 ease-in-out"
         >
           <span>CONTACT US</span>
         </Link>
         <Link
           to="/cart"
           style={{ textDecoration: "none" }}
-          className="pl-10 text-2xl"
+          className="relative pl-10 text-2xl pb-3 "
         >
-          <span>
-            <AiOutlineShoppingCart />
+          <span
+            className={
+              shoppingCart.length > 0
+                ? "after:block after:w-3 after:h-3 after:bg-red-500 after:absolute after:rounded-[50%] after:bottom-3 after:left-14"
+                : ""
+            }
+          >
+            <AiOutlineShoppingCart className="text-2xl" />
           </span>
         </Link>
       </div>

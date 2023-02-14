@@ -65,7 +65,7 @@ function App() {
     >
       <div className="App">
         {showShipAlert && <ShippingAlert />}
-        {showNav && <Header />}
+        {showNav && <Header shoppingCart={shoppingCart} />}
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="shop" element={<Shop />}></Route>
@@ -78,7 +78,14 @@ function App() {
           <Route path="contact-us" element={<ContactUs />}></Route>
           <Route
             path="cart"
-            element={<Cart shoppingCart={shoppingCart} />}
+            element={
+              <Cart
+                shoppingCart={shoppingCart}
+                setShowShipAlert={setShowShipAlert}
+                setShowNav={setShowNav}
+                setShowFooter={setShowFooter}
+              />
+            }
           ></Route>
           <Route path="faq" element={<FAQ />}></Route>
           <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>

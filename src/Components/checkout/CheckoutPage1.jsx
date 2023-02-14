@@ -44,7 +44,7 @@ const CheckoutPage1 = ({
                   type="button"
                   id="cartContactNext"
                   onClick={handleNext}
-                  className=" text-white text-xxxs bg-orange focus:outline-none focus:ring-2 hover:bg-darkOrange focus:bg-darkOrange rounded-full  py-3 lg:w-fit px-8"
+                  className=" text-white text-xxxs bg-orange focus:outline-none  hover:bg-darkOrange focus:bg-darkOrange rounded-full  py-3 lg:w-fit px-8"
                 >
                   NEXT
                 </button>

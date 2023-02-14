@@ -22,7 +22,7 @@ const CheckoutPage3 = ({
             <span className="cursor-pointer">Back to merchant</span>
           </Link>
 
-          <div className="text-center flex justify-center absolute top-1/2 -translate-y-2/4 left-1/2 -translate-x-2/4">
+          <div className="text-center flex justify-center absolute top-1/2 -translate-y-3/4 left-1/2 -translate-x-2/4">
             <CheckoutPaymentTotal />
           </div>
         </div>

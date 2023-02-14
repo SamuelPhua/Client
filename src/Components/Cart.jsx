@@ -7,8 +7,19 @@ import ButtonOrange from "./reusables/ButtonOrange";
 import CartProduct from "./CartProduct";
 import DataContext from "./context/DataContext";
 
-const Cart = ({ shoppingCart }) => {
+const Cart = ({
+  shoppingCart,
+  setShowShipAlert,
+  setShowNav,
+  setShowFooter,
+}) => {
   const data = useContext(DataContext);
+
+  useEffect(() => {
+    setShowShipAlert(true);
+    setShowNav(true);
+    setShowFooter(true);
+  }, []);
   /*
    ** Functionality of the cart must check if the items added to Cart have any stock from Product Page
    ** We are able to edit the quantity of the added items
@@ -134,7 +145,7 @@ const Cart = ({ shoppingCart }) => {
       <div className="w-11/12 grid grid-cols-7 p-10">
         <div className="col-start-1 col-end-9 flex justify-start items-center ml-10">
           <div className="text-[1.2rem] font-montserrat text-lightBlue">
-            Note: As out Bakes are baked to order with love, please allow 3-5
+            Note: As our Bakes are baked to order with love, please allow 3-5
             days buffer for both delivery or self collection.
           </div>
         </div>
