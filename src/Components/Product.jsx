@@ -6,6 +6,7 @@ import { productImages } from "../Varlables/Constants";
 import ButtonOrange from "./reusables/ButtonOrange";
 import ButtonWhite from "./reusables/ButtonWhite";
 import ButtonSelected from "./reusables/ButtonSelected";
+import ButtonDisabled from "./reusables/ButtonDisabled";
 import ButtonAddMinus from "./reusables/ButtonAddMinus";
 
 const Product = ({ shoppingCart, handleAddToCart }) => {
@@ -27,33 +28,40 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
 
   // TODO - Add function to check if product exists in database
 
-  function displayedOptions(loadedData) {
+  function displayedOptions() {
     // set display options for available weight and packaging in data
-    const newWeightOptions = {};
-    const newPackagingOptions = {};
-    loadedData.price.map((option) => {
-      if (Object.keys(weightOptions).includes(option.weight)) {
-        newWeightOptions[option.weight] = true;
-      }
-      // TODO - sort in increasing weight options
-      if (Object.keys(packagingOptions).includes(option.packaging)) {
-        newPackagingOptions[option.packaging] = true;
-      }
+    const newWeightOptions = {
+      "100g": false,
+      "150g": false,
+      "200g": false,
+      "350g": false,
+    };
+    const newPackagingOptions = {
+      "Kraft Pouch": false,
+      Bottle: false,
+    };
+
+    data.price.map((pairing) => {
+      console.log(pairing);
+      // match clicked option with each pairing option to set other option true
+      if (pairing.weight === optionsClicked.weight)
+        newPackagingOptions[pairing.packaging] = true;
+
+      if (pairing.packaging === optionsClicked.packaging)
+        newWeightOptions[pairing.weight] = true;
     });
+    console.log("new weight options", newWeightOptions);
     setWeightOptions(newWeightOptions);
     setPackagingOptions(newPackagingOptions);
   }
 
   function getCurrentInfo(wgt, pkg) {
     // set price display on weight and packaing option changes
-    console.log("get current info on option update:", wgt, pkg);
     // 1. loop through data.price (array of objects)
     let optionPrice = 0;
     data.price.map((optionGroup) => {
       // 2. if data.price.weight === wgt && data.price.packaging === pkg
       if (optionGroup.weight === wgt && optionGroup.packaging === pkg) {
-        console.log("option group:", optionGroup);
-        console.log(wgt, pkg, "is", true, ". Price is:", optionGroup.sgdPrice);
         return (optionPrice = optionGroup.sgdPrice);
       }
     });
@@ -141,7 +149,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     // a. check for the options that exist
     if (isObject(data)) {
       // b. set displayedOptions => changes to optionsClicked as well => triggers useEffect #3
-      displayedOptions(data);
+      displayedOptions();
 
       // c. get price and option's product image
       // this compares the selected weight + packaging options and generate new price and product image
@@ -166,6 +174,9 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     // checks if data is not null
     if (isObject(data)) {
       console.log("checking options...", optionsClicked);
+      // repeat: reset displayed available options
+      displayedOptions();
+
       // repeat: reset current info
       getCurrentInfo(optionsClicked.weight, optionsClicked.packaging);
 
@@ -178,6 +189,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
         };
       });
     }
+    console.log("optionsClicked useEffect");
   }, [optionsClicked]);
 
   //////////////////
@@ -305,6 +317,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
             {/* buttons for weight options */}
             <div className="flex flex-wrap mb-8">
               {Object.entries(weightOptions).map((option, ind) => {
+                // if option is true and price != 0
                 if (option[1]) {
                   if (option[0] === optionsClicked.weight) {
                     return (
@@ -331,6 +344,18 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                       />
                     );
                   }
+                  // if option does not exist
+                } else {
+                  return (
+                    <ButtonDisabled
+                      key={ind}
+                      displayName={option[0]}
+                      category="weight"
+                      width="5rem"
+                      padding="0.2rem"
+                      margin="0.1rem 0.5rem 0.1rem 0"
+                    />
+                  );
                 }
               })}
             </div>
@@ -368,6 +393,17 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                       />
                     );
                   }
+                } else {
+                  return (
+                    <ButtonDisabled
+                      key={ind}
+                      displayName={option[0]}
+                      category="packaging"
+                      width="10rem"
+                      padding="0.2rem"
+                      margin="0.1rem 0.5rem 0.1rem 0"
+                    />
+                  );
                 }
               })}
             </div>
