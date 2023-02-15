@@ -46,7 +46,7 @@ function Shop() {
             >
               <img
                 src={images[i]}
-                className="w-48 h-48 mx-auto"
+                className="w-48 h-48 mx-auto zoom"
                 onClick={() => navigateToProduct(description[i])}
               />
               <p
