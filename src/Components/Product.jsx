@@ -163,11 +163,8 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
         description: data.description.split("\n"),
         about: data.about,
         price: unitPrice,
-        weight: optionsClicked.weight,
-        packaging: optionsClicked.packaging,
-        // can change to image from database if it's done
-        quantity: 1,
         image: productImage, // this returns the location (url) within the src/assets folder, still need to import productImages from Variables/Constants
+        // can change to image from database if it's done
       });
     }
     // dependency: on data load + option change
@@ -187,9 +184,6 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
         return {
           ...prevProductInfo,
           price: unitPrice,
-          weight: optionsClicked.weight,
-          packaging: optionsClicked.packaging,
-          quantity: optionsClicked.quantity,
           image: productImage,
         };
       });
@@ -241,10 +235,10 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     handleAddToCart({
       name: productInfo.name,
       price: productInfo.price,
-      weight: productInfo.weight,
-      packaging: productInfo.packaging,
-      quantity: productInfo.quantity,
       image: productInfo.image,
+      weight: optionsClicked.weight,
+      packaging: optionsClicked.packaging,
+      quantity: optionsClicked.quantity,
     });
   };
 
@@ -298,7 +292,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               {name}
             </h2>
             <h3 className="tracking-wide text-left font-montserrat text-darkBlueFont text-3xl md:text-3xl mb-8">
-              $ {productInfo.price}
+              $ {unitPrice}
             </h3>
 
             {/* display for product description */}
