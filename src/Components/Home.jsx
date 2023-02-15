@@ -1,9 +1,10 @@
-import React from "react";
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            import React from "react";
+
 const Home = () => {
   return (
     <>
       <div>
-        <div className="navBAR"></div>
+        <div className="navBAR"></div>                                                                                                                                                                                                                                                              
         <div className="banner4">
           <video
             playsInline
@@ -45,11 +46,11 @@ const Home = () => {
           </div>
         </div>
 
-        <div class="Custom-Orders">
-          <h1 class="space-y-4 text-center">Custom Orders</h1>
+        <div className="Custom-Orders">
+          <h1 className="space-y-4 text-center">Custom Orders</h1>
 
-          <div class="customOrders-div flex space-x-4 ">
-            <div class="text pt-36 pl-20 ">
+          <div className="customOrders-div flex space-x-4 ">
+            <div className="text pt-36 pl-20 ">
               <h6>
                 Have a special occassion or event that you need
                 <br />
@@ -64,10 +65,10 @@ const Home = () => {
               <button>Read More</button>
             </div>
 
-            <div class="image">
+            <div className="image">
               <img
                 src="src\assets\imagesHome\Home-FPJars.jpg"
-                class="rounded-full w-90"
+                className="rounded-full w-90"
               />
             </div>
           </div>

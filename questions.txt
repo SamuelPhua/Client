@@ -11,3 +11,13 @@
 // Enquiry form
 
 - Check what should be inside the enquiry form
+
+
+
+
+------------------------- DAPHNE ---------------------
+// Shop All -> Single Product page
+call singleProduct API with ID in useEffect() - no dependency required
+
+useEffect(()=> { fetchData(url)}, [])
+
