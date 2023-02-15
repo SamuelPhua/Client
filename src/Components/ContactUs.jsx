@@ -25,7 +25,7 @@ const ContactUs = () => {
     <DataContext.Provider value={{ setPageIsOpaque, setDisplayPopup }}>
       <div className="relative">
         {displayPopup && (
-          <div className="absolute ml-[35rem] mt-[30rem] flex justify-center items-center z-10">
+          <div className="motion-safe:animate-fadeIn absolute ml-[35rem] mt-[30rem] flex justify-center items-center z-10">
             <div className="w-6/6 h-2/3 bg-white border-8 border-white rounded-3xl p-10">
               <div className="flex justify-center items-center">
                 <img className="w-[100px] h-[100px]" src={envelope} />
