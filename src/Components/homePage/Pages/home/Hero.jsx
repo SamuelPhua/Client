@@ -1,5 +1,6 @@
 import React from "react";
 import background from "../../Assets/Images/home-image/Hero-Banner-1.jpg";
+import {Link} from "react-router-dom"
 
  const Hero = () => {
   return (
@@ -17,9 +18,9 @@ import background from "../../Assets/Images/home-image/Hero-Banner-1.jpg";
             Our cookies are handcrafted and baked with love! <br /> Different on
             the outside, goodness within!
           </p>
-          <button className="text-white bg-[#FF7C40] hover:bg-[#FF6347]  rounded-full px-14 py-6 text-xl font-bold">
+         <Link to="/shop" ><button className="text-white bg-[#FF7C40] hover:bg-[#FF6347]  rounded-full px-14 py-6 text-xl font-bold" >
             SHOP NOW
-          </button>
+          </button ></Link>
         </div>
       </div>
     </div>

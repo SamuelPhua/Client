@@ -8,7 +8,7 @@ const Heading1 = () => {
           src="src/assets/imagesContactUs/Contact-LocationIcon.png"
           className="w-28 h-24 -rotate-12"
         ></img>
-        <span className="text-4xl font-permanentMarker text-darkBlueFont">
+        <span className="text-4xl font-permanentMarker text-darkBlueFont font-thin">
           LOCATE US
         </span>
       </div>

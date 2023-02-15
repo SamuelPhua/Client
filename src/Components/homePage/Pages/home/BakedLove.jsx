@@ -2,18 +2,20 @@ import React from "react";
 import cookieBackgroundOrange from "../../Assets/Images/home-image/Home-BakedWithLoveOrangeWave.png";
 import coral from "../../Assets/Images/home-image/Home-Coral.png";
 import ingredients from "../../Assets/Images/home-image/Home-Ingredients.png";
-import love from '../../Assets/Images/home-image/Home-Heart.png';
-import packaging from '../../Assets/Images/home-image/Home-Packaging.png';
-import recepie from '../../Assets/Images/home-image/Home-Recipes.png';
-import "./Home.css"
+import love from "../../Assets/Images/home-image/Home-Heart.png";
+import packaging from "../../Assets/Images/home-image/Home-Packaging.png";
+import recepie from "../../Assets/Images/home-image/Home-Recipes.png";
+import "./Home.css";
 
- const BakedLove = () => {
+const BakedLove = () => {
   return (
     <div className="">
-      <div
-        className="relative min-h-screen"
-      >
-        <img src={cookieBackgroundOrange} className="absolute w-full h-full z-[-1]" alt="bg"  />
+      <div className="relative min-h-screen font-montserrat">
+        <img
+          src={cookieBackgroundOrange}
+          className="absolute w-full h-full z-[-1]"
+          alt="bg"
+        />
         <div className="relative z-10 w-full h-full">
         <h1 className="bounce text-center uppercase pt-24 text-[#3670AD]  text-5xl pb-6 tracking-wider font-['Permanent_Marker'] ">
     Baked With Love</h1>  
@@ -70,7 +72,6 @@ import "./Home.css"
               <p className="absolute w-[191px] text-xs font-medium tracking-wider -right-56 top-32">We are constantly improving our recipes to bring you the best quality bakes possible. </p>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </div>

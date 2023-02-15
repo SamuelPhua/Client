@@ -1,15 +1,15 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { images, description } from "../Varlables/Constants";
 import Banner from "./reusables/Banner";
 import useFetch from "../customHooks/useFetch";
 
-const numberOfImages = 17;
+const numberOfImages = 12;
 
 function Shop() {
   const navigate = useNavigate();
   const { fetchData, isLoading, data, error } = useFetch();
+  const [showName, setShowName] = useState("");
 
   const navigateToProduct = (productName) => {
     navigate(`/product/${productName}`);
@@ -27,6 +27,11 @@ function Shop() {
     fetchData(fetchUrl, fetchOptions);
   }, []);
 
+  useEffect(() => {
+    console.log(data);
+    setShowName(data);
+  }, [data]);
+
   return (
     <div className="motion-safe:animate-fadeIn">
       <Banner
@@ -42,19 +47,24 @@ function Shop() {
           return (
             <div
               key={imageNumber}
-              className="items-center cursor-pointer p-8 rounded-lg hover:bg-slate-200 transition duration-1000 ease-in-out"
+              className="items-center cursor-pointer p-8 rounded-lg transition duration-1000 ease-in-out"
             >
               <img
                 src={images[i]}
-                className="w-48 h-48 mx-auto zoom"
+                className="w-48 h-48 mx-auto mb-8 zoom"
                 onClick={() => navigateToProduct(description[i])}
               />
-              <p
-                className="text-darkBlueFont mt-4 text-center"
-                onClick={() => navigateToProduct(description[i])}
-              >
-                {description[i]}
-              </p>
+              {data && data[i] ? (
+                <p
+                  key={imageNumber}
+                  className="text-darkBlueFont font-montserrat tracking-wider mt-4 text-center"
+                  onClick={() => navigateToProduct(data[i].name)}
+                >
+                  {data[i].name.toUpperCase()}
+                </p>
+              ) : (
+                <p>Loading...</p>
+              )}
             </div>
           );
         })}
@@ -64,5 +74,3 @@ function Shop() {
 }
 
 export default Shop;
-
-

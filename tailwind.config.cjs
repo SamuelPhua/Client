@@ -26,12 +26,14 @@ module.exports = {
         darkBlue: "#2D65A2",
         lightBlue: "#3670AD",
         darkBlueFont: "#2A64A0",
-        buttonHoverOrange: "#F7C8B2",
+        infoBgOrange: "#f9ae54",
+        buttonHoverOrange: "#F8D8C7", // 248, 216, 199
         lightOrange: "#FFF6E8",
         orange: "#F7921B",
         darkOrange: "#FF7C40",
         lightGreen: "#C1DAD7",
         lightGrey: "#484848",
+        greyPlaceholder: "#969292"
       },
       textUnderlineOffset: {
         22: "22px",

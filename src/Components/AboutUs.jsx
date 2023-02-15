@@ -39,8 +39,11 @@ const AboutUs = () => {
         </div>
 
         <div className="basis-1/2 mt-[100px]">
-          <div className="mb-8 text-sm font-permanentMarker text-darkBlue text-left underline underline-offset-22 decoration-orange">
-            Cookie Crafters
+          <div className="mb-8 text-sm font-permanentMarker text-darkBlue text-left">
+            <span className="underline underline-offset-22 decoration-orange">
+              Cookie Crafte
+            </span>
+            rs
           </div>
 
           <div className="mb-3 w-5/6 text-xs font-montserrat text-lightBlue text-left leading-7">
@@ -57,8 +60,11 @@ const AboutUs = () => {
       {/* Inclusive Hiring */}
       <div className="mt-[-350px] ml-[220px] w-6/6 flex h-screen justify-center">
         <div className="basis-1/2 mt-[110px]">
-          <div className="mb-8 text-sm font-permanentMarker text-darkBlue text-left underline underline-offset-22 decoration-orange">
-            Inclusive Hiring
+          <div className="mb-8 text-sm font-permanentMarker text-darkBlue text-left">
+            <span className="underline underline-offset-22 decoration-orange">
+              Inclusive Hiri
+            </span>
+            ng
           </div>
 
           <div className="mb-3 w-5/6 text-xs font-montserrat text-lightBlue text-left leading-7">
@@ -83,8 +89,11 @@ const AboutUs = () => {
         </div>
 
         <div className="basis-1/2 mt-[60px]">
-          <div className="mb-8 text-sm font-permanentMarker text-darkBlue text-left underline underline-offset-22 decoration-orange">
-            Training and Workshops
+          <div className="mb-8 text-sm font-permanentMarker text-darkBlue text-left">
+            <span className="underline underline-offset-22 decoration-orange">
+              Training and Works
+            </span>
+            hops
           </div>
 
           <div className="mb-3 w-5/6 text-xs font-montserrat text-lightBlue text-left leading-7">
@@ -100,8 +109,12 @@ const AboutUs = () => {
       </div>
 
       {/* About Our Cookies */}
-      <div className="text-center mt-[-200px] text-sm font-permanentMarker text-darkBlue underline underline-offset-22 decoration-orange">
-        About Our Cookies
+      <div className="text-center mt-[-200px] text-sm font-permanentMarker text-darkBlue">
+        A
+        <span className="underline underline-offset-22 decoration-orange">
+          bout Our Cooki
+        </span>
+        es
       </div>
       <div className="mt-20 mb-20 ml-40 w-4/5 flex h-screen justify-center space-x-10">
         <div className="relative">
@@ -143,14 +156,22 @@ const AboutUs = () => {
         </div>
       </div>
       {/* As Featured On */}
-      <div className="mt-[-150px] text-center text-sm font-permanentMarker text-darkBlue underline underline-offset-22 decoration-orange">
-        As Featured On
+      <div className="mt-[-150px] text-center text-sm font-permanentMarker text-darkBlue">
+        A
+        <span className="underline underline-offset-22 decoration-orange">
+          s Featured O
+        </span>
+        n
       </div>
       <Carousel />
 
       {/* Our Past Clients */}
-      <div className="mt-[50px] text-center text-sm font-permanentMarker text-darkBlue underline underline-offset-22 decoration-orange">
-        Our Past clients
+      <div className="mt-[50px] text-center text-sm font-permanentMarker text-darkBlue">
+        O
+        <span className="underline underline-offset-22 decoration-orange">
+          ur Past Client
+        </span>
+        s
       </div>
       <div className="grid grid-cols-7 mt-20">
         <div className="col-start-2 flex justify-center items-center">
