@@ -7,6 +7,7 @@ import ButtonOrange from "./reusables/ButtonOrange";
 import ButtonWhite from "./reusables/ButtonWhite";
 import ButtonSelected from "./reusables/ButtonSelected";
 import ButtonAddMinus from "./reusables/ButtonAddMinus";
+import ProductPopup from "./ProductPopup";
 
 const Product = ({ shoppingCart, handleAddToCart }) => {
   /////////////
@@ -249,7 +250,16 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   };
 
   return (
-    <>
+    <div className="relative">
+      <div className="absolute">
+        <ProductPopup
+          productImage={productInfo.image}
+          name={productInfo.name}
+          packaging={productInfo.packaging}
+          weight={productInfo.weight}
+          quantity={productInfo.quantity}
+        />
+      </div>
       {/* #1 Shop > Cookie name links */}
       <div className="flex flex-wrap w-7/10 mx-auto mt-10">
         <p
@@ -469,7 +479,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
           Sorry, {name} is currently out of stock.
         </h2>
       )}
-    </>
+    </div>
   );
 };
 
