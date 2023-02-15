@@ -3,25 +3,18 @@ import { useNavigate } from "react-router-dom";
 import ButtonOrange from "./reusables/ButtonOrange";
 import CartProduct from "./CartProduct";
 
-
 const Cart = ({
   shoppingCart,
   setShowShipAlert,
   setShowNav,
   setShowFooter,
 }) => {
-  const data = useContext(DataContext);
-
   useEffect(() => {
     setShowShipAlert(true);
     setShowNav(true);
     setShowFooter(true);
   }, []);
 
-  const [cartItems, setCartItems] = useState([]);
-  // const [deleteFromCart, setDeleteFromCart] = useState([]);
-  const [count, setCount] = useState(1);
-  
   // Navigate to the checkout page
   const navigate = useNavigate();
   const navigateToCheckout = () => {
