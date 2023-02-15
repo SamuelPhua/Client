@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { images, description } from "../Varlables/Constants";
 import Banner from "./reusables/Banner";
@@ -10,6 +9,7 @@ const numberOfImages = 17;
 function Shop() {
   const navigate = useNavigate();
   const { fetchData, isLoading, data, error } = useFetch();
+  const [showName, setShowName] = useState("");
 
   const navigateToProduct = (productName) => {
     navigate(`/product/${productName}`);
@@ -22,10 +22,16 @@ function Shop() {
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringfy(data.name),
     };
 
     fetchData(fetchUrl, fetchOptions);
   }, []);
+
+  useEffect(() => {
+    console.log(data);
+    setShowName(data);
+  }, [data]);
 
   return (
     <div className="motion-safe:animate-fadeIn">
@@ -64,5 +70,3 @@ function Shop() {
 }
 
 export default Shop;
-
-
