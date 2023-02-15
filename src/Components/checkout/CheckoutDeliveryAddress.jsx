@@ -4,7 +4,7 @@ import DataContext from "../context/DataContext";
 const CheckoutDeliveryAddress = () => {
   const { checkoutInput, handleInputChange } = useContext(DataContext);
   return (
-    <div className=" text-darkBlueFont text-montserrat mb-10">
+    <div className=" text-darkBlueFont text-montserrat mb-5">
       <h1 className="tracking-widest text-2xl">Delivery Address</h1>
       <div className="flex flex-col">
         {/* Delivery country */}
@@ -78,7 +78,7 @@ const CheckoutDeliveryAddress = () => {
       </div>
 
       {/* Remarks */}
-      <p className="text-lightGrey/[0.75] text-smallNote mt-8">
+      <p className="text-lightGrey/[0.75] text-smallNote mt-4">
         To make payment, you will be redirected to HitPay Payment Gateway to
         complete your purchase securely to Flour Power under our Registered
         Business Name "Seeteey Pte Ltd".

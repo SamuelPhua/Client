@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ButtonOrange from "./reusables/ButtonOrange";
 import CartProduct from "./CartProduct";
+import { groupShoppingCart } from "../helper/groupShoppingCart";
 
 const Cart = ({
   shoppingCart,
@@ -14,6 +15,8 @@ const Cart = ({
     setShowNav(true);
     setShowFooter(true);
   }, []);
+
+  let groupedCart = groupShoppingCart(shoppingCart);
 
   // Navigate to the checkout page
   const navigate = useNavigate();
@@ -61,7 +64,7 @@ const Cart = ({
       </div>
 
       {/* Second Row */}
-      {shoppingCart.map((product, index) => {
+      {groupedCart.map((product, index) => {
         return <CartProduct key={index} {...product} index={index} />;
       })}
 

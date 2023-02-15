@@ -16,7 +16,7 @@ const CheckoutPaymentMethod = () => {
       {/* Customer email */}
       <div>
         <p className="text-slate-700 mb-2">Email</p>
-        <p>{checkoutInput.custEmail}</p>
+        <p>{checkoutInput.email}</p>
         <hr className="mb-6" />
       </div>
 
