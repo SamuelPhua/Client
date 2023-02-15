@@ -1,13 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import useFetch from "../../customHooks/useFetch";
-// import ButtonOrange from "../reusables/ButtonOrange";
-// import envelope from "../../assets/imagesContactUs/ContactSubmitted-FyingEnvelope.gif";
-
-// import { useNavigate } from "react-router-dom";
 import DataContext from "../context/DataContext";
 
 const ContactForm = () => {
-  const data = useContext(DataContext);
+  const contextData = useContext(DataContext);
   const initFormState = {
     firstName: "",
     lastName: "",
@@ -17,35 +13,52 @@ const ContactForm = () => {
   };
 
   // states
-  const { fetchData, isLoading, error } = useFetch();
+  const { fetchData, isLoading, data, error } = useFetch();
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [enquiryInput, setEnquiryInput] = useState(initFormState);
 
-  // // When "GOT IT!" button on popup is clicked, popup will close and will navigate back to "Contact Us" empty form, empty form opacity will be changed to normal
-  // const navigate = useNavigate();
-  // const navigateToContactUs = () => {
-  //   navigate("/contact-us");
-  //   setDisplayPopup(false);
-  //   data.setPageIsOpaque(false);
-  // };
-
   // PUT: when form is submitted
   useEffect(() => {
-    const MONGODB_CREATEENQUIRY_URI =
-      "http://127.0.0.1:5001/enquiryForm/createEnquiry";
-    const requestOptions = {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(enquiryInput),
+    const fetchFunction = async () => {
+      const MONGODB_CREATEENQUIRY_URI =
+        "http://127.0.0.1:5001/enquiryForm/createEnquiry";
+      const requestOptions = {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(enquiryInput),
+      };
+      console.log("contact form useEffect", enquiryInput);
+      await fetchData(MONGODB_CREATEENQUIRY_URI, requestOptions);
     };
-    console.log("contact form useEffect", enquiryInput);
-    fetchData(MONGODB_CREATEENQUIRY_URI, requestOptions);
-    setHasSubmitted(false);
-
-    setEnquiryInput((prevState) => {
-      return { ...prevState, ...initFormState };
-    });
+    if (enquiryInput.firstName) {
+      fetchFunction();
+      setHasSubmitted(false);
+      setEnquiryInput((prevState) => {
+        return { ...prevState, ...initFormState };
+      });
+    }
   }, [hasSubmitted]);
+
+  // if want to pop up error message in case of data not being posted successfully to db
+  // useEffect(() => {
+  //   if (error) {
+  //     contextData.setDisplayPopup(false);
+  //     contextData.setPageIsOpaque(false);
+  //   }
+  // }, [data]);
+
+  useEffect(() => {
+    if (data?.status === "OK") {
+      contextData.setDisplayPopup(true);
+      contextData.setPageIsOpaque(true);
+    }
+  }, [data]);
+
+  // When "Submit" button is clicked
+  const handleFormSubmission = (e) => {
+    e.preventDefault();
+    setHasSubmitted(true);
+  };
 
   // Control form input
   const handleInputChange = (e) => {
@@ -54,38 +67,8 @@ const ContactForm = () => {
     });
   };
 
-  // When "Submit" button is clicked, popup is triggered and displayed, state is set at parent level to make entire form opaque
-  const handleFormSubmission = (e) => {
-    e.preventDefault();
-    setHasSubmitted(true);
-    data.setDisplayPopup(true);
-    data.setPageIsOpaque(true);
-  };
-
   return (
     <div>
-      {/* {displayPopup && (
-        <div className="relative mx-auto flex justify-center items-center">
-          <div className="w-2/3 h-2/3 absolute">
-            <div className="flex justify-center items-center bg-white">
-              <img className="w-[100px] h-[100px]" src={envelope} />
-            </div>
-            <div className="font-permanentMarker text-center text-sm mb-1">
-              Thank you
-            </div>
-            <div className="text-grey text-[0.8rem] text-center font-montserrat">
-              Your message has been sent!
-            </div>
-            <div className="mt-[-1.5rem] flex justify-center items-center">
-              <ButtonOrange
-                displayName="GOT IT!"
-                onClick={navigateToContactUs}
-              />
-            </div>
-          </div>
-        </div>
-      )} */}
-
       <form
         id="contactForm"
         className="flex flex-col basis-1/2 tracking-wide font-montserrat text-darkBlueFont text-xs"

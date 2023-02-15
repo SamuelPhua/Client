@@ -36,7 +36,7 @@ const ContactUs = () => {
               <div className="text-grey text-[0.8rem] text-center font-montserrat">
                 Your message has been sent!
               </div>
-              <div className="w-6/6 h-2/3 bg-white p-10">
+              <div className="mt-[-1rem] ml-[1.8rem]">
                 <ButtonOrange
                   displayName="GOT IT!"
                   onClick={navigateToContactUs}
