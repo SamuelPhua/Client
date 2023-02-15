@@ -10,11 +10,6 @@ import image9 from "../assets/imagesShop/image9.png";
 import image10 from "../assets/imagesShop/image10.png";
 import image11 from "../assets/imagesShop/image11.png";
 import image12 from "../assets/imagesShop/image12.png";
-import image13 from "../assets/imagesShop/image13.png";
-import image14 from "../assets/imagesShop/image14.png";
-import image15 from "../assets/imagesShop/image15.png";
-import image16 from "../assets/imagesShop/image16.png";
-import image17 from "../assets/imagesShop/image17.jpg";
 
 // Product images for individual cookies
 import chocChipJar from "../assets/imagesProducts/ChocChip/Product-ChocChip-Jar.png";
@@ -46,11 +41,6 @@ export const images = [
   image10,
   image11,
   image12,
-  image13,
-  image14,
-  image15,
-  image16,
-  image17,
 ];
 
 export const description = [
@@ -66,11 +56,6 @@ export const description = [
   "WHITE ALMOND COOKIE",
   "FRENCH SABLE COOKIES",
   "GINGERBREAD MAN",
-  "XMAS FRUIT CAKE",
-  "EARL GREY CHIFFON CAKE",
-  "MOCHA CHIFFON CAKE",
-  "ROSE LYCHEE CHIFFON CAKE",
-  "BIG COOKIES BOX SET",
 ];
 
 export const productImages = {
