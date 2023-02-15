@@ -5,6 +5,7 @@ import { productImages } from "../Varlables/Constants";
 
 import ButtonOrange from "./reusables/ButtonOrange";
 import ButtonWhite from "./reusables/ButtonWhite";
+import ButtonSelected from "./reusables/ButtonSelected";
 import ButtonAddMinus from "./reusables/ButtonAddMinus";
 
 const Product = ({ shoppingCart, handleAddToCart }) => {
@@ -123,32 +124,6 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     setProductImage(productImages[name][pkg]);
   }
 
-  function displayParagraphs() {
-    return Object.values(productInfo.description).map((paragraph) => {
-      return (
-        <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
-          {paragraph}
-        </p>
-      );
-    });
-  }
-
-  function displayAbout() {
-    console.log(productInfo.about);
-    return Object.entries(productInfo.about).map((category) => {
-      return (
-        <div className="mb-4">
-          <p className="font-bold tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
-            {category[0]}
-          </p>
-          <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
-            {category[0]}
-          </p>
-        </div>
-      );
-    });
-  }
-
   ///////////
   // EFFECT
   ///////////
@@ -200,9 +175,10 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   };
 
   const handleOptionSelection = (event) => {
-    event.preventDefault();
-    console.log("changing options");
-    // setOptionsClicked();
+    console.log("changing options", event.target.id, event.target.name);
+    setOptionsClicked((prevOptionsClicked) => {
+      return { ...prevOptionsClicked, [event.target.name]: event.target.id };
+    });
     // getUnitPrice();
     // setProductInfo();
   };
@@ -283,7 +259,8 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               $ {productInfo.price}
             </h3>
 
-            {productInfo.description.map((paragraph, paraInd) => {
+            {/* display for product description */}
+            {/* {productInfo.description.map((paragraph, paraInd) => {
               return (
                 <p
                   key={paraInd}
@@ -292,8 +269,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                   {paragraph}
                 </p>
               );
-            })}
-
+            })} */}
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
               Weight
             </h5>
@@ -301,20 +277,32 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
             <div className="flex flex-wrap mb-8">
               {Object.entries(weightOptions).map((weightOption) => {
                 if (weightOption[1]) {
-                  return (
-                    <ButtonWhite
-                      displayName={weightOption[0]}
-                      width="5rem"
-                      padding="0.2rem"
-                      margin="0.1rem 0.5rem 0.1rem 0"
-                      onClick={handleOptionSelection}
-                      autofocus={weightOption[0] === optionsClicked.weight} // TODO - fix autofocus not displaying
-                    />
-                  );
+                  if (weightOption[0] === optionsClicked.weight) {
+                    return (
+                      <ButtonSelected
+                        displayName={weightOption[0]}
+                        category="weight"
+                        width="5rem"
+                        padding="0.2rem"
+                        margin="0.1rem 0.5rem 0.1rem 0"
+                        onClick={handleOptionSelection}
+                      />
+                    );
+                  } else {
+                    return (
+                      <ButtonWhite
+                        displayName={weightOption[0]}
+                        category="weight"
+                        width="5rem"
+                        padding="0.2rem"
+                        margin="0.1rem 0.5rem 0.1rem 0"
+                        onClick={handleOptionSelection}
+                      />
+                    );
+                  }
                 }
               })}
             </div>
-
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
               Packaging
             </h5>
@@ -322,20 +310,32 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
             <div className="flex flex-wrap mb-8">
               {Object.entries(packagingOptions).map((option) => {
                 if (option[1]) {
-                  return (
-                    <ButtonWhite
-                      displayName={option[0]}
-                      width="10rem"
-                      padding="0.2rem"
-                      margin="0.1rem 0.5rem 0.1rem 0"
-                      onClick={handleOptionSelection}
-                      autofocus={option[0] === optionsClicked.packaging} // TODO - set focus weight & packaging separately
-                    />
-                  );
+                  if (option[0] === optionsClicked.packaging) {
+                    return (
+                      <ButtonSelected
+                        displayName={option[0]}
+                        category="packaging"
+                        width="10rem"
+                        padding="0.2rem"
+                        margin="0.1rem 0.5rem 0.1rem 0"
+                        onClick={handleOptionSelection}
+                      />
+                    );
+                  } else {
+                    return (
+                      <ButtonWhite
+                        displayName={option[0]}
+                        category="packaging"
+                        width="10rem"
+                        padding="0.2rem"
+                        margin="0.1rem 0.5rem 0.1rem 0"
+                        onClick={handleOptionSelection}
+                      />
+                    );
+                  }
                 }
               })}
             </div>
-
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
               Quantity
             </h5>
@@ -373,9 +373,8 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                 />
               </div>
             </div>
-
-            {/* display about cookie */}
-            {Object.entries(productInfo.about).map((category) => {
+            {/* display about product */}
+            {/* {Object.entries(productInfo.about).map((category) => {
               return (
                 <div className="mb-4">
                   <p className="font-bold tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
@@ -386,10 +385,11 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                   </p>
                 </div>
               );
-            })}
+            })} */}
           </div>
         </div>
       )}
+
       {productExists && isLoading && (
         <div className="text-center">
           {/* <LoadingSpinner /> */}
