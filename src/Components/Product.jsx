@@ -119,9 +119,6 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   const [productImage, setProductImage] = useState(
     productImages[name][optionsClicked.packaging]
   );
-  const [displayedProductType, setDisplayedProductType] = useState(
-    optionsClicked.packaging
-  );
   // cart states:
   const [hasAdded, setHasAdded] = useState(false);
   const [cartInputs, setCartInputs] = useState({
@@ -130,6 +127,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     weight: "",
     packaging: "",
     quantity: 0,
+    image: "",
   });
 
   ///////////
@@ -168,6 +166,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
         weight: optionsClicked.weight,
         packaging: optionsClicked.packaging,
         // can change to image from database if it's done
+        quantity: 1,
         image: productImage, // this returns the location (url) within the src/assets folder, still need to import productImages from Variables/Constants
       });
     }
@@ -202,7 +201,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   // handle toggled selection of cookie type display
   const handleProductSelection = (event) => {
     event.preventDefault();
-    setDisplayedProductType(event.target.id);
+    setProductImage(productImages[name][event.target.id]);
   };
 
   const handleOptionSelection = (event) => {
@@ -239,11 +238,12 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     // 2. + previous cart items
     // 3 lift new item up to App and add to cart (DONE)
     handleAddToCart({
-      name: name,
-      price: "5.80",
-      weight: "100g",
-      packaging: "Kraft Pouch",
-      quantity: 2,
+      name: productInfo.name,
+      price: productInfo.price,
+      weight: productInfo.weight,
+      packaging: productInfo.packaging,
+      quantity: productInfo.quantity,
+      image: productInfo.image,
     });
   };
 
@@ -273,7 +273,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
             {/* main image - toggled by selection */}
             <img
               className="border-2 rounded-md p-8 w-full"
-              src={productImages[name][displayedProductType]}
+              src={productImage}
             ></img>
             {/* div of 3 options > click to replace ^ */}
             <div className="flex flex-wrap justify-around mt-20">
