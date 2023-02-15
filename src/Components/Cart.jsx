@@ -3,7 +3,18 @@ import { useNavigate } from "react-router-dom";
 import ButtonOrange from "./reusables/ButtonOrange";
 import CartProduct from "./CartProduct";
 
-const Cart = ({ shoppingCart }) => {
+const Cart = ({
+  shoppingCart,
+  setShowShipAlert,
+  setShowNav,
+  setShowFooter,
+}) => {
+  useEffect(() => {
+    setShowShipAlert(true);
+    setShowNav(true);
+    setShowFooter(true);
+  }, []);
+
   // Navigate to the checkout page
   const navigate = useNavigate();
   const navigateToCheckout = () => {
@@ -58,7 +69,7 @@ const Cart = ({ shoppingCart }) => {
       <div className="w-11/12 grid grid-cols-7 p-10">
         <div className="col-start-1 col-end-9 flex justify-start items-center ml-10">
           <div className="text-[1.2rem] font-montserrat text-lightBlue">
-            Note: As out Bakes are baked to order with love, please allow 3-5
+            Note: As our Bakes are baked to order with love, please allow 3-5
             days buffer for both delivery or self collection.
           </div>
         </div>

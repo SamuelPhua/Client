@@ -15,7 +15,7 @@ const CheckoutContact = () => {
           value={checkoutInput.phone}
           onChange={handleInputChange}
           placeholder="Your Phone Number"
-          className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
+          className="border-[1px] border-lightGrey/[0.5] focus:ring-2 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
 
         {/* Email */}
@@ -26,7 +26,7 @@ const CheckoutContact = () => {
           value={checkoutInput.email}
           onChange={handleInputChange}
           placeholder="Your Email Address"
-          className="border-[1px] border-lightGrey/[0.5] focus:ring-4 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
+          className="border-[1px] border-lightGrey/[0.5] focus:ring-2 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
 
         {/* Subscription checkbox */}

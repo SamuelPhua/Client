@@ -25,7 +25,11 @@ const CheckoutPaymentMethod = () => {
         <p className="text-slate-700 mb-2">Select Payment Method</p>
         <div className="grid grid-cols-3 gap-2">
           {/* Paynow */}
-          <div className="border-[1px] rounded-md py-2">
+          <div
+            className={`border-[1px] rounded-md py-2 ${
+              checkoutInput.paymentMethod === "paynow" ? "bg-gray-300" : ""
+            }`}
+          >
             <input
               type="radio"
               id="paynow"
@@ -41,7 +45,11 @@ const CheckoutPaymentMethod = () => {
           </div>
 
           {/* Credit card */}
-          <div className="border-[1px] rounded-md py-2">
+          <div
+            className={`border-[1px] rounded-md py-2 ${
+              checkoutInput.paymentMethod === "creditCard" ? "bg-gray-300" : ""
+            }`}
+          >
             <input
               type="radio"
               id="creditCard"
@@ -57,7 +65,11 @@ const CheckoutPaymentMethod = () => {
           </div>
 
           {/* Alipay */}
-          <div className="border-[1px] rounded-md py-2">
+          <div
+            className={`border-[1px] rounded-md py-2 ${
+              checkoutInput.paymentMethod === "alipay" ? "bg-gray-300" : ""
+            }`}
+          >
             <input
               type="radio"
               id="alipay"
@@ -99,7 +111,7 @@ const CheckoutPaymentMethod = () => {
         {/* Button does nothing */}
         {/* <button
           type="button"
-          className=" text-white text-xxxs bg-orange focus:outline-none focus:ring-4 hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-3 lg:w-fit px-8 mx-auto"
+          className=" text-white text-xxxs bg-orange focus:outline-none hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-3 lg:w-fit px-8 mx-auto"
           onClick={handlePaymentConfirmation}
         ></button> */}
         <ButtonOrange displayName="Confirm" onClick={navigateToReceipt} />
