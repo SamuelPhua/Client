@@ -5,7 +5,9 @@ const CheckoutDeliveryMethod = () => {
   const { checkoutInput, handleInputChange } = useContext(DataContext);
   return (
     <div className="text-darkBlueFont text-montserrat">
-      <h1 className="tracking-normal text-2xl">Delivery Methods</h1>
+      <h1 className="tracking-normal text-2xl font-montserrat">
+        Delivery Methods
+      </h1>
       <section className="text-lightGrey/[0.75]">
         {/* Option: Self-pickup */}
         <div className="px-3.5 pt-5">

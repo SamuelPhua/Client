@@ -5,7 +5,9 @@ const CheckoutContact = () => {
   const { checkoutInput, handleInputChange } = useContext(DataContext);
   return (
     <div className=" text-darkBlueFont text-montserrat mb-6">
-      <h1 className="tracking-normal text-2xl">Contact Information</h1>
+      <h1 className="tracking-normal text-2xl font-montserrat">
+        Contact Information
+      </h1>
       <div className="flex flex-col">
         {/* Phone */}
         <input
