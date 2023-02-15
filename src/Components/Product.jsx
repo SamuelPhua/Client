@@ -9,11 +9,13 @@ import ButtonSelected from "./reusables/ButtonSelected";
 import ButtonAddMinus from "./reusables/ButtonAddMinus";
 
 const Product = ({ shoppingCart, handleAddToCart }) => {
-  ///////////////////
-  // const variables
-  ///////////////////
-  // params :name to get cookie product
-  const { name } = useParams(); // name w/ all CAPS
+  /////////////
+  // FUNCTIONS
+  /////////////
+  function isObject(value) {
+    return typeof value === "object" && value !== null && !Array.isArray(value);
+  }
+
   function toPascalCase(str) {
     const splitStr = str.toLowerCase().split(" ");
     let newStr = "";
@@ -22,6 +24,49 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     }
     return newStr;
   }
+
+  // TODO - Add function to check if product exists in database
+
+  function displayedOptions(loadedData) {
+    // set display options for available weight and packaging in data
+    const newWeightOptions = {};
+    const newPackagingOptions = {};
+    loadedData.price.map((option) => {
+      if (Object.keys(weightOptions).includes(option.weight)) {
+        newWeightOptions[option.weight] = true;
+      }
+      // TODO - sort in increasing weight options
+      if (Object.keys(packagingOptions).includes(option.packaging)) {
+        newPackagingOptions[option.packaging] = true;
+      }
+    });
+    setWeightOptions(newWeightOptions);
+    setPackagingOptions(newPackagingOptions);
+  }
+
+  function getCurrentInfo(wgt, pkg) {
+    // set price display on weight and packaing option changes
+    console.log("get current info on option update:", wgt, pkg);
+    // 1. loop through data.price (array of objects)
+    let optionPrice = 0;
+    data.price.map((optionGroup) => {
+      // 2. if data.price.weight === wgt && data.price.packaging === pkg
+      if (optionGroup.weight === wgt && optionGroup.packaging === pkg) {
+        console.log("option group:", optionGroup);
+        console.log(wgt, pkg, "is", true, ". Price is:", optionGroup.sgdPrice);
+        return (optionPrice = optionGroup.sgdPrice);
+      }
+    });
+    // 3. set price to data.price.sgdPrice (rounded to 2dp)
+    setUnitPrice((Math.round(optionPrice * 100) / 100).toFixed(2));
+    setProductImage(productImages[name][pkg]);
+  }
+
+  ///////////////////
+  // const variables
+  ///////////////////
+  // params :name to get cookie product
+  const { name } = useParams(); // name w/ all CAPS
   const pascalName = toPascalCase(name); // name w/ Capital Convention
 
   // check if product exists
@@ -87,47 +132,9 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     quantity: 0,
   });
 
-  /////////////
-  // FUNCTIONS
-  /////////////
-  function isObject(value) {
-    return typeof value === "object" && value !== null && !Array.isArray(value);
-  }
-
-  function displayedOptions(loadedData) {
-    // set display options for available weight and packaging in data
-    const newWeightOptions = {};
-    const newPackagingOptions = {};
-    loadedData.price.map((option) => {
-      if (Object.keys(weightOptions).includes(option.weight)) {
-        newWeightOptions[option.weight] = true;
-      }
-      if (Object.keys(packagingOptions).includes(option.packaging)) {
-        newPackagingOptions[option.packaging] = true;
-      }
-    });
-    setWeightOptions(newWeightOptions);
-    setPackagingOptions(newPackagingOptions);
-  }
-
-  function getCurrentInfo(wgt, pkg) {
-    // set price display on weight and packaing option changes
-    // 1. loop through data.price (array of objects)
-    let optionPrice = 0;
-    data.price.map((optionGroup) => {
-      // 2. if data.price.weight === wgt && data.price.packaging === pkg
-      if (optionGroup.weight === wgt && optionGroup.packaging === pkg)
-        return (optionPrice = optionGroup.sgdPrice);
-    });
-    // 3. set price to data.price.sgdPrice (rounded to 2dp)
-    setUnitPrice((Math.round(optionPrice * 100) / 100).toFixed(2));
-    setProductImage(productImages[name][pkg]);
-  }
-
   ///////////
   // EFFECT
   ///////////
-  const [productData, setProductData] = useState(null);
   useEffect(() => {
     // call GET API here
     const fetchURL = `http://127.0.0.1:5001/products/getProduct/${pascalName}`;
@@ -139,19 +146,43 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     };
     console.log("first useEffect", productInfo);
     fetchData(fetchURL, fetchOptions);
-    setProductData(data);
   }, []);
 
   // #2 w/ fetched data is not null (check if isObject)
   useEffect(() => {
     // a. check for the options that exist
     if (isObject(data)) {
-      // b. set displayedOptions
+      // b. set displayedOptions => changes to optionsClicked as well => triggers useEffect #3
       displayedOptions(data);
 
       // c. get price and option's product image
+      // this compares the selected weight + packaging options and generate new price and product image
       getCurrentInfo(optionsClicked.weight, optionsClicked.packaging);
+
       // d. set productInfo state
+      setProductInfo((prevProductInfo) => {
+        return {
+          ...prevProductInfo,
+          price: unitPrice,
+          weight: optionsClicked.weight,
+          packaging: optionsClicked.packaging,
+          image: productImage,
+        };
+      });
+    }
+    // dependency: on data load + option change
+    console.log("data useEffect", productInfo);
+  }, [data]);
+
+  // #3 triggers whenever options have changed => sets new price + productInfo
+  useEffect(() => {
+    // checks if data is not null
+    if (isObject(data)) {
+      console.log("checking options...", optionsClicked);
+      // repeat: reset current info
+      getCurrentInfo(optionsClicked.weight, optionsClicked.packaging);
+
+      // repeat: reset productInfo state
       setProductInfo({
         name: data.name,
         description: data.description.split("\n"),
@@ -163,9 +194,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
         image: productImage, // this returns the location (url) within the src/assets folder, still need to import productImages from Variables/Constants
       });
     }
-    // dependency: on data load + option change
-    console.log("data useEffect", productInfo);
-  }, [data]);
+  }, [optionsClicked]);
 
   //////////////////
   // event handlers
@@ -181,8 +210,6 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     setOptionsClicked((prevOptionsClicked) => {
       return { ...prevOptionsClicked, [event.target.name]: event.target.id };
     });
-    // getUnitPrice();
-    // setProductInfo();
   };
 
   const handleChangeQuantity = (event) => {
@@ -391,9 +418,9 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               cookie
             </h3>
             {isObject(productInfo.about) &&
-              Object.entries(productInfo.about).map((category) => {
+              Object.entries(productInfo.about).map((category, ind) => {
                 return (
-                  <div className="mb-4">
+                  <div key={ind} className="mb-4">
                     {/* title of each info */}
                     <p className="font-bold tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
                       {toPascalCase(category[0])}
