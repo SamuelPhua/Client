@@ -8,11 +8,7 @@ const ContactDetails = () => {
     <table className="font-montserrat text-darkBlueFont text-sm md:text-base">
       <tbody>
         <tr>
-<<<<<<< Updated upstream
-          <td>
-=======
           <td className="pb-1">
->>>>>>> Stashed changes
             <FaPhoneAlt />
           </td>
           <td className="pl-4 pb-1">8749 1330</td>
@@ -37,11 +33,7 @@ const ContactDetails = () => {
           <td className="pb-1">
             <BsClockFill />
           </td>
-<<<<<<< Updated upstream
-          <td className="pl-4">10am - 4pm</td>
-=======
           <td className="pl-4 pb-1">Operating Hours: 10am - 4pm</td>
->>>>>>> Stashed changes
         </tr>
       </tbody>
     </table>
