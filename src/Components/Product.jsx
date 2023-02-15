@@ -30,13 +30,13 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     }
   }
 
-  // Navigate back to the shop all page
   const navigate = useNavigate();
+  // Navigate back to the shop all page
   const navigateToShop = () => {
     navigate("/shop");
   };
-
   // Navigate to view cart page (view cart button in modal)
+  const navigateToCart = () => {};
 
   ///////////////
   // custom Hook
@@ -47,7 +47,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   // STATES
   ///////////
   const [productInfo, setProductInfo] = useState({});
-  const [optionExist, setOptionExist] = useState({
+  const [optionsExist, setOptionsExist] = useState({
     "100g": false,
     "150g": false,
     "200g": false,
@@ -68,6 +68,28 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     quantity: 0,
   });
 
+  /////////////
+  // FUNCTIONS
+  /////////////
+  function isObject(value) {
+    return typeof value === "object" && value !== null && !Array.isArray(value);
+  }
+
+  function displayedOptions(loadedData) {
+    // set display options for available weight and packaging in data
+    const newOptions = {};
+    loadedData.price.map((option) => {
+      if (Object.keys(optionsExist).includes(option.weight)) {
+        newOptions[option.weight] = true;
+      }
+    });
+    setOptionsExist(newOptions);
+  }
+
+  function resetPrice(wgt, pkg) {
+    // set price display on weight and packaing option changes
+  }
+
   ///////////
   // EFFECT
   ///////////
@@ -84,20 +106,15 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     fetchData(fetchURL, fetchOptions);
   }, []);
 
-  const optionExists = (wgt, pkg) => {
-    // set display options for available weight and packaging in data
-  };
-
-  const resetPrice = (wgt, pkg) => {
-    // set price display on weight and packaing option changes
-  };
-
+  // #2 w/ fetched data is not null (check if isObject)
   useEffect(() => {
-    // console.log(data);
     // check for the options that exist
-
-    setProductInfo(data);
-
+    if (isObject(data)) {
+      // console.log(data);
+      displayedOptions(data);
+      // console.log(optionsExist);
+      setProductInfo(data);
+    }
     // dependency: on data load + option change
   }, [data]);
 
@@ -108,6 +125,12 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   const handleProductSelection = (event) => {
     event.preventDefault();
     setDisplayedProductType(event.target.id);
+  };
+
+  const handleOptionSelection = (event) => {
+    event.preventDefault();
+    // setOptionsClicked();
+    // resetPrice();
   };
 
   const handleAddToCartButton = (event) => {
