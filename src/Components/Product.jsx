@@ -46,19 +46,29 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   ///////////
   // STATES
   ///////////
+  // all of product's info based on current option
   const [productInfo, setProductInfo] = useState({});
+  // available options (for weight)
   const [optionsExist, setOptionsExist] = useState({
     "100g": false,
     "150g": false,
     "200g": false,
     "350g": false,
   });
+  // current options
   const [optionsClicked, setOptionsClicked] = useState({
     weight: "100g",
     packaging: "Kraft Pouch",
   });
-  // const [price, setPrice] = useState("");
-  const [displayedProductType, setDisplayedProductType] = useState("pouch");
+  // change other options based on selected options
+  const [unitPrice, setUnitPrice] = useState("");
+  const [productImage, setProductImage] = useState(
+    productImages[name][optionsClicked.packaging]
+  );
+  const [displayedProductType, setDisplayedProductType] = useState(
+    optionsClicked.packaging
+  );
+  // cart states:
   const [hasAdded, setHasAdded] = useState(false);
   const [cartInputs, setCartInputs] = useState({
     name: "",
@@ -86,17 +96,28 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     setOptionsExist(newOptions);
   }
 
-  function getUnitPrice(wgt, pkg) {
+  function getCurrentInfo(wgt, pkg) {
     // set price display on weight and packaing option changes
     // 1. loop through data.price (array of objects)
-    let unitPrice = 0;
+    let optionPrice = 0;
     data.price.map((optionGroup) => {
       // 2. if data.price.weight === wgt && data.price.packaging === pkg
       if (optionGroup.weight === wgt && optionGroup.packaging === pkg)
-        return (unitPrice = optionGroup.sgdPrice);
+        return (optionPrice = optionGroup.sgdPrice);
     });
-    // return unitPrice = data.price.sgdPrice
-    return unitPrice;
+    // 3. set price to data.price.sgdPrice (rounded to 2dp)
+    setUnitPrice((Math.round(optionPrice * 100) / 100).toFixed(2));
+    setProductImage(productImages[name][pkg]);
+  }
+
+  function displayParagraphs() {
+    return Object.values(productInfo.description).map((paragraph) => {
+      return (
+        <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+          {paragraph}
+        </p>
+      );
+    });
   }
 
   ///////////
@@ -122,13 +143,10 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
       // b. set displayedOptions
       // console.log(data);
       displayedOptions(data);
-      // console.log(optionsExist);
 
-      // c. get price and set productInfo state
-      const unitPrice = getUnitPrice(
-        optionsClicked.weight,
-        optionsClicked.packaging
-      );
+      // c. get price and option's product image
+      getCurrentInfo(optionsClicked.weight, optionsClicked.packaging);
+      // d. set productInfo state
       setProductInfo({
         name: data.name,
         description: data.description.split("\n"),
@@ -136,7 +154,8 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
         price: unitPrice,
         weight: optionsClicked.weight,
         packaging: optionsClicked.packaging,
-        image: data.image,
+        // can change to image from database if it's done
+        image: productImage, // this returns the location (url) within the src/assets folder, still need to import productImages from Variables/Constants
       });
     }
     // dependency: on data load + option change
@@ -154,14 +173,16 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   const handleOptionSelection = (event) => {
     event.preventDefault();
     // setOptionsClicked();
-    // resetPrice();
+    // getUnitPrice();
+    // setProductInfo();
   };
 
   const handleAddToCartButton = (event) => {
     // event.preventDefault();
     // TODO - pop up modal to show:
-    console.log(data);
-    console.log(productInfo);
+    console.log("data", data);
+    console.log("productInfo", productInfo);
+    console.log("product description", Object.values(productInfo.description));
     // 1. added cart item
     // 2. + previous cart items
     // 3 lift new item up to App and add to cart (DONE)
@@ -193,7 +214,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
       </div>
 
       {/* #2 flex div */}
-      {productExists && !isLoading && data && (
+      {productExists && !isLoading && isObject(data) && (
         <div className="flex flex-wrap w-7/10 mx-auto mt-10">
           {/* #3 LEFT: Cookie displays */}
           <div className="w-5/12">
@@ -224,17 +245,16 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               {name}
             </h2>
             <h3 className="tracking-wide text-left font-montserrat text-darkBlueFont text-3xl md:text-3xl mb-8">
-              $ {data.price[0].sgdPrice}
+              $ {productInfo.price}
             </h3>
-            <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
-              {/* Melt-in-your mouth and packed with chunks of chocolate goodness,
-              our signature chocolate chip cookies are perfect if you are
-              looking to satisfy your sweet tooth! */}
-            </p>
-            <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
-              All our cookies are baked to order and will be ready to be
-              delivered to you within 2-4 working days of placing your order.
-            </p>
+
+            {Object.values(productInfo.description).map((paragraph) => {
+              return (
+                <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+                  {paragraph}
+                </p>
+              );
+            })}
 
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
               Weight
