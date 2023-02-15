@@ -33,10 +33,12 @@ module.exports = {
         darkOrange: "#FF7C40",
         lightGreen: "#C1DAD7",
         lightGrey: "#484848",
-        greyPlaceholder: "#969292"
+        greyPlaceholder: "#969292",
       },
       textUnderlineOffset: {
-        22: "22px",
+        12: "12px", // 0.75rem
+        15: "15px", // 0.938rem
+        22: "22px", // 1.375rem
       },
       borderRadius: {
         extraLarge: "8rem",

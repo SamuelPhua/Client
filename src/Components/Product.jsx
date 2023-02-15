@@ -14,14 +14,14 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   ///////////////////
   // params :name to get cookie product
   const { name } = useParams(); // name w/ all CAPS
-  const toPascalCase = (str) => {
+  function toPascalCase(str) {
     const splitStr = str.toLowerCase().split(" ");
     let newStr = "";
     for (const word of splitStr) {
       newStr += word[0].toUpperCase() + word.slice(1) + " ";
     }
     return newStr;
-  };
+  }
   const pascalName = toPascalCase(name); // name w/ Capital Convention
 
   // check if product exists
@@ -145,9 +145,8 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   // #2 w/ fetched data is not null (check if isObject)
   useEffect(() => {
     // a. check for the options that exist
-    if (isObject(productData)) {
+    if (isObject(data)) {
       // b. set displayedOptions
-      // console.log(data);
       displayedOptions(data);
 
       // c. get price and option's product image
@@ -166,7 +165,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     }
     // dependency: on data load + option change
     console.log("data useEffect", productInfo);
-  }, [productData]);
+  }, [data]);
 
   //////////////////
   // event handlers
@@ -262,22 +261,20 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               $ {productInfo.price}
             </h3>
 
-            <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
-              {productInfo.description}
-            </p>
-
             {/* display for product description */}
-            {/* {productInfo?.description.map((paragraph, paraInd) => {
-              return (
-                <p
-                  key={paraInd}
-                  className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8"
-                >
-                  {paragraph}
-                </p>
-              );
-            })} */}
+            {Array.isArray(productInfo.description) &&
+              productInfo.description.map((paragraph, paraInd) => {
+                return (
+                  <p
+                    key={paraInd}
+                    className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8"
+                  >
+                    {paragraph}
+                  </p>
+                );
+              })}
 
+            {/* SELECT WEIGHT OPTIONS */}
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
               Weight
             </h5>
@@ -311,6 +308,8 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                 }
               })}
             </div>
+
+            {/* SELECT PACKAGING OPTIONS */}
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
               Packaging
             </h5>
@@ -344,6 +343,8 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                 }
               })}
             </div>
+
+            {/* SELECT QUANTITY */}
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
               Quantity
             </h5>
@@ -370,7 +371,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                 />
               </div>
 
-              {/* #5 Add to cart button */}
+              {/* #5 ADD TO CART button */}
               <div className="w-2/4">
                 <ButtonOrange
                   displayName={"ADD TO CART"}
@@ -381,20 +382,29 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                 />
               </div>
             </div>
+
             {/* display about product */}
-            {/* About this cookie */}
-            {/* {Object.entries(productInfo.about).map((category) => {
-              return (
-                <div className="mb-4">
-                  <p className="font-bold tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
-                    {category[0]}
-                  </p>
-                  <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
-                    {category[1]}
-                  </p>
-                </div>
-              );
-            })} */}
+            <h3 className="tracking-wide text-left font-montserrat text-darkBlueFont text-3xl md:text-3xl mb-12">
+              <span className="underline underline-offset-15 decoration-2 decoration-orange">
+                About this{" "}
+              </span>
+              cookie
+            </h3>
+            {isObject(productInfo.about) &&
+              Object.entries(productInfo.about).map((category) => {
+                return (
+                  <div className="mb-4">
+                    {/* title of each info */}
+                    <p className="font-bold tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
+                      {toPascalCase(category[0])}
+                    </p>
+                    {/* info description */}
+                    <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+                      {category[1]}
+                    </p>
+                  </div>
+                );
+              })}
           </div>
         </div>
       )}
