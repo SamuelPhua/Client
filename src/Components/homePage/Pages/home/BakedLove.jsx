@@ -6,6 +6,7 @@ import love from '../../Assets/Images/home-image/Home-Heart.png';
 import packaging from '../../Assets/Images/home-image/Home-Packaging.png';
 import recepie from '../../Assets/Images/home-image/Home-Recipes.png';
 import "./Home.css"
+
  const BakedLove = () => {
   return (
     <div className="">

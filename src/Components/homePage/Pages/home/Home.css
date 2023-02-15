@@ -10,3 +10,11 @@
   .bounce {
     animation: bounce 1s infinite;
   }
+
+  .zoom {
+    transition: transform .2s; /* Add a transition effect to smooth out the zoom */
+  }
+  
+  .zoom:hover {
+    transform: scale(1.2); /* Scale the image up on hover */
+  }
