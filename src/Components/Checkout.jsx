@@ -19,14 +19,17 @@ import CheckoutPage4 from "./checkout/CheckoutPage4";
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import DataContext from "./context/DataContext";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = ({
   shoppingCart,
+  setShoppingCart,
   setShowShipAlert,
   setShowNav,
   setShowFooter,
 }) => {
   const { fetchData, isLoading, data, error } = useFetch();
+  const navigate = useNavigate();
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   useEffect(() => {
@@ -65,6 +68,10 @@ const Checkout = ({
     });
   };
 
+  const navigateToReceipt = () => {
+    navigate("/receipt");
+  };
+
   // PUT: when checkout form is submitted
   useEffect(() => {
     // call PUT API here
@@ -79,6 +86,8 @@ const Checkout = ({
     };
 
     if (hasSubmitted) fetchData(fetchURL, fetchOptions);
+    if (hasSubmitted) setShoppingCart([]);
+    if (hasSubmitted) navigateToReceipt(); // by right should wait until response received before navigate to receipt page
   }, [hasSubmitted]);
 
   const handlePaymentConfirmation = (event) => {

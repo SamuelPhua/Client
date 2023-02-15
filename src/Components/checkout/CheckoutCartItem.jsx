@@ -1,4 +1,5 @@
 import React from "react";
+import { productImages } from "../../Varlables/Constants";
 
 const CheckoutCartItem = ({
   name,
@@ -8,10 +9,12 @@ const CheckoutCartItem = ({
   quantity,
   itemTotal,
 }) => {
+  let imageSrc = productImages[name][packaging];
+
   return (
     <div className="flex flex-row pb-8 px-3">
       <img
-        src="src/assets/imagesAboutUs/CartPage-KraftPouch.jpg"
+        src={imageSrc} //"src/assets/imagesAboutUs/CartPage-KraftPouch.jpg"
         alt={name}
         className="h-24 w-24 mr-2"
       ></img>

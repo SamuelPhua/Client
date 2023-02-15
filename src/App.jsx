@@ -116,6 +116,7 @@ function App() {
             element={
               <Checkout
                 shoppingCart={groupedCart}
+                setShoppingCart={setShoppingCart}
                 setShowShipAlert={setShowShipAlert}
                 setShowNav={setShowNav}
                 setShowFooter={setShowFooter}
