@@ -46,41 +46,41 @@ export const images = [
 ];
 
 export const description = [
-  "PINEAPPLE SIGNATURE BALL",
-  "CHOCOLATE CHIP COOKIES",
-  "DOUBLE CHOCO CHIP COOKIES",
-  "MACADAMIA CHOCOLATE COOKIES",
-  "SEA SALT CHOCOLATE COOKIES",
-  "OATMEAL CRANBERRY COOKIES",
-  "PECAN BUTTERSCOTCH COOKIES",
-  "WHITE ALMOND COOKIE",
-  "FRENCH SABLE COOKIES",
-  "GINGERBREAD MAN",
-  "XMAS FRUIT CAKE",
+  "Pineapple Signature Balls",
+  "Chocolate Chip Cookies",
+  "Double Choco Chip Cookies",
+  "Macadamia Chocolate Cookies",
+  "Sea Salt Chocolate Cookies",
+  "Oatmeal Cranberry Cookies",
+  "Pecan ButterScotch Cookies",
+  "White Almond Cookies",
+  "French Sable Cookies",
+  "Gingerbread Man",
+  "Xmas Fruit Cake",
 ];
 
 export const productImages = {
-  "CHOCOLATE CHIP COOKIES": {
+  "Chocolate Chip Cookies": {
     pouch: chocChipPouch,
     jar: chocChipJar,
     cookie: chocChipCookie,
   },
-  "MACADAMIA BUTTER COOKIES": {
+  "Macadamia Chocolate Cookies": {
     pouch: macaChocoPouch,
     jar: macaChocoJar,
     cookie: macaChocoCookie,
   },
-  "OATMEAL CRANBERRY COOKIES": {
+  "Oatmeal Cranberry Cookies": {
     pouch: oatmealCranberryPouch,
     jar: oatmealCranberryJar,
     cookie: oatmealCranberryCookie,
   },
-  "PECAN BUTTERSCOTCH COOKIES": {
+  "Pecan Butterscotch Cookies": {
     pouch: pecanButterscotchPouch,
     jar: pecanButterscotchJar,
     cookie: pecanButterscotchCookie,
   },
-  "SEA SALT CHOCOLATE COOKIES": {
+  "Sea Salt Chocolate Cookies": {
     pouch: seaSaltChocoPouch,
     jar: seaSaltChocoJar,
     cookie: seaSaltChocoCookie,

@@ -28,19 +28,19 @@ const BestSeller = () => {
         <div className="py-5 flex justify-center items-center gap-x-32">
           <div className="flex flex-col items-center justify-center">
           <Link to="/product/PINEAPPLE%20SIGNATURE%20BALL"> <img width={323} src={cookies1} alt="" /></Link>
-            <h5 className="text-[#3670AD] font-medium text-xs tracking-wider pt-3">
+            <h5 className="text-[#3670AD] font-montserrat font-medium text-xs tracking-wider pt-3">
               SIGNATURE PINEAPPLE BALL
             </h5>
           </div>
           <div className="flex flex-col items-center justify-center">
           <Link to="/product/CHOCOLATE%20CHIP%20COOKIES"> <img width={323} src={cookies2} alt="" /></Link>
-            <h5 className="text-[#3670AD] font-medium text-xs tracking-wider pt-3">
+            <h5 className="text-[#3670AD] font-montserrat font-medium text-xs tracking-wider pt-3">
               CHOCOLATE CHIP COOKIES
             </h5>
           </div>
           <div className="flex flex-col items-center justify-center">
           <Link to="/product/DOUBLE%20CHOCO%20CHIP%20COOKIES">   <img width={323} src={cookies3} alt="" /></Link>
-            <h5 className="text-[#3670AD] font-medium text-xs tracking-wider pt-3">
+            <h5 className="text-[#3670AD] font-montserrat font-medium text-xs tracking-wider pt-3">
               DOUBLE CHOCO CHIP COOKIES
             </h5>
           </div>

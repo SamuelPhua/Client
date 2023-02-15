@@ -1,7 +1,7 @@
 import React from "react";
 import "../homePage/Pages/home/Home.css";
 import { Link } from "react-router-dom";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShopping } from "react-icons/ai";
 
 const Header = ({ shoppingCart }) => {
   return (
@@ -58,7 +58,7 @@ const Header = ({ shoppingCart }) => {
                 : ""
             }
           >
-            <AiOutlineShoppingCart className="text-2xl" />
+            <AiOutlineShopping className="text-2xl" />
           </span>
         </Link>
       </div>

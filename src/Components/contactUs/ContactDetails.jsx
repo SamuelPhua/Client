@@ -7,7 +7,7 @@ const ContactDetails = () => {
   return (
     <table className="font-montserrat text-darkBlueFont text-sm md:text-base">
       <tbody>
-        <tr>
+        <tr >
           <td>
             <FaPhoneAlt />
           </td>
@@ -33,7 +33,7 @@ const ContactDetails = () => {
           <td>
             <BsClockFill />
           </td>
-          <td className="pl-4">10am - 4pm</td>
+          <td className="pl-4">Operating Hours: 10am - 4pm</td>
         </tr>
       </tbody>
     </table>

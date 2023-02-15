@@ -18,11 +18,8 @@ const ContactUs = () => {
   const navigateToContactUs = () => {
     navigate("/contact-us");
     setDisplayPopup(false);
-    data.setPageIsOpaque(false);
+    setPageIsOpaque(false);
   };
-
-  console.log(pageIsOpaque);
-  console.log(displayPopup);
 
   return (
     <DataContext.Provider value={{ setPageIsOpaque, setDisplayPopup }}>

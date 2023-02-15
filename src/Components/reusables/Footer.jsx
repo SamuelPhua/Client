@@ -48,8 +48,8 @@ const Footer = () => {
       <div>
         <h1 className="font-permanentMarker text-xs mb-2 mt-40">FOLLOW US</h1>
         <div className="flex flex-row mb-4">
-        <a href="https://www.instagram.com/flourpowersg/" target="_blank">  <BsFacebook className="zoom mr-10 w-10 h-10" /></a>
-        <a href="https://www.facebook.com/flourpowersg/" target="_blank">   <BsInstagram className="zoom w-10 h-10" /></a>
+        <a href="https://www.facebook.com/flourpowersg/" target="_blank">  <BsFacebook className="zoom mr-10 w-10 h-10" /></a>
+        <a href="https://www.instagram.com/flourpowersg/" target="_blank">   <BsInstagram className="zoom w-10 h-10" /></a>
         </div>
          <p className="zoom text-xxs "onClick={handleScrollToTop}>&#169; 2023 Seeteey Pte Ltd</p>
       </div>

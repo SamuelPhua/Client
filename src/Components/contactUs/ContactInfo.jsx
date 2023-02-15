@@ -3,7 +3,7 @@ import ContactDetails from "./ContactDetails";
 
 const ContactInfo = () => {
   return (
-    <div className="relative bg-orange rounded-3xl px-10 md:px-14">
+    <div className="relative bg-infoBgOrange rounded-3xl px-10 md:px-14">
       <div>
         <h1 className="font-permanentMarker text-darkBlueFont text-lg md:text-4xl pt-10 mb-2 md:mb-5">
           INFO

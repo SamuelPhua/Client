@@ -18,3 +18,9 @@
   .zoom:hover {
     transform: scale(1.2); /* Scale the image up on hover */
   }
+
+
+  .zoom2-in {
+    transform: scale(2);
+    transition: transform 0.5s ease-in-out;
+  }

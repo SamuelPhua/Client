@@ -13,7 +13,6 @@ import brand10 from "../../Assets/Images/home-image/AboutUs-KPMGLogo.png";
 import brand11 from "../../Assets/Images/home-image/AboutUs-MindefLogo.png";
 import brand12 from "../../Assets/Images/home-image/AboutUs-MSFLogo.png";
 import brand13 from "../../Assets/Images/home-image/AboutUs-NTULogo.png";
-import brand14 from "../../Assets/Images/home-image/AboutUs-KPMGLogo.png";
 import brand15 from "../../Assets/Images/home-image/AboutUs-SMULogo.png";
 
 import Slider from "react-slick";
@@ -25,7 +24,7 @@ const Brands = () => {
     dots: false,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 400,
+    autoplaySpeed: 1200,
     cssEase: "linear",
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -38,14 +37,13 @@ const Brands = () => {
     brand4,
     brand5,
     brand6,
-    brand7,
-    brand8,
+    // brand7,
+    // brand8,
     brand9,
-    brand10,
+    // brand10,
     brand11,
     brand12,
     brand13,
-    brand14,
     brand15,
   ];
   return (

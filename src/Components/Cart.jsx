@@ -92,7 +92,6 @@ const Cart = ({
           <ButtonOrange
             displayName="CHECKOUT"
             onClick={navigateToCheckout}
-            disabled={shoppingCart.length === 0 ? true : false}
           />
         </div>
       </div>
