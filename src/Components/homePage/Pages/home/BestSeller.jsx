@@ -14,7 +14,7 @@ const BestSeller = () => {
         className=" bg-cover bg-center bg-no-repeat w-full min-h-screen   "
       >
         {/* best seller heading */}
-        <h1 className="text-center pt-36 text-[#3670AD]  text-5xl pb-6 tracking-wider font-['Permanent_Marker'] relative">
+        <h1 className="bounce text-center pt-36 text-[#3670AD]  text-5xl pb-6 tracking-wider font-['Permanent_Marker'] relative">
           Best Sellers
           <img
             width={200}

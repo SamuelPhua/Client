@@ -7,7 +7,7 @@ const CustomOrders = () => {
     // custom order section
     <div className="w-full min-h-screen">
       {/* custon order heading */}
-      <h1 className="text-center pt-36 text-[#3670AD]  text-5xl pb-6 tracking-wider font-['Permanent_Marker'] relative">
+      <h1 className="bounce text-center pt-36 text-[#3670AD]  text-5xl pb-6 tracking-wider font-['Permanent_Marker'] relative">
         CUSTOM ORDERS
         <img
           width={200}
