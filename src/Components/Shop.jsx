@@ -40,7 +40,10 @@ function Shop() {
           const imageNumber = i + 1;
 
           return (
-            <div key={imageNumber} className="items-center cursor-pointer">
+            <div
+              key={imageNumber}
+              className="items-center cursor-pointer p-8 rounded-lg hover:bg-slate-200 transition duration-1000 ease-in-out"
+            >
               <img
                 src={images[i]}
                 className="w-48 h-48 mx-auto"
