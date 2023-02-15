@@ -1,5 +1,5 @@
 import React from "react";
-// import "./Header.css";
+import "../homePage/Pages/home/Home.css";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
@@ -11,7 +11,8 @@ const Header = ({ shoppingCart }) => {
           <img
             src="src/assets/FlourPowerLogo.png"
             alt="logo"
-            className="w-32 h-16 lg:w-44 lg:h-20"
+            title="Home Page"
+            className="zoom w-32 h-16 lg:w-44 lg:h-20"
           ></img>
         </div>
       </Link>
@@ -20,28 +21,28 @@ const Header = ({ shoppingCart }) => {
         <Link
           to="/shop"
           style={{ textDecoration: "none" }}
-          className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
+          className="zoom mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
           <span className="font-montserrat">SHOP</span>
         </Link>
         <Link
           to="/about-us"
           style={{ textDecoration: "none" }}
-          className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
+          className="zoom mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
           <span className="font-montserrat">ABOUT US</span>
         </Link>
         <Link
           to="bulk-orders"
           style={{ textDecoration: "none" }}
-          className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
+          className="zoom mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
           <span className="font-montserrat">BULK ORDERS</span>
         </Link>
         <Link
           to="contact-us"
           style={{ textDecoration: "none" }}
-          className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
+          className="zoom mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
           <span className="font-montserrat">CONTACT US</span>
         </Link>

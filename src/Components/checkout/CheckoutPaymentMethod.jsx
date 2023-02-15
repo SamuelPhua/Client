@@ -16,7 +16,7 @@ const CheckoutPaymentMethod = () => {
       {/* Customer email */}
       <div>
         <p className="text-slate-700 mb-2">Email</p>
-        <p>{checkoutInput.custEmail}</p>
+        <p>{checkoutInput.email}</p>
         <hr className="mb-6" />
       </div>
 
@@ -109,12 +109,14 @@ const CheckoutPaymentMethod = () => {
         </p>
 
         {/* Button does nothing */}
-        {/* <button
+        <button
           type="button"
           className=" text-white text-xxxs bg-orange focus:outline-none hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-3 lg:w-fit px-8 mx-auto"
           onClick={handlePaymentConfirmation}
-        ></button> */}
-        <ButtonOrange displayName="Confirm" onClick={navigateToReceipt} />
+        >
+          Confirm
+        </button>
+        {/* <ButtonOrange displayName="Confirm" onClick={navigateToReceipt} /> */}
       </div>
     </div>
   );

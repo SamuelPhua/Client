@@ -4,6 +4,7 @@ import bestCookie from "../../Assets/Images/home-image/Home-Cookie.png";
 import cookies1 from "../../Assets/Images/home-image/Home-PineappleBall.png";
 import cookies2 from "../../Assets/Images/home-image/Home-ChocolateChipCookie.png";
 import cookies3 from "../../Assets/Images/home-image/Home-DoubleChocChipCookie.png.png";
+import {Link} from 'react-router-dom'
 
 const BestSeller = () => {
   return (
@@ -13,7 +14,7 @@ const BestSeller = () => {
         className=" bg-cover bg-center bg-no-repeat w-full min-h-screen   "
       >
         {/* best seller heading */}
-        <h1 className="text-center pt-36 text-[#3670AD]  text-5xl pb-6 tracking-wider font-['Permanent_Marker'] relative">
+        <h1 className="bounce text-center pt-36 text-[#3670AD]  text-5xl pb-6 tracking-wider font-['Permanent_Marker'] relative">
           Best Sellers
           <img
             width={200}
@@ -26,21 +27,21 @@ const BestSeller = () => {
         {/* cookie collections */}
         <div className="py-5 flex justify-center items-center gap-x-32">
           <div className="flex flex-col items-center justify-center">
-            <img width={323} src={cookies1} alt="" />
+          <Link to="/product/PINEAPPLE%20SIGNATURE%20BALL"> <img width={323} src={cookies1} alt="" /></Link>
             <h5 className="text-[#3670AD] font-medium text-xs tracking-wider pt-3">
               SIGNATURE PINEAPPLE BALL
             </h5>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <img width={323} src={cookies2} alt="" />
+          <Link to="/product/CHOCOLATE%20CHIP%20COOKIES"> <img width={323} src={cookies2} alt="" /></Link>
             <h5 className="text-[#3670AD] font-medium text-xs tracking-wider pt-3">
-              SIGNATURE PINEAPPLE BALL
+              CHOCOLATE CHIP COOKIES
             </h5>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <img width={323} src={cookies3} alt="" />
+          <Link to="/product/DOUBLE%20CHOCO%20CHIP%20COOKIES">   <img width={323} src={cookies3} alt="" /></Link>
             <h5 className="text-[#3670AD] font-medium text-xs tracking-wider pt-3">
-              SIGNATURE PINEAPPLE BALL
+              DOUBLE CHOCO CHIP COOKIES
             </h5>
           </div>
         </div>

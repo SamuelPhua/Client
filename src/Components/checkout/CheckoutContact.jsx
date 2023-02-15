@@ -16,6 +16,7 @@ const CheckoutContact = () => {
           name="phone"
           value={checkoutInput.phone}
           onChange={handleInputChange}
+          required
           placeholder="Your Phone Number"
           className="border-[1px] border-lightGrey/[0.5] focus:ring-2 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
@@ -27,6 +28,7 @@ const CheckoutContact = () => {
           name="email"
           value={checkoutInput.email}
           onChange={handleInputChange}
+          required
           placeholder="Your Email Address"
           className="border-[1px] border-lightGrey/[0.5] focus:ring-2 focus:bg-slate-200 rounded-2xl px-3.5 py-2.5 mt-5 w-full text-base placeholder:text-xxxs"
         ></input>
