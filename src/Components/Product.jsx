@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import useFetch from "../customHooks/useFetch";
 import { useParams, useNavigate } from "react-router-dom";
 import { productImages } from "../Varlables/Constants";
+
 import ButtonOrange from "./reusables/ButtonOrange";
+import ButtonWhite from "./reusables/ButtonWhite";
+import ButtonSelected from "./reusables/ButtonSelected";
+import ButtonAddMinus from "./reusables/ButtonAddMinus";
 
 const Product = ({ shoppingCart, handleAddToCart }) => {
   ///////////////////
@@ -30,11 +34,13 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     }
   }
 
-  // Navigate back to the shop all page
   const navigate = useNavigate();
+  // Navigate back to the shop all page
   const navigateToShop = () => {
     navigate("/shop");
   };
+  // Navigate to view cart page (view cart button in modal)
+  const navigateToCart = () => {};
 
   ///////////////
   // custom Hook
@@ -44,8 +50,34 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   ///////////
   // STATES
   ///////////
+  // all of product's info based on current option
   const [productInfo, setProductInfo] = useState({});
-  const [displayedProductType, setDisplayedProductType] = useState("pouch");
+  // available options (for weight)
+  const [weightOptions, setWeightOptions] = useState({
+    "100g": false,
+    "150g": false,
+    "200g": false,
+    "350g": false,
+  });
+  const [packagingOptions, setPackagingOptions] = useState({
+    "Kraft Pouch": false,
+    Bottle: false,
+  });
+  // current options
+  const [optionsClicked, setOptionsClicked] = useState({
+    weight: "100g",
+    packaging: "Kraft Pouch",
+    quantity: 1,
+  });
+  // change other options based on selected options
+  const [unitPrice, setUnitPrice] = useState("");
+  const [productImage, setProductImage] = useState(
+    productImages[name][optionsClicked.packaging]
+  );
+  const [displayedProductType, setDisplayedProductType] = useState(
+    optionsClicked.packaging
+  );
+  // cart states:
   const [hasAdded, setHasAdded] = useState(false);
   const [cartInputs, setCartInputs] = useState({
     name: "",
@@ -54,6 +86,43 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     packaging: "",
     quantity: 0,
   });
+
+  /////////////
+  // FUNCTIONS
+  /////////////
+  function isObject(value) {
+    return typeof value === "object" && value !== null && !Array.isArray(value);
+  }
+
+  function displayedOptions(loadedData) {
+    // set display options for available weight and packaging in data
+    const newWeightOptions = {};
+    const newPackagingOptions = {};
+    loadedData.price.map((option) => {
+      if (Object.keys(weightOptions).includes(option.weight)) {
+        newWeightOptions[option.weight] = true;
+      }
+      if (Object.keys(packagingOptions).includes(option.packaging)) {
+        newPackagingOptions[option.packaging] = true;
+      }
+    });
+    setWeightOptions(newWeightOptions);
+    setPackagingOptions(newPackagingOptions);
+  }
+
+  function getCurrentInfo(wgt, pkg) {
+    // set price display on weight and packaing option changes
+    // 1. loop through data.price (array of objects)
+    let optionPrice = 0;
+    data.price.map((optionGroup) => {
+      // 2. if data.price.weight === wgt && data.price.packaging === pkg
+      if (optionGroup.weight === wgt && optionGroup.packaging === pkg)
+        return (optionPrice = optionGroup.sgdPrice);
+    });
+    // 3. set price to data.price.sgdPrice (rounded to 2dp)
+    setUnitPrice((Math.round(optionPrice * 100) / 100).toFixed(2));
+    setProductImage(productImages[name][pkg]);
+  }
 
   ///////////
   // EFFECT
@@ -71,9 +140,29 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     fetchData(fetchURL, fetchOptions);
   }, []);
 
+  // #2 w/ fetched data is not null (check if isObject)
   useEffect(() => {
-    console.log(data);
-    setProductInfo(data);
+    // a. check for the options that exist
+    if (isObject(data)) {
+      // b. set displayedOptions
+      // console.log(data);
+      displayedOptions(data);
+
+      // c. get price and option's product image
+      getCurrentInfo(optionsClicked.weight, optionsClicked.packaging);
+      // d. set productInfo state
+      setProductInfo({
+        name: data.name,
+        description: data.description.split("\n"),
+        about: data.about,
+        price: unitPrice,
+        weight: optionsClicked.weight,
+        packaging: optionsClicked.packaging,
+        // can change to image from database if it's done
+        image: productImage, // this returns the location (url) within the src/assets folder, still need to import productImages from Variables/Constants
+      });
+    }
+    // dependency: on data load + option change
   }, [data]);
 
   //////////////////
@@ -85,10 +174,26 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     setDisplayedProductType(event.target.id);
   };
 
+  const handleOptionSelection = (event) => {
+    console.log("changing options", event.target.id, event.target.name);
+    setOptionsClicked((prevOptionsClicked) => {
+      return { ...prevOptionsClicked, [event.target.name]: event.target.id };
+    });
+    // getUnitPrice();
+    // setProductInfo();
+  };
+
+  const handleChangeQuantity = (event) => {
+    event.preventDefault();
+    console.log("changing cookie quantity");
+  };
+
   const handleAddToCartButton = (event) => {
     // event.preventDefault();
     // TODO - pop up modal to show:
-    console.log(data);
+    console.log("data", data);
+    console.log("productInfo", productInfo);
+    console.log("product description", Object.values(productInfo.description));
     // 1. added cart item
     // 2. + previous cart items
     // 3 lift new item up to App and add to cart (DONE)
@@ -151,58 +256,149 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               {name}
             </h2>
             <h3 className="tracking-wide text-left font-montserrat text-darkBlueFont text-3xl md:text-3xl mb-8">
-              $ {data.price[0].sgdPrice}
+              $ {productInfo.price}
             </h3>
-            <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
-              {/* Melt-in-your mouth and packed with chunks of chocolate goodness,
-              our signature chocolate chip cookies are perfect if you are
-              looking to satisfy your sweet tooth! */}
-            </p>
-            <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
-              All our cookies are baked to order and will be ready to be
-              delivered to you within 2-4 working days of placing your order.
-            </p>
 
-            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+            {/* display for product description */}
+            {/* {productInfo.description.map((paragraph, paraInd) => {
+              return (
+                <p
+                  key={paraInd}
+                  className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8"
+                >
+                  {paragraph}
+                </p>
+              );
+            })} */}
+            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
               Weight
             </h5>
-            {/* buttons for options */}
+            {/* buttons for weight options */}
             <div className="flex flex-wrap mb-8">
-              <h2>display buttons</h2>
+              {Object.entries(weightOptions).map((weightOption) => {
+                if (weightOption[1]) {
+                  if (weightOption[0] === optionsClicked.weight) {
+                    return (
+                      <ButtonSelected
+                        displayName={weightOption[0]}
+                        category="weight"
+                        width="5rem"
+                        padding="0.2rem"
+                        margin="0.1rem 0.5rem 0.1rem 0"
+                        onClick={handleOptionSelection}
+                      />
+                    );
+                  } else {
+                    return (
+                      <ButtonWhite
+                        displayName={weightOption[0]}
+                        category="weight"
+                        width="5rem"
+                        padding="0.2rem"
+                        margin="0.1rem 0.5rem 0.1rem 0"
+                        onClick={handleOptionSelection}
+                      />
+                    );
+                  }
+                }
+              })}
             </div>
-
-            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
               Packaging
             </h5>
             {/* buttons for options */}
             <div className="flex flex-wrap mb-8">
-              <h2>display buttons</h2>
+              {Object.entries(packagingOptions).map((option) => {
+                if (option[1]) {
+                  if (option[0] === optionsClicked.packaging) {
+                    return (
+                      <ButtonSelected
+                        displayName={option[0]}
+                        category="packaging"
+                        width="10rem"
+                        padding="0.2rem"
+                        margin="0.1rem 0.5rem 0.1rem 0"
+                        onClick={handleOptionSelection}
+                      />
+                    );
+                  } else {
+                    return (
+                      <ButtonWhite
+                        displayName={option[0]}
+                        category="packaging"
+                        width="10rem"
+                        padding="0.2rem"
+                        margin="0.1rem 0.5rem 0.1rem 0"
+                        onClick={handleOptionSelection}
+                      />
+                    );
+                  }
+                }
+              })}
             </div>
-
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
               Quantity
             </h5>
-            {/* buttons for adding and reducing */}
-            <div className="flex flex-wrap mb-8">
-              <h2>display quantity</h2>
+            {/* buttons for quantity update & add to cart */}
+            <div className="flex flex-wrap justify-between mb-8">
+              {/* buttons for adding and reducing */}
+              <div className="flex flex-wrap w-2/4">
+                <ButtonAddMinus
+                  displayName="-"
+                  padding="0"
+                  margin="0 1rem"
+                  size="1.5rem"
+                  onClick={handleChangeQuantity}
+                />
+                <p className="tracking-normal text-center font-montserrat text-darkBlueFont text-xs md:text-xs w-2/12 mb-8">
+                  {optionsClicked.quantity}
+                </p>
+                <ButtonAddMinus
+                  displayName="+"
+                  padding="0"
+                  margin="0 1rem"
+                  size="1.5rem"
+                  onClick={handleChangeQuantity}
+                />
+              </div>
 
               {/* #5 Add to cart button */}
-              <ButtonOrange
-                displayName={"ADD TO CART"}
-                width="10rem"
-                onClick={handleAddToCartButton}
-              />
+              <div className="w-2/4">
+                <ButtonOrange
+                  displayName={"ADD TO CART"}
+                  width="14rem"
+                  padding="0.6rem"
+                  margin="0"
+                  onClick={handleAddToCartButton}
+                />
+              </div>
             </div>
+            {/* display about product */}
+            {/* {Object.entries(productInfo.about).map((category) => {
+              return (
+                <div className="mb-4">
+                  <p className="font-bold tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
+                    {category[0]}
+                  </p>
+                  <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+                    {category[1]}
+                  </p>
+                </div>
+              );
+            })} */}
           </div>
         </div>
       )}
+
       {productExists && isLoading && (
         <div className="text-center">
           {/* <LoadingSpinner /> */}
-          <h2>LOADING ...</h2>
+          <h2>LOADING COOKIE...</h2>
         </div>
       )}
+
       {!isLoading && error && <p> {error}</p>}
+
       {!productExists && (
         <h2 className="tracking-wide font-montserrat text-darkBlueFont text-xxs md:text-xxs w-7/10 mx-auto mt-10">
           Sorry, {name} is currently out of stock.

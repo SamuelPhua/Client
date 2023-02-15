@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import ShippingAlert from "./Components/reusables/ShippingAlert";
 import Header from "./Components/reusables/Header";
-import Home from "./Components/homePage/Pages/home/Home";
+import Home from "./Components/Home";
 import Shop from "./Components/Shop";
 import Product from "./Components/Product";
 import AboutUs from "./Components/AboutUs";
@@ -20,6 +20,10 @@ import CheckoutReceipt from "./Components/checkout/CheckoutReceipt";
 import { groupShoppingCart } from "./helper/groupShoppingCart";
 
 function App() {
+  /*
+   ** STATE for common display elements
+   */
+
   const [showShipAlert, setShowShipAlert] = useState(true);
   const [showNav, setShowNav] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
@@ -41,6 +45,8 @@ function App() {
     // compute itemTotal based on price * qty
     cartInputs.itemTotal = cartInputs.quantity * cartInputs.price;
     setShoppingCart((prevCartInputs) => {
+      // TODO - add compare function:
+      // (check if everything other than qty is the same, combine qty)
       return [...prevCartInputs, cartInputs];
     });
   };
@@ -62,6 +68,10 @@ function App() {
     setShoppingCart(newCart);
   };
 
+  /*
+   ** render
+   */
+
   return (
     <DataContext.Provider
       value={{
@@ -76,6 +86,7 @@ function App() {
       <div className="App">
         {showShipAlert && <ShippingAlert />}
         {showNav && <Header shoppingCart={groupedCart} />}
+
         <Routes>
           <Route
             path="/"
@@ -90,7 +101,12 @@ function App() {
           <Route path="shop" element={<Shop />}></Route>
           <Route
             path="product/:name"
-            element={<Product handleAddToCart={handleAddToCart} />}
+            element={
+              <Product
+                shoppingCart={shoppingCart}
+                handleAddToCart={handleAddToCart}
+              />
+            }
           ></Route>
           <Route path="about-us" element={<AboutUs />}></Route>
           <Route path="bulk-orders" element={<BulkOrder />}></Route>
@@ -122,6 +138,7 @@ function App() {
           ></Route>
           <Route path="receipt" element={<CheckoutReceipt />}></Route>
         </Routes>
+
         {showFooter && <Footer />}
       </div>
     </DataContext.Provider>

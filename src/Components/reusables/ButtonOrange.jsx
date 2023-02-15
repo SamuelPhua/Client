@@ -1,11 +1,11 @@
 import React from "react";
 
-const ButtonOrange = ({ displayName, width, padding, onClick, disabled }) => {
+const ButtonOrange = ({ displayName, width, padding, margin, onClick }) => {
   return (
     <button
-      className="text-white bg-darkOrange focus:outline-none focus:ring-2 hover:text-darkOrange hover:bg-buttonHoverOrange hover:border-darkOrange focus:bg-buttonHoverOrange rounded-full mt-5 mb-5 md:mt-10 font-bold py-4 tracking-wider w-28 md:w-32 lg:w-36 mx-auto"
+      className="tracking-widest text-white bg-darkOrange border-solid border-darkOrange border-2 rounded-full mt-5 mb-5 md:mt-10 font-bold py-4 w-28 md:w-32 lg:w-36 mx-auto hover:text-darkOrange hover:bg-buttonHoverOrange focus:ring-1 focus:bg-buttonHoverOrange"
       id={displayName}
-      style={{ width: width, padding: padding }}
+      style={{ width: width, padding: padding, margin: margin }}
       onClick={(event) => onClick(event)}
       disabled={disabled}
     >
