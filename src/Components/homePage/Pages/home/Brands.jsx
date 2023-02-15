@@ -63,7 +63,7 @@ const Brands = () => {
         <Slider {...settings} className="overflow-hidden">
           {images.map((m, index) => (
             <div key={index}>
-              <img className="my-auto w-[200px]" src={m} alt="" />
+              <img className="my-auto w-[200px] h-[200px]" src={m} alt="" />
             </div>
           ))}
         </Slider>
