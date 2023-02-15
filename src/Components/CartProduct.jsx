@@ -7,6 +7,8 @@ const CartProduct = ({ name, price, weight, packaging, quantity, index }) => {
   const { handleDelete, handlePlusQty, handleMinusQty } =
     useContext(DataContext);
 
+  const totalPrice = (price * quantity).toFixed(2);
+
   return (
     <>
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10 border-b-2 border-[#999999] ">
@@ -45,7 +47,7 @@ const CartProduct = ({ name, price, weight, packaging, quantity, index }) => {
 
         <div className="col-start-7 flex justify-end items-center">
           <div className="text-[1.3rem] font-montserrat text-lightBlue tracking-wider">
-            ${quantity * price}
+            {totalPrice}
           </div>
         </div>
       </div>

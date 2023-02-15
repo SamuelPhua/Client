@@ -24,9 +24,9 @@ import Carousel from "./Carousel";
 
 const AboutUs = () => {
   return (
-    <div>
+    <div className="motion-safe:animate-fadeIn">
       {/* Banner */}
-      <div className="motion-safe:animate-fadeIn mb-20 relative h-[300px] w-full bg-cover bg-center bg-[url(src/assets/imagesAboutUs/AboutUs-Banner.png)]">
+      <div className=" mb-20 relative h-[300px] w-full bg-cover bg-center bg-[url(src/assets/imagesAboutUs/AboutUs-Banner.png)]">
         <h1 className="absolute text-lg font-permanentMarker text-darkBlue  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           About Us
         </h1>
@@ -106,7 +106,7 @@ const AboutUs = () => {
       <div className="mt-20 mb-20 ml-40 w-4/5 flex h-screen justify-center space-x-10">
         <div className="relative">
           <img className="h-4/5" src={ingredients} />
-          <h1 className="mt-14 absolute w-80 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <h1 className="mt-14 absolute w-72 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             QUALITY INGREDIENTS
             <br />
             <p className="mt-7 font-light">
@@ -118,7 +118,7 @@ const AboutUs = () => {
 
         <div className="relative">
           <img className="h-4/5" src={recipe} />
-          <h1 className="mt-16 absolute w-80 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <h1 className="mt-16 absolute w-72 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             INNOVATIVE RECIPES
             <br />
             <p className="mt-8 font-light">
@@ -131,7 +131,7 @@ const AboutUs = () => {
 
         <div className="relative">
           <img className="h-4/5" src={packaging} />
-          <h1 className="mt-16 absolute w-80 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <h1 className="mt-16 absolute w-72 text-xs font-montserrat text-lightBlue text-center font-bold top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             SUSTAINABLE PACKAGING
             <br />
             <p className="mt-8 font-light">
