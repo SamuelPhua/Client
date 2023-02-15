@@ -133,6 +133,22 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     });
   }
 
+  function displayAbout() {
+    console.log(productInfo.about);
+    return Object.entries(productInfo.about).map((category) => {
+      return (
+        <div className="mb-4">
+          <p className="font-bold tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+            {category[0]}
+          </p>
+          <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+            {category[0]}
+          </p>
+        </div>
+      );
+    });
+  }
+
   ///////////
   // EFFECT
   ///////////
@@ -233,7 +249,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
       </div>
 
       {/* #2 flex div */}
-      {productExists && !isLoading && isObject(data) && (
+      {productExists && !isLoading && data && (
         <div className="flex flex-wrap w-7/10 mx-auto mt-10">
           {/* #3 LEFT: Cookie displays */}
           <div className="w-5/12">
@@ -267,7 +283,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               $ {productInfo.price}
             </h3>
 
-            {/* {productInfo.description.map((paragraph, paraInd) => {
+            {productInfo.description.map((paragraph, paraInd) => {
               return (
                 <p
                   key={paraInd}
@@ -276,9 +292,9 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                   {paragraph}
                 </p>
               );
-            })} */}
+            })}
 
-            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
               Weight
             </h5>
             {/* buttons for weight options */}
@@ -299,7 +315,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               })}
             </div>
 
-            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
               Packaging
             </h5>
             {/* buttons for options */}
@@ -323,8 +339,9 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
               Quantity
             </h5>
-            {/* buttons for adding and reducing */}
+            {/* buttons for quantity update & add to cart */}
             <div className="flex flex-wrap justify-between mb-8">
+              {/* buttons for adding and reducing */}
               <div className="flex flex-wrap w-2/4">
                 <ButtonAddMinus
                   displayName="-"
@@ -356,6 +373,20 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                 />
               </div>
             </div>
+
+            {/* display about cookie */}
+            {Object.entries(productInfo.about).map((category) => {
+              return (
+                <div className="mb-4">
+                  <p className="font-bold tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-4">
+                    {category[0]}
+                  </p>
+                  <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+                    {category[1]}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
