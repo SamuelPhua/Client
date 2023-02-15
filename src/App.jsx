@@ -17,6 +17,7 @@ import Cart from "./Components/Cart";
 import DataContext from "./Components/context/DataContext";
 import CheckoutPage1 from "./Components/checkout/CheckoutPage1";
 import CheckoutReceipt from "./Components/checkout/CheckoutReceipt";
+import { groupShoppingCart } from "./helper/groupShoppingCart";
 
 function App() {
   /*
@@ -32,6 +33,8 @@ function App() {
    */
 
   const [shoppingCart, setShoppingCart] = useState([]);
+  let groupedCart = groupShoppingCart(shoppingCart);
+
   console.log("App.jsx", shoppingCart);
 
   /*
@@ -56,7 +59,6 @@ function App() {
 
   const handleMinusQty = (id) => {
     const newArray = [...shoppingCart];
-    console.log("MINUS");
     newArray[id].quantity = newArray[id].quantity - 1;
     setShoppingCart(newArray);
   };
@@ -83,10 +85,19 @@ function App() {
     >
       <div className="App">
         {showShipAlert && <ShippingAlert />}
-        {showNav && <Header shoppingCart={shoppingCart} />}
+        {showNav && <Header shoppingCart={groupedCart} />}
 
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="/"
+            element={
+              <Home
+                setShowShipAlert={setShowShipAlert}
+                setShowNav={setShowNav}
+                setShowFooter={setShowFooter}
+              />
+            }
+          ></Route>
           <Route path="shop" element={<Shop />}></Route>
           <Route
             path="product/:name"
@@ -104,7 +115,7 @@ function App() {
             path="cart"
             element={
               <Cart
-                shoppingCart={shoppingCart}
+                shoppingCart={groupedCart}
                 setShowShipAlert={setShowShipAlert}
                 setShowNav={setShowNav}
                 setShowFooter={setShowFooter}
@@ -118,7 +129,7 @@ function App() {
             path="checkout"
             element={
               <Checkout
-                shoppingCart={shoppingCart}
+                shoppingCart={groupedCart}
                 setShowShipAlert={setShowShipAlert}
                 setShowNav={setShowNav}
                 setShowFooter={setShowFooter}
