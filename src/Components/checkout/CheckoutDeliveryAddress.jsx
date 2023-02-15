@@ -5,7 +5,7 @@ const CheckoutDeliveryAddress = () => {
   const { checkoutInput, handleInputChange } = useContext(DataContext);
   return (
     <div className=" text-darkBlueFont text-montserrat mb-5">
-      <h1 className="tracking-widest text-2xl">Delivery Address</h1>
+      <h1 className="tracking-normal text-2xl">Delivery Address</h1>
       <div className="flex flex-col">
         {/* Delivery country */}
         <select

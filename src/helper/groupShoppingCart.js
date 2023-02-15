@@ -18,6 +18,7 @@ export const groupShoppingCart = (shoppingCart) => {
         weight: cartProduct.weight,
         packaging: cartProduct.packaging,
         quantity: productQty,
+        itemTotal: productQty * parseFloat(cartProduct.price),
       });
     } else {
       let i = groupedCart.findIndex(
@@ -33,6 +34,10 @@ export const groupShoppingCart = (shoppingCart) => {
         quantity:
           parseFloat(groupedCart[i].quantity) +
           parseFloat(cartProduct.quantity),
+        itemTotal:
+          (parseFloat(groupedCart[i].quantity) +
+            parseFloat(cartProduct.quantity)) *
+          parseFloat(cartProduct.price),
       };
     }
 
