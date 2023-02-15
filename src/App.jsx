@@ -23,6 +23,7 @@ function App() {
   const [showShipAlert, setShowShipAlert] = useState(true);
   const [showNav, setShowNav] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
+  const [showProductPopup, setShowProductPopup] = useState(false);
 
   /*
    ** STATE for carts
@@ -45,6 +46,7 @@ function App() {
     setShoppingCart((prevCartInputs) => {
       return [...prevCartInputs, cartInputs];
     });
+    setShowProductPopup(true);
   };
 
   const handlePlusQty = (id) => {
@@ -73,6 +75,8 @@ function App() {
         setShowShipAlert,
         setShowNav,
         setShowFooter,
+        showProductPopup,
+        setShowProductPopup,
       }}
     >
       <div className="App">
