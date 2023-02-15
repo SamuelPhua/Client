@@ -7,6 +7,7 @@ const ButtonOrange = ({ displayName, width, padding, margin, onClick }) => {
       id={displayName}
       style={{ width: width, padding: padding, margin: margin }}
       onClick={(event) => onClick(event)}
+      disabled={disabled}
     >
       {displayName}
     </button>
