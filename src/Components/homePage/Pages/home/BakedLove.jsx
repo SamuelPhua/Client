@@ -52,7 +52,7 @@ import recepie from '../../Assets/Images/home-image/Home-Recipes.png';
                 alt="ingredient-image"
               />
               <h2 className="top-20 left-40 uppercase absolute font-['Permanent_Marker'] tracking-wider font-normal text-4xl bg-white w-[282px] text-center align-middle ">
-              PAckaging
+              Packaging
               </h2>
               <p className="absolute w-[191px] text-xs font-medium tracking-wider -right-56 top-32">Our packaging is  designed with sustainability and preserving the freshness of our cookies in mind. </p>
             </div>
