@@ -4,7 +4,7 @@ import { images, description } from "../Varlables/Constants";
 import Banner from "./reusables/Banner";
 import useFetch from "../customHooks/useFetch";
 
-const numberOfImages = 17;
+const numberOfImages = 12;
 
 function Shop() {
   const navigate = useNavigate();
@@ -22,7 +22,6 @@ function Shop() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringfy(data.name),
     };
 
     fetchData(fetchUrl, fetchOptions);
@@ -55,12 +54,17 @@ function Shop() {
                 className="w-48 h-48 mx-auto"
                 onClick={() => navigateToProduct(description[i])}
               />
-              <p
-                className="text-darkBlueFont mt-4 text-center"
-                onClick={() => navigateToProduct(description[i])}
-              >
-                {description[i]}
-              </p>
+              {data && data[i] ? (
+                <p
+                  key={imageNumber}
+                  className="text-darkBlueFont mt-4 text-center"
+                  onClick={() => navigateToProduct(data[i].name)}
+                >
+                  {data[i].name.toUpperCase()}
+                </p>
+              ) : (
+                <p>Loading...</p>
+              )}
             </div>
           );
         })}
