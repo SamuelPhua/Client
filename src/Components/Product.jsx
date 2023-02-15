@@ -217,10 +217,14 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
           [event.target.name]: prevOptionsClicked[event.target.name] + 1,
         };
       } else {
-        return {
-          ...prevOptionsClicked,
-          [event.target.name]: prevOptionsClicked[event.target.name] - 1,
-        };
+        if (prevOptionsClicked[event.target.name] > 1) {
+          return {
+            ...prevOptionsClicked,
+            [event.target.name]: prevOptionsClicked[event.target.name] - 1,
+          };
+        } else {
+          alert("you don't want any cookies? :(");
+        }
       }
     });
   };

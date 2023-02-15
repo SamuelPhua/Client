@@ -32,6 +32,7 @@ module.exports = {
         orange: "#F7921B",
         darkOrange: "#FF7C40",
         lightGreen: "#C1DAD7",
+        buttonDisableGrey: "#E3E7E7",
         lightGrey: "#484848",
         greyPlaceholder: "#969292",
       },
