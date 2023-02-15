@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import useFetch from "../../customHooks/useFetch";
-import ButtonOrange from "../reusables/ButtonOrange";
-import envelope from "../../assets/imagesContactUs/ContactSubmitted-FyingEnvelope.gif";
+// import ButtonOrange from "../reusables/ButtonOrange";
+// import envelope from "../../assets/imagesContactUs/ContactSubmitted-FyingEnvelope.gif";
 
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import DataContext from "../context/DataContext";
 
 const ContactForm = () => {
@@ -20,15 +20,14 @@ const ContactForm = () => {
   const { fetchData, isLoading, error } = useFetch();
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [enquiryInput, setEnquiryInput] = useState(initFormState);
-  const [displayPopup, setDisplayPopup] = useState(false);
 
-  // When "GOT IT!" button on popup is clicked, popup will close and will navigate back to "Contact Us" empty form, empty form opacity will be changed to normal
-  const navigate = useNavigate();
-  const navigateToContactUs = () => {
-    navigate("/contact-us");
-    setDisplayPopup(false);
-    data.setPageIsOpaque(false);
-  };
+  // // When "GOT IT!" button on popup is clicked, popup will close and will navigate back to "Contact Us" empty form, empty form opacity will be changed to normal
+  // const navigate = useNavigate();
+  // const navigateToContactUs = () => {
+  //   navigate("/contact-us");
+  //   setDisplayPopup(false);
+  //   data.setPageIsOpaque(false);
+  // };
 
   // PUT: when form is submitted
   useEffect(() => {
@@ -59,13 +58,13 @@ const ContactForm = () => {
   const handleFormSubmission = (e) => {
     e.preventDefault();
     setHasSubmitted(true);
-    setDisplayPopup(true);
+    data.setDisplayPopup(true);
     data.setPageIsOpaque(true);
   };
 
   return (
     <div>
-      {displayPopup && (
+      {/* {displayPopup && (
         <div className="relative mx-auto flex justify-center items-center">
           <div className="w-2/3 h-2/3 absolute">
             <div className="flex justify-center items-center bg-white">
@@ -85,7 +84,7 @@ const ContactForm = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       <form
         id="contactForm"
