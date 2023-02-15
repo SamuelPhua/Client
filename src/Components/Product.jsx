@@ -3,6 +3,7 @@ import useFetch from "../customHooks/useFetch";
 import { useParams, useNavigate } from "react-router-dom";
 import { productImages } from "../Varlables/Constants";
 import ButtonOrange from "./reusables/ButtonOrange";
+import ButtonWhite from "./reusables/ButtonWhite";
 
 const Product = ({ shoppingCart, handleAddToCart }) => {
   ///////////////////
@@ -49,11 +50,15 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   // all of product's info based on current option
   const [productInfo, setProductInfo] = useState({});
   // available options (for weight)
-  const [optionsExist, setOptionsExist] = useState({
+  const [weightOptions, setWeightOptions] = useState({
     "100g": false,
     "150g": false,
     "200g": false,
     "350g": false,
+  });
+  const [packagingOptions, setPackagingOptions] = useState({
+    "Kraft Pouch": false,
+    Bottle: false,
   });
   // current options
   const [optionsClicked, setOptionsClicked] = useState({
@@ -87,13 +92,18 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
 
   function displayedOptions(loadedData) {
     // set display options for available weight and packaging in data
-    const newOptions = {};
+    const newWeightOptions = {};
+    const newPackagingOptions = {};
     loadedData.price.map((option) => {
-      if (Object.keys(optionsExist).includes(option.weight)) {
-        newOptions[option.weight] = true;
+      if (Object.keys(weightOptions).includes(option.weight)) {
+        newWeightOptions[option.weight] = true;
+      }
+      if (Object.keys(packagingOptions).includes(option.packaging)) {
+        newPackagingOptions[option.packaging] = true;
       }
     });
-    setOptionsExist(newOptions);
+    setWeightOptions(newWeightOptions);
+    setPackagingOptions(newPackagingOptions);
   }
 
   function getCurrentInfo(wgt, pkg) {
@@ -248,20 +258,36 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               $ {productInfo.price}
             </h3>
 
-            {Object.values(productInfo.description).map((paragraph) => {
+            {/* {productInfo.description.map((paragraph, paraInd) => {
               return (
-                <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+                <p
+                  key={paraInd}
+                  className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs mb-8"
+                >
                   {paragraph}
                 </p>
               );
-            })}
+            })} */}
 
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
               Weight
             </h5>
-            {/* buttons for options */}
+            {/* buttons for weight options */}
             <div className="flex flex-wrap mb-8">
-              <h2>display buttons</h2>
+              {Object.entries(weightOptions).map((weightOption) => {
+                if (weightOption[1]) {
+                  return (
+                    <ButtonWhite
+                      displayName={weightOption[0]}
+                      width="5rem"
+                      padding="0.2rem"
+                      margin="0.1rem 0.5rem 0.1rem 0"
+                      onClick={handleOptionSelection}
+                      autofocus={weightOption[0] === optionsClicked.weight} // TODO - fix autofocus not displaying
+                    />
+                  );
+                }
+              })}
             </div>
 
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
@@ -269,7 +295,20 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
             </h5>
             {/* buttons for options */}
             <div className="flex flex-wrap mb-8">
-              <h2>display buttons</h2>
+              {Object.entries(packagingOptions).map((option) => {
+                if (option[1]) {
+                  return (
+                    <ButtonWhite
+                      displayName={option[0]}
+                      width="10rem"
+                      padding="0.2rem"
+                      margin="0.1rem 0.5rem 0.1rem 0"
+                      onClick={handleOptionSelection}
+                      autofocus={option[0] === optionsClicked.packaging} // TODO - set focus weight & packaging separately
+                    />
+                  );
+                }
+              })}
             </div>
 
             <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
@@ -295,7 +334,9 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
           <h2>LOADING COOKIE...</h2>
         </div>
       )}
+
       {!isLoading && error && <p> {error}</p>}
+
       {!productExists && (
         <h2 className="tracking-wide font-montserrat text-darkBlueFont text-xxs md:text-xxs w-7/10 mx-auto mt-10">
           Sorry, {name} is currently out of stock.
