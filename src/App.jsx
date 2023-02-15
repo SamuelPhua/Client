@@ -39,6 +39,7 @@ function App() {
 
   const handleAddToCart = (cartInputs) => {
     console.log("added cart items", cartInputs);
+    console.log("image source", cartInputs.image);
     // compute itemTotal based on price * qty
     cartInputs.itemTotal = cartInputs.quantity * cartInputs.price;
     setShoppingCart((prevCartInputs) => {
