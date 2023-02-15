@@ -16,7 +16,7 @@ const Cart = ({
     setShowFooter(true);
   }, []);
 
-  let groupedCart = groupShoppingCart(shoppingCart);
+  // let groupedCart = groupShoppingCart(shoppingCart);
 
   // Navigate to the checkout page
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ const Cart = ({
       </div>
 
       {/* Second Row */}
-      {groupedCart.map((product, index) => {
+      {shoppingCart.map((product, index) => {
         return <CartProduct key={index} {...product} index={index} />;
       })}
 
