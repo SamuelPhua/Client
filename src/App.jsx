@@ -77,7 +77,16 @@ function App() {
         {showShipAlert && <ShippingAlert />}
         {showNav && <Header shoppingCart={groupedCart} />}
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="/"
+            element={
+              <Home
+                setShowShipAlert={setShowShipAlert}
+                setShowNav={setShowNav}
+                setShowFooter={setShowFooter}
+              />
+            }
+          ></Route>
           <Route path="shop" element={<Shop />}></Route>
           <Route
             path="product/:name"
