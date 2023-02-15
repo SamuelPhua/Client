@@ -110,10 +110,16 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   useEffect(() => {
     // check for the options that exist
     if (isObject(data)) {
-      // console.log(data);
+      console.log(data);
       displayedOptions(data);
       // console.log(optionsExist);
-      setProductInfo(data);
+      setProductInfo({
+        // name: data.name,
+        // description: data.description.split("\r\"),
+        // about: data.about,
+        // price: data.price,
+        // image: data.image,
+      });
     }
     // dependency: on data load + option change
   }, [data]);
