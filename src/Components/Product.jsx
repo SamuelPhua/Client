@@ -324,26 +324,37 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               Quantity
             </h5>
             {/* buttons for adding and reducing */}
-            <div className="flex flex-wrap mb-8">
-              <div>
+            <div className="flex flex-wrap justify-between mb-8">
+              <div className="flex flex-wrap w-2/4">
                 <ButtonAddMinus
                   displayName="-"
                   padding="0"
-                  margin="0"
+                  margin="0 1rem"
                   size="1.5rem"
                   onClick={handleChangeQuantity}
                 />
-                <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs w-2/12 mb-8">
+                <p className="tracking-normal text-center font-montserrat text-darkBlueFont text-xs md:text-xs w-2/12 mb-8">
                   {optionsClicked.quantity}
                 </p>
+                <ButtonAddMinus
+                  displayName="+"
+                  padding="0"
+                  margin="0 1rem"
+                  size="1.5rem"
+                  onClick={handleChangeQuantity}
+                />
               </div>
-              
+
               {/* #5 Add to cart button */}
-              <ButtonOrange
-                displayName={"ADD TO CART"}
-                width="10rem"
-                onClick={handleAddToCartButton}
-              />
+              <div className="w-2/4">
+                <ButtonOrange
+                  displayName={"ADD TO CART"}
+                  width="14rem"
+                  padding="0.6rem"
+                  margin="0"
+                  onClick={handleAddToCartButton}
+                />
+              </div>
             </div>
           </div>
         </div>

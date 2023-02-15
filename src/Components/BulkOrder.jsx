@@ -138,7 +138,9 @@ const BulkOrder = () => {
         <div className="text-center mx-auto">
           <ButtonOrange
             displayName="CONTACT US"
-            width="10rem"
+            width="15rem"
+            padding="0.7rem"
+            margin="0"
             onClick={navigateToContactUs}
           />
         </div>
