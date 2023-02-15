@@ -22,33 +22,33 @@ const Header = ({ shoppingCart }) => {
           style={{ textDecoration: "none" }}
           className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
-          <span>SHOP</span>
+          <span className="font-montserrat">SHOP</span>
         </Link>
         <Link
           to="/about-us"
           style={{ textDecoration: "none" }}
           className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
-          <span>ABOUT US</span>
+          <span className="font-montserrat">ABOUT US</span>
         </Link>
         <Link
           to="bulk-orders"
           style={{ textDecoration: "none" }}
           className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
-          <span>BULK ORDERS</span>
+          <span className="font-montserrat">BULK ORDERS</span>
         </Link>
         <Link
           to="contact-us"
           style={{ textDecoration: "none" }}
           className="mx-5 pb-2 border-b-2 border-transparent hover:border-orange transition duration-700 ease-in-out"
         >
-          <span>CONTACT US</span>
+          <span className="font-montserrat">CONTACT US</span>
         </Link>
         <Link
           to="/cart"
           style={{ textDecoration: "none" }}
-          className="relative pl-10 text-2xl pb-3 "
+          className="relative pl-10 text-2xl pb-3"
         >
           <span
             className={
