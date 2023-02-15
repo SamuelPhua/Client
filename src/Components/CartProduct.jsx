@@ -34,18 +34,18 @@ const CartProduct = ({
         <div className="justify-center items-center col-start-5 flex">
           <div>
             <AiFillMinusCircle
-              className="inline-block text-lightBlue text-3xl"
+              className="cursor-pointer inline-block text-lightBlue text-3xl"
               onClick={() => handleMinusQty(index)}
             />
             <div className="inline-block ml-8 mr-8 text-darkBlueFont text-[1.2rem]">
               {quantity}
             </div>
             <AiFillPlusCircle
-              className="inline-block text-lightBlue text-3xl"
+              className="cursor-pointer inline-block text-lightBlue text-3xl"
               onClick={() => handlePlusQty(index)}
             />
             <div
-              className="block text-[0.9rem] font-montserrat text-center text-darkBlueFont underline"
+              className="cursor-pointer block text-[0.9rem] font-montserrat text-center text-darkBlueFont underline underline-offset-4 mt-1 hover:tracking-wider"
               onClick={() => handleDelete(index)}
             >
               Remove

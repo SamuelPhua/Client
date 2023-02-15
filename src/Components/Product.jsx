@@ -95,7 +95,13 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   ///////////
   // STATES
   ///////////
-  // all of product's info based on current option
+  // current options
+  const [optionsClicked, setOptionsClicked] = useState({
+    weight: "100g",
+    packaging: "Kraft Pouch",
+    quantity: 1,
+  });
+  // product's info based on current option
   const [productInfo, setProductInfo] = useState({});
   // available options (for weight)
   const [weightOptions, setWeightOptions] = useState({
@@ -108,27 +114,11 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     "Kraft Pouch": false,
     Bottle: false,
   });
-  // current options
-  const [optionsClicked, setOptionsClicked] = useState({
-    weight: "100g",
-    packaging: "Kraft Pouch",
-    quantity: 1,
-  });
-  // change other options based on selected options
+  // change other options based on selected options (for display)
   const [unitPrice, setUnitPrice] = useState("");
   const [productImage, setProductImage] = useState(
     productImages[name][optionsClicked.packaging]
   );
-  // cart states:
-  const [hasAdded, setHasAdded] = useState(false);
-  const [cartInputs, setCartInputs] = useState({
-    name: "",
-    price: "",
-    weight: "",
-    packaging: "",
-    quantity: 0,
-    image: "",
-  });
 
   ///////////
   // EFFECT
