@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ButtonOrange from "./reusables/ButtonOrange";
 import CartProduct from "./CartProduct";
+import { groupShoppingCart } from "../helper/groupShoppingCart";
 
 const Cart = ({
   shoppingCart,
@@ -14,6 +15,8 @@ const Cart = ({
     setShowNav(true);
     setShowFooter(true);
   }, []);
+
+  // let groupedCart = groupShoppingCart(shoppingCart);
 
   // Navigate to the checkout page
   const navigate = useNavigate();
@@ -86,7 +89,11 @@ const Cart = ({
       {/* Last Row */}
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10">
         <div className="col-start-7 flex justify-end items-center mr-[-5.8rem] mt-[-6.5rem]">
-          <ButtonOrange displayName="CHECKOUT" onClick={navigateToCheckout} />
+          <ButtonOrange
+            displayName="CHECKOUT"
+            onClick={navigateToCheckout}
+            disabled={shoppingCart.length === 0 ? true : false}
+          />
         </div>
       </div>
     </div>

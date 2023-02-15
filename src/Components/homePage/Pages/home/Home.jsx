@@ -1,12 +1,17 @@
-import React from "react";
-import  BakedLove  from "./BakedLove";
-import  BestSeller  from "./BestSeller";
-import Brands  from "./Brands";
-import  CustomOrders  from "./CustomOrders";
-import  Hero  from "./Hero";
+import React, { useEffect } from "react";
+import BakedLove from "./BakedLove";
+import BestSeller from "./BestSeller";
+import Brands from "./Brands";
+import CustomOrders from "./CustomOrders";
+import Hero from "./Hero";
 
+const Home = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
+  useEffect(() => {
+    setShowShipAlert(true);
+    setShowNav(true);
+    setShowFooter(true);
+  }, []);
 
- const Home = () => {
   return (
     <div>
       <Hero />
@@ -14,6 +19,7 @@ import  Hero  from "./Hero";
       <CustomOrders></CustomOrders>
       <BakedLove/>
       <Brands/>
+      {/* <Footer/> */}
     </div>
   );
 };

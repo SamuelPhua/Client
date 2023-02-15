@@ -40,7 +40,7 @@ const CheckoutPage2 = ({
                   type="button"
                   id="cartDeliveryNext"
                   onClick={handleNext}
-                  className=" text-white text-xxxs bg-orange focus:outline-none hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-3 lg:w-fit px-8"
+                  className=" text-white text-xxxs bg-orange focus:outline-none hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 py-3 lg:w-fit px-8"
                 >
                   CONTINUE TO PAYMENT
                 </button>
