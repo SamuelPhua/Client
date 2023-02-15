@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import useFetch from "../customHooks/useFetch";
 import { useParams, useNavigate } from "react-router-dom";
 import { productImages } from "../Varlables/Constants";
+
 import ButtonOrange from "./reusables/ButtonOrange";
 import ButtonWhite from "./reusables/ButtonWhite";
+import ButtonAddMinus from "./reusables/ButtonAddMinus";
 
 const Product = ({ shoppingCart, handleAddToCart }) => {
   ///////////////////
@@ -64,6 +66,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   const [optionsClicked, setOptionsClicked] = useState({
     weight: "100g",
     packaging: "Kraft Pouch",
+    quantity: 1,
   });
   // change other options based on selected options
   const [unitPrice, setUnitPrice] = useState("");
@@ -182,9 +185,15 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
 
   const handleOptionSelection = (event) => {
     event.preventDefault();
+    console.log("changing options");
     // setOptionsClicked();
     // getUnitPrice();
     // setProductInfo();
+  };
+
+  const handleChangeQuantity = (event) => {
+    event.preventDefault();
+    console.log("changing cookie quantity");
   };
 
   const handleAddToCartButton = (event) => {
@@ -316,8 +325,19 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
             </h5>
             {/* buttons for adding and reducing */}
             <div className="flex flex-wrap mb-8">
-              <h2>display quantity</h2>
-
+              <div>
+                <ButtonAddMinus
+                  displayName="-"
+                  padding="0"
+                  margin="0"
+                  size="1.5rem"
+                  onClick={handleChangeQuantity}
+                />
+                <p className="tracking-normal text-left font-montserrat text-darkBlueFont text-xs md:text-xs w-2/12 mb-8">
+                  {optionsClicked.quantity}
+                </p>
+              </div>
+              
               {/* #5 Add to cart button */}
               <ButtonOrange
                 displayName={"ADD TO CART"}
