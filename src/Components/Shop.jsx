@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { images, description } from "../Varlables/Constants";
+import { productImages } from "../Varlables/Constants";
 import Banner from "./reusables/Banner";
 import useFetch from "../customHooks/useFetch";
 
@@ -41,36 +41,58 @@ function Shop() {
       />
 
       <div className="grid grid-cols-3 w-10/12 mt-20 mb-10 place-items-center mx-auto gap-y-24">
-        {Array.from({ length: numberOfImages }, (_, i) => {
-          const imageNumber = i + 1;
+        {data &&
+          data.map((e, index) => {
+            let imageSrc = productImages[e.name]["cookie"];
 
-          return (
-            <div
-              key={imageNumber}
-              className="items-center cursor-pointer p-8 rounded-lg transition duration-1000 ease-in-out"
-            >
-              <img
-                src={images[i]}
-                className="w-48 h-48 mx-auto mb-8 zoom"
-                onClick={() => navigateToProduct(description[i])}
-              />
-              {data && data[i] ? (
+            return (
+              <div
+                key={index}
+                className="items-center cursor-pointer p-8 rounded-lg transition duration-1000 ease-in-out"
+              >
+                <img
+                  src={imageSrc}
+                  className="w-48 h-48 mx-auto mb-8 zoom"
+                  onClick={() => navigateToProduct(e.name)}
+                />{" "}
                 <p
-                  key={imageNumber}
+                  key={index}
                   className="text-darkBlueFont font-montserrat tracking-wider mt-4 text-center"
-                  onClick={() => navigateToProduct(data[i].name)}
+                  onClick={() => navigateToProduct(e.name)}
                 >
-                  {data[i].name.toUpperCase()}
+                  {e.name.toUpperCase()}
                 </p>
-              ) : (
-                <p>Loading...</p>
-              )}
-            </div>
-          );
-        })}
+              </div>
+            );
+          })}
       </div>
     </div>
   );
 }
 
 export default Shop;
+
+// {Array.from({ length: numberOfImages }, (_, i) => {
+//   const imageNumber = i + 1;
+
+//   return (
+//     <div
+//       key={imageNumber}
+//       className="items-center cursor-pointer p-8 rounded-lg transition duration-1000 ease-in-out"
+//     >
+//       <img
+//         src={images[i]}
+//         className="w-48 h-48 mx-auto mb-8 zoom"
+//         onClick={() => navigateToProduct(description[i])}
+//       />
+//       {data && data[i] ? (
+//         <p
+//           key={imageNumber}
+//           className="text-darkBlueFont font-montserrat tracking-wider mt-4 text-center"
+//           onClick={() => navigateToProduct(data[i].name)}
+//         >
+//           {data[i].name.toUpperCase()}
+//         </p>
+//       ) : (
+//         <p>Loading...</p>
+//       )}

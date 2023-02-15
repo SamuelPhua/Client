@@ -29,35 +29,6 @@ import seaSaltChocoJar from "../assets/imagesProducts/SeaSaltChocolateCookies/Pr
 import seaSaltChocoPouch from "../assets/imagesProducts/SeaSaltChocolateCookies/Product-SeaSaltChocolateCookies-Pouch.png";
 import seaSaltChocoCookie from "../assets/imagesProducts/SeaSaltChocolateCookies/Product-SeaSaltChocolateCookies.png";
 
-export const images = [
-  image1,
-  image2,
-  image3,
-  image6,
-  image7,
-  image8,
-  image9,
-  image10,
-  image11,
-  image12,
-  image13,
-  image5,
-];
-
-export const description = [
-  "Pineapple Signature Balls",
-  "Chocolate Chip Cookies",
-  "Double Choco Chip Cookies",
-  "Macadamia Chocolate Cookies",
-  "Sea Salt Chocolate Cookies",
-  "Oatmeal Cranberry Cookies",
-  "Pecan ButterScotch Cookies",
-  "White Almond Cookies",
-  "French Sable Cookies",
-  "Gingerbread Man",
-  "Xmas Fruit Cake",
-];
-
 export const productImages = {
   "Chocolate Chip Cookies": {
     "Kraft Pouch": chocChipPouch,
@@ -84,4 +55,59 @@ export const productImages = {
     Bottle: seaSaltChocoJar,
     cookie: seaSaltChocoCookie,
   },
+  "Double Choco Chip Cookies": {
+    "Kraft Pouch": image3,
+    Bottle: image3,
+    cookie: image3,
+  },
+  "White Almond Cookies": {
+    "Kraft Pouch": image10,
+    Bottle: image10,
+    cookie: image10,
+  },
+  "Pineapple Signature Balls": {
+    "Kraft Pouch": image1,
+    Bottle: image1,
+    cookie: image1,
+  },
+  "Gingerbread Man": {
+    "Kraft Pouch": image12,
+    Bottle: image12,
+    cookie: image12,
+  },
+  "Xmas Fruit Cake": {
+    "Kraft Pouch": image13,
+    Bottle: image13,
+    cookie: image13,
+  },
 };
+
+// NOT IN USE
+export const images = [
+  image1,
+  image2,
+  image3,
+  image6,
+  image7,
+  image8,
+  image9,
+  image10,
+  image11,
+  image12,
+  image13,
+  image5,
+];
+
+export const description = [
+  "Pineapple Signature Balls",
+  "Chocolate Chip Cookies",
+  "Double Choco Chip Cookies",
+  "Macadamia Chocolate Cookies",
+  "Sea Salt Chocolate Cookies",
+  "Oatmeal Cranberry Cookies",
+  "Pecan ButterScotch Cookies",
+  "White Almond Cookies",
+  "French Sable Cookies", // remove
+  "Gingerbread Man",
+  "Xmas Fruit Cake",
+];

@@ -6,6 +6,7 @@ import { productImages } from "../Varlables/Constants";
 import ButtonOrange from "./reusables/ButtonOrange";
 import ButtonWhite from "./reusables/ButtonWhite";
 import ButtonSelected from "./reusables/ButtonSelected";
+import ButtonDisabled from "./reusables/ButtonDisabled";
 import ButtonAddMinus from "./reusables/ButtonAddMinus";
 
 const Product = ({ shoppingCart, handleAddToCart }) => {
@@ -27,33 +28,40 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
 
   // TODO - Add function to check if product exists in database
 
-  function displayedOptions(loadedData) {
+  function displayedOptions() {
     // set display options for available weight and packaging in data
-    const newWeightOptions = {};
-    const newPackagingOptions = {};
-    loadedData.price.map((option) => {
-      if (Object.keys(weightOptions).includes(option.weight)) {
-        newWeightOptions[option.weight] = true;
-      }
-      // TODO - sort in increasing weight options
-      if (Object.keys(packagingOptions).includes(option.packaging)) {
-        newPackagingOptions[option.packaging] = true;
-      }
+    const newWeightOptions = {
+      "100g": false,
+      "150g": false,
+      "200g": false,
+      "350g": false,
+    };
+    const newPackagingOptions = {
+      "Kraft Pouch": false,
+      Bottle: false,
+    };
+
+    data.price.map((pairing) => {
+      console.log(pairing);
+      // match clicked option with each pairing option to set other option true
+      if (pairing.weight === optionsClicked.weight)
+        newPackagingOptions[pairing.packaging] = true;
+
+      if (pairing.packaging === optionsClicked.packaging)
+        newWeightOptions[pairing.weight] = true;
     });
+    console.log("new weight options", newWeightOptions);
     setWeightOptions(newWeightOptions);
     setPackagingOptions(newPackagingOptions);
   }
 
   function getCurrentInfo(wgt, pkg) {
     // set price display on weight and packaing option changes
-    console.log("get current info on option update:", wgt, pkg);
     // 1. loop through data.price (array of objects)
     let optionPrice = 0;
     data.price.map((optionGroup) => {
       // 2. if data.price.weight === wgt && data.price.packaging === pkg
       if (optionGroup.weight === wgt && optionGroup.packaging === pkg) {
-        console.log("option group:", optionGroup);
-        console.log(wgt, pkg, "is", true, ". Price is:", optionGroup.sgdPrice);
         return (optionPrice = optionGroup.sgdPrice);
       }
     });
@@ -95,7 +103,13 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   ///////////
   // STATES
   ///////////
-  // all of product's info based on current option
+  // current options
+  const [optionsClicked, setOptionsClicked] = useState({
+    weight: "100g",
+    packaging: "Kraft Pouch",
+    quantity: 1,
+  });
+  // product's info based on current option
   const [productInfo, setProductInfo] = useState({});
   // available options (for weight)
   const [weightOptions, setWeightOptions] = useState({
@@ -108,27 +122,11 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     "Kraft Pouch": false,
     Bottle: false,
   });
-  // current options
-  const [optionsClicked, setOptionsClicked] = useState({
-    weight: "100g",
-    packaging: "Kraft Pouch",
-    quantity: 1,
-  });
-  // change other options based on selected options
+  // change other options based on selected options (for display)
   const [unitPrice, setUnitPrice] = useState("");
   const [productImage, setProductImage] = useState(
     productImages[name][optionsClicked.packaging]
   );
-  // cart states:
-  const [hasAdded, setHasAdded] = useState(false);
-  const [cartInputs, setCartInputs] = useState({
-    name: "",
-    price: "",
-    weight: "",
-    packaging: "",
-    quantity: 0,
-    image: "",
-  });
 
   ///////////
   // EFFECT
@@ -151,7 +149,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     // a. check for the options that exist
     if (isObject(data)) {
       // b. set displayedOptions => changes to optionsClicked as well => triggers useEffect #3
-      displayedOptions(data);
+      displayedOptions();
 
       // c. get price and option's product image
       // this compares the selected weight + packaging options and generate new price and product image
@@ -163,11 +161,8 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
         description: data.description.split("\n"),
         about: data.about,
         price: unitPrice,
-        weight: optionsClicked.weight,
-        packaging: optionsClicked.packaging,
-        // can change to image from database if it's done
-        quantity: 1,
         image: productImage, // this returns the location (url) within the src/assets folder, still need to import productImages from Variables/Constants
+        // can change to image from database if it's done
       });
     }
     // dependency: on data load + option change
@@ -179,6 +174,9 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     // checks if data is not null
     if (isObject(data)) {
       console.log("checking options...", optionsClicked);
+      // repeat: reset displayed available options
+      displayedOptions();
+
       // repeat: reset current info
       getCurrentInfo(optionsClicked.weight, optionsClicked.packaging);
 
@@ -187,13 +185,11 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
         return {
           ...prevProductInfo,
           price: unitPrice,
-          weight: optionsClicked.weight,
-          packaging: optionsClicked.packaging,
-          quantity: optionsClicked.quantity,
           image: productImage,
         };
       });
     }
+    console.log("optionsClicked useEffect");
   }, [optionsClicked]);
 
   //////////////////
@@ -221,10 +217,14 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
           [event.target.name]: prevOptionsClicked[event.target.name] + 1,
         };
       } else {
-        return {
-          ...prevOptionsClicked,
-          [event.target.name]: prevOptionsClicked[event.target.name] - 1,
-        };
+        if (prevOptionsClicked[event.target.name] > 1) {
+          return {
+            ...prevOptionsClicked,
+            [event.target.name]: prevOptionsClicked[event.target.name] - 1,
+          };
+        } else {
+          alert("you don't want any cookies? :(");
+        }
       }
     });
   };
@@ -241,10 +241,10 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     handleAddToCart({
       name: productInfo.name,
       price: productInfo.price,
-      weight: productInfo.weight,
-      packaging: productInfo.packaging,
-      quantity: productInfo.quantity,
       image: productInfo.image,
+      weight: optionsClicked.weight,
+      packaging: optionsClicked.packaging,
+      quantity: optionsClicked.quantity,
     });
   };
 
@@ -298,7 +298,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               {name}
             </h2>
             <h3 className="tracking-wide text-left font-montserrat text-darkBlueFont text-3xl md:text-3xl mb-8">
-              $ {productInfo.price}
+              $ {unitPrice}
             </h3>
 
             {/* display for product description */}
@@ -321,6 +321,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
             {/* buttons for weight options */}
             <div className="flex flex-wrap mb-8">
               {Object.entries(weightOptions).map((option, ind) => {
+                // if option is true and price != 0
                 if (option[1]) {
                   if (option[0] === optionsClicked.weight) {
                     return (
@@ -347,6 +348,18 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                       />
                     );
                   }
+                  // if option does not exist
+                } else {
+                  return (
+                    <ButtonDisabled
+                      key={ind}
+                      displayName={option[0]}
+                      category="weight"
+                      width="5rem"
+                      padding="0.2rem"
+                      margin="0.1rem 0.5rem 0.1rem 0"
+                    />
+                  );
                 }
               })}
             </div>
@@ -384,6 +397,17 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                       />
                     );
                   }
+                } else {
+                  return (
+                    <ButtonDisabled
+                      key={ind}
+                      displayName={option[0]}
+                      category="packaging"
+                      width="10rem"
+                      padding="0.2rem"
+                      margin="0.1rem 0.5rem 0.1rem 0"
+                    />
+                  );
                 }
               })}
             </div>

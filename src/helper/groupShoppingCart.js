@@ -15,6 +15,7 @@ export const groupShoppingCart = (shoppingCart) => {
       groupedCart.push({
         name: cartProduct.name,
         price: cartProduct.price,
+        image: cartProduct.image,
         weight: cartProduct.weight,
         packaging: cartProduct.packaging,
         quantity: productQty,
