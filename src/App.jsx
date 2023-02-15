@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import ShippingAlert from "./Components/reusables/ShippingAlert";
 import Header from "./Components/reusables/Header";
-import Home from "./Components/homePage/Pages/home/Home";
+import Home from "./Components/Home";
 import Shop from "./Components/Shop";
 import Product from "./Components/Product";
 import AboutUs from "./Components/AboutUs";
