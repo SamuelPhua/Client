@@ -51,7 +51,7 @@ const Brands = () => {
   return (
     <div>
       <div className="py-16 ">
-        <h1 className="text-center pt-36 text-[#3670AD] uppercase  text-5xl pb-6 tracking-wider font-['Permanent_Marker'] relative">
+        <h1 className=" text-center pt-36 text-[#3670AD] uppercase  text-5xl pb-6 tracking-wider font-['Permanent_Marker'] relative">
           Brands we’ve worked With
           <img
             width={200}

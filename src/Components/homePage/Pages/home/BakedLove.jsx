@@ -5,6 +5,7 @@ import ingredients from "../../Assets/Images/home-image/Home-Ingredients.png";
 import love from '../../Assets/Images/home-image/Home-Heart.png';
 import packaging from '../../Assets/Images/home-image/Home-Packaging.png';
 import recepie from '../../Assets/Images/home-image/Home-Recipes.png';
+import "./Home.css"
 
  const BakedLove = () => {
   return (
@@ -12,13 +13,13 @@ import recepie from '../../Assets/Images/home-image/Home-Recipes.png';
       <div
         className="relative min-h-screen"
       >
-        <img src={cookieBackgroundOrange} className="absolute w-full h-full z-[-1]" alt="bg" />
+        <img src={cookieBackgroundOrange} className="absolute w-full h-full z-[-1]" alt="bg"  />
         <div className="relative z-10 w-full h-full">
-        <h1 className="text-center uppercase pt-24 text-[#3670AD]  text-5xl pb-6 tracking-wider font-['Permanent_Marker'] ">
-          Baked With Love
+        <h1 className=" text-center uppercase pt-24 text-[#3670AD]  text-5xl pb-6 tracking-wider font-['Permanent_Marker'] ">
+        <h1 className="bounce">Baked With Love</h1>  
           <img
             width={200}
-            className="absolute ml-12 -rotate-12 left-96 top-2"
+            className="bounce absolute ml-12 -rotate-12 left-96 top-2"
             src={coral}
             alt="cookie-image"
           />
@@ -51,7 +52,7 @@ import recepie from '../../Assets/Images/home-image/Home-Recipes.png';
                 className=""
                 alt="ingredient-image"
               />
-              <h2 className="top-20 left-40 uppercase absolute font-['Permanent_Marker'] tracking-wider font-normal text-4xl bg-white w-[282px] text-center align-middle ">
+              <h2 className=" top-20 left-40 uppercase absolute font-['Permanent_Marker'] tracking-wider font-normal text-4xl bg-white w-[282px] text-center align-middle ">
               Packaging
               </h2>
               <p className="absolute w-[191px] text-xs font-medium tracking-wider -right-56 top-32">Our packaging is  designed with sustainability and preserving the freshness of our cookies in mind. </p>
