@@ -3,7 +3,7 @@ import BakedLove from "./BakedLove";
 import BestSeller from "./BestSeller";
 import Brands from "./Brands";
 import CustomOrders from "./CustomOrders";
-import Hero from "./Hero";
+// import Hero from "./Hero";
 
 const Home = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
   useEffect(() => {
@@ -14,7 +14,7 @@ const Home = ({ setShowShipAlert, setShowNav, setShowFooter }) => {
 
   return (
     <div>
-      <Hero />
+      {/* <Hero /> */}
       <BestSeller />
       <CustomOrders></CustomOrders>
       <BakedLove />
