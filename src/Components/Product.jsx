@@ -86,8 +86,17 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     setOptionsExist(newOptions);
   }
 
-  function resetPrice(wgt, pkg) {
+  function getUnitPrice(wgt, pkg) {
     // set price display on weight and packaing option changes
+    // 1. loop through data.price (array of objects)
+    let unitPrice = 0;
+    data.price.map((optionGroup) => {
+      // 2. if data.price.weight === wgt && data.price.packaging === pkg
+      if (optionGroup.weight === wgt && optionGroup.packaging === pkg)
+        return (unitPrice = optionGroup.sgdPrice);
+    });
+    // return unitPrice = data.price.sgdPrice
+    return unitPrice;
   }
 
   ///////////
@@ -108,17 +117,26 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
 
   // #2 w/ fetched data is not null (check if isObject)
   useEffect(() => {
-    // check for the options that exist
+    // a. check for the options that exist
     if (isObject(data)) {
-      console.log(data);
+      // b. set displayedOptions
+      // console.log(data);
       displayedOptions(data);
       // console.log(optionsExist);
+
+      // c. get price and set productInfo state
+      const unitPrice = getUnitPrice(
+        optionsClicked.weight,
+        optionsClicked.packaging
+      );
       setProductInfo({
-        // name: data.name,
-        // description: data.description.split("\r\"),
-        // about: data.about,
-        // price: data.price,
-        // image: data.image,
+        name: data.name,
+        description: data.description.split("\n"),
+        about: data.about,
+        price: unitPrice,
+        weight: optionsClicked.weight,
+        packaging: optionsClicked.packaging,
+        image: data.image,
       });
     }
     // dependency: on data load + option change
@@ -143,6 +161,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     // event.preventDefault();
     // TODO - pop up modal to show:
     console.log(data);
+    console.log(productInfo);
     // 1. added cart item
     // 2. + previous cart items
     // 3 lift new item up to App and add to cart (DONE)
