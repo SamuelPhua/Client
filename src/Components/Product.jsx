@@ -160,14 +160,15 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
       getCurrentInfo(optionsClicked.weight, optionsClicked.packaging);
 
       // d. set productInfo state
-      setProductInfo((prevProductInfo) => {
-        return {
-          ...prevProductInfo,
-          price: unitPrice,
-          weight: optionsClicked.weight,
-          packaging: optionsClicked.packaging,
-          image: productImage,
-        };
+      setProductInfo({
+        name: data.name,
+        description: data.description.split("\n"),
+        about: data.about,
+        price: unitPrice,
+        weight: optionsClicked.weight,
+        packaging: optionsClicked.packaging,
+        // can change to image from database if it's done
+        image: productImage, // this returns the location (url) within the src/assets folder, still need to import productImages from Variables/Constants
       });
     }
     // dependency: on data load + option change
@@ -183,15 +184,14 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
       getCurrentInfo(optionsClicked.weight, optionsClicked.packaging);
 
       // repeat: reset productInfo state
-      setProductInfo({
-        name: data.name,
-        description: data.description.split("\n"),
-        about: data.about,
-        price: unitPrice,
-        weight: optionsClicked.weight,
-        packaging: optionsClicked.packaging,
-        // can change to image from database if it's done
-        image: productImage, // this returns the location (url) within the src/assets folder, still need to import productImages from Variables/Constants
+      setProductInfo((prevProductInfo) => {
+        return {
+          ...prevProductInfo,
+          price: unitPrice,
+          weight: optionsClicked.weight,
+          packaging: optionsClicked.packaging,
+          image: productImage,
+        };
       });
     }
   }, [optionsClicked]);
@@ -213,8 +213,20 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   };
 
   const handleChangeQuantity = (event) => {
-    event.preventDefault();
-    console.log("changing cookie quantity");
+    console.log("changing cart quantity", event.target.id);
+    setOptionsClicked((prevOptionsClicked) => {
+      if (event.target.id === "+") {
+        return {
+          ...prevOptionsClicked,
+          [event.target.name]: prevOptionsClicked[event.target.name] + 1,
+        };
+      } else {
+        return {
+          ...prevOptionsClicked,
+          [event.target.name]: prevOptionsClicked[event.target.name] - 1,
+        };
+      }
+    });
   };
 
   const handleAddToCartButton = (event) => {
@@ -307,12 +319,13 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
             </h5>
             {/* buttons for weight options */}
             <div className="flex flex-wrap mb-8">
-              {Object.entries(weightOptions).map((weightOption) => {
-                if (weightOption[1]) {
-                  if (weightOption[0] === optionsClicked.weight) {
+              {Object.entries(weightOptions).map((option, ind) => {
+                if (option[1]) {
+                  if (option[0] === optionsClicked.weight) {
                     return (
                       <ButtonSelected
-                        displayName={weightOption[0]}
+                        key={ind}
+                        displayName={option[0]}
                         category="weight"
                         width="5rem"
                         padding="0.2rem"
@@ -323,7 +336,8 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                   } else {
                     return (
                       <ButtonWhite
-                        displayName={weightOption[0]}
+                        key={ind}
+                        displayName={option[0]}
                         category="weight"
                         width="5rem"
                         padding="0.2rem"
@@ -342,11 +356,12 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
             </h5>
             {/* buttons for options */}
             <div className="flex flex-wrap mb-8">
-              {Object.entries(packagingOptions).map((option) => {
+              {Object.entries(packagingOptions).map((option, ind) => {
                 if (option[1]) {
                   if (option[0] === optionsClicked.packaging) {
                     return (
                       <ButtonSelected
+                        key={ind}
                         displayName={option[0]}
                         category="packaging"
                         width="10rem"
@@ -358,6 +373,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                   } else {
                     return (
                       <ButtonWhite
+                        key={ind}
                         displayName={option[0]}
                         category="packaging"
                         width="10rem"
@@ -381,6 +397,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
               <div className="flex flex-wrap w-2/4">
                 <ButtonAddMinus
                   displayName="-"
+                  category="quantity"
                   padding="0"
                   margin="0 1rem"
                   size="1.5rem"
@@ -391,6 +408,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
                 </p>
                 <ButtonAddMinus
                   displayName="+"
+                  category="quantity"
                   padding="0"
                   margin="0 1rem"
                   size="1.5rem"
