@@ -189,6 +189,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
           price: unitPrice,
           weight: optionsClicked.weight,
           packaging: optionsClicked.packaging,
+          quantity: optionsClicked.quantity,
           image: productImage,
         };
       });
