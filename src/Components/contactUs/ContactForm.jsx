@@ -66,6 +66,7 @@ const ContactForm = () => {
             className="border-2 border-darkBlueFont focus:ring-2 focus:bg-slate-200 rounded-full px-3.5 py-1.5 w-full text-base placeholder:text-xxs"
           />
         </div>
+<<<<<<< Updated upstream
         <div className="basis-1/2 md:ml-2 mt-5 md:mt-0">
           <label htmlFor="lastName" className="leading-7">
             LAST NAME
@@ -123,6 +124,14 @@ const ContactForm = () => {
         type="submit"
         id="submitContactForm"
         className="text-white bg-orange focus:outline-none focus:ring-4 hover:bg-darkOrange focus:bg-darkOrange rounded-full mt-5 mb-5 md:mt-10 py-2 w-28 md:w-32 lg:w-36 mx-auto"
+=======
+      )} */}
+
+      <form
+        id="contactForm"
+        className="flex flex-col basis-1/2 tracking-wide font-montserrat text-darkBlueFont text-xs pr-20"
+        onSubmit={handleFormSubmission}
+>>>>>>> Stashed changes
       >
         Submit
       </button>
