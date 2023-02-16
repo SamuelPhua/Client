@@ -255,9 +255,9 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
         <ProductPopup
           productImage={productInfo.image}
           name={productInfo.name}
-          packaging={productInfo.packaging}
-          weight={productInfo.weight}
-          quantity={productInfo.quantity}
+          packaging={optionsClicked.packaging}
+          weight={optionsClicked.weight}
+          quantity={optionsClicked.quantity}
         />
       </div>
       {/* #1 Shop > Cookie name links */}

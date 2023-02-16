@@ -19,7 +19,7 @@ const CartProduct = ({
 
   return (
     <>
-      <div className="w-11/12 grid grid-cols-7 ml-20 p-10 border-b-2 border-[#999999] ">
+      <div className="w-11/12 grid grid-cols-7 ml-20 px-10 py-5 border-b-2 border-[#999999] ">
         <div className="col-start-1 flex justify-center items-center">
           <img className="w-48 h-48 object-contain" src={image} />
         </div>
