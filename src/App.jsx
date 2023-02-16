@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import ShippingAlert from "./Components/reusables/ShippingAlert";
 import Header from "./Components/reusables/Header";
@@ -15,7 +15,6 @@ import Checkout from "./Components/Checkout";
 import BulkOrder from "./Components/BulkOrder";
 import Cart from "./Components/Cart";
 import DataContext from "./Components/context/DataContext";
-import CheckoutPage1 from "./Components/checkout/CheckoutPage1";
 import CheckoutReceipt from "./Components/checkout/CheckoutReceipt";
 import { groupShoppingCart } from "./helper/groupShoppingCart";
 
