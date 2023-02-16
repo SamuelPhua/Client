@@ -54,7 +54,7 @@ const ContactUs = () => {
             <p className="tracking-wide text-center font-montserrat text-darkBlueFont text-sm md:text-xs mb-14">
               We'd love to hear from you! Please reach out to us here.
             </p>
-            <div className="flex flex-col sm:mx-auto md:flex-row justify-between w-10/12 2xl:w-8/12 mb-40">
+            <div className="flex flex-col sm:mx-auto md:flex-row justify-between w-10/12 2xl:w-9/12 mb-40">
               <ContactForm />
               <ContactInfo />
             </div>

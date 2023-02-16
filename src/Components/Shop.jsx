@@ -71,28 +71,3 @@ function Shop() {
 }
 
 export default Shop;
-
-// {Array.from({ length: numberOfImages }, (_, i) => {
-//   const imageNumber = i + 1;
-
-//   return (
-//     <div
-//       key={imageNumber}
-//       className="items-center cursor-pointer p-8 rounded-lg transition duration-1000 ease-in-out"
-//     >
-//       <img
-//         src={images[i]}
-//         className="w-48 h-48 mx-auto mb-8 zoom"
-//         onClick={() => navigateToProduct(description[i])}
-//       />
-//       {data && data[i] ? (
-//         <p
-//           key={imageNumber}
-//           className="text-darkBlueFont font-montserrat tracking-wider mt-4 text-center"
-//           onClick={() => navigateToProduct(data[i].name)}
-//         >
-//           {data[i].name.toUpperCase()}
-//         </p>
-//       ) : (
-//         <p>Loading...</p>
-//       )}

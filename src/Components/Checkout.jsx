@@ -86,9 +86,23 @@ const Checkout = ({
     };
 
     if (hasSubmitted) fetchData(fetchURL, fetchOptions);
-    if (hasSubmitted) setShoppingCart([]);
-    if (hasSubmitted) navigateToReceipt(); // by right should wait until response received before navigate to receipt page
   }, [hasSubmitted]);
+
+  function isObject(value) {
+    return typeof value === "object" && value !== null && !Array.isArray(value);
+  }
+
+  useEffect(() => {
+    if (isObject(data)) {
+      if (data?.status === "OK") {
+        setShoppingCart([]);
+        navigateToReceipt();
+      } else {
+        // alert(data.message);
+        alert(data?.message);
+      }
+    }
+  }, [data]);
 
   const handlePaymentConfirmation = (event) => {
     event.preventDefault();

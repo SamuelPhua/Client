@@ -241,7 +241,7 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
     // 3 lift new item up to App and add to cart (DONE)
     handleAddToCart({
       name: productInfo.name,
-      price: productInfo.price,
+      price: unitPrice,
       image: productInfo.image,
       weight: optionsClicked.weight,
       packaging: optionsClicked.packaging,
@@ -423,36 +423,40 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
             </div>
 
             {/* SELECT QUANTITY */}
-            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-8">
+            <h5 className="tracking-wide text-left font-bold font-montserrat text-darkBlueFont text-xs md:text-xs mb-1">
               Quantity
             </h5>
             {/* buttons for quantity update & add to cart */}
             <div className="flex flex-wrap justify-between my-auto mb-8">
               {/* buttons for adding and reducing */}
-              <div className="flex flex-wrap w-2/4">
-                <ButtonAddMinus
-                  displayName="-"
-                  category="quantity"
-                  padding="0"
-                  margin="0 1rem"
-                  size="1.5rem"
-                  onClick={handleChangeQuantity}
-                />
-                <p className="tracking-normal text-center font-montserrat text-darkBlueFont text-xs md:text-xs w-2/12 mb-8">
+              <div className="flex flex-wrap justify-start w-4/12 my-auto">
+                <div className="flex flex-wrap w-2/12">
+                  <ButtonAddMinus
+                    displayName="-"
+                    category="quantity"
+                    padding="0"
+                    margin="auto"
+                    size="1.8rem"
+                    onClick={handleChangeQuantity}
+                  />
+                </div>
+                <p className="tracking-normal text-center font-montserrat text-darkBlueFont text-xs md:text-xs w-4/12 my-auto">
                   {optionsClicked.quantity}
                 </p>
-                <ButtonAddMinus
-                  displayName="+"
-                  category="quantity"
-                  padding="0"
-                  margin="0 1rem"
-                  size="1.5rem"
-                  onClick={handleChangeQuantity}
-                />
+                <div className="flex flex-wrap w-2/12">
+                  <ButtonAddMinus
+                    displayName="+"
+                    category="quantity"
+                    padding="0"
+                    margin="auto"
+                    size="1.8rem"
+                    onClick={handleChangeQuantity}
+                  />
+                </div>
               </div>
 
               {/* #5 ADD TO CART button */}
-              <div className="w-2/4">
+              <div className="w-2/4 my-auto">
                 <ButtonOrange
                   displayName={"ADD TO CART"}
                   width="14rem"
