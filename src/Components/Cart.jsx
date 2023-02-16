@@ -36,28 +36,28 @@ const Cart = ({
   let cartSum = sumCartTotal(shoppingCart);
 
   return (
-    <div className="motion-safe:animate-fadeIn">
+    <div className="motion-safe:animate-fadeIn mx-auto">
       {/* Start of CSS for View Cart with Items */}
-      <div className="relative h-[15rem] w-full bg-cover bg-center">
-        <div className="absolute text-lg font-permanentMarker text-darkBlue  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="relative h-[8rem] items-center w-full bg-cover bg-center">
+        <div className="absolute text-5xl font-permanentMarker text-darkBlue  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           Cart
         </div>
       </div>
 
       {/* First Row */}
-      <div className="mt-[-2rem] w-11/12 grid grid-cols-7 ml-20 p-6 border-b-2 border-[#999999] ">
+      <div className="mt-[-2rem] w-11/12 grid grid-cols-7 ml-20 px-6 pt-6 pb-2 border-b-2 border-[#999999] font-bold ">
         <div className="col-start-1 flex justify-start items-center">
-          <div className="text-[2.3rem] font-montserrat text-lightBlue">
+          <div className="text-[1.4rem] ml-10 font-montserrat text-lightBlue">
             Product
           </div>
         </div>
         <div className="col-start-5 flex justify-center items-center">
-          <div className="text-[2.3rem] font-montserrat text-lightBlue">
+          <div className="text-[1.4rem] font-montserrat text-lightBlue">
             Qty
           </div>
         </div>
         <div className="col-start-7 flex justify-end items-center">
-          <div className="text-[2.3rem] font-montserrat text-lightBlue">
+          <div className="text-[1.4rem] font-montserrat text-lightBlue">
             Total
           </div>
         </div>
@@ -89,10 +89,7 @@ const Cart = ({
       {/* Last Row */}
       <div className="w-11/12 grid grid-cols-7 ml-20 p-10">
         <div className="col-start-7 flex justify-end items-center mr-[-5.8rem] mt-[-6.5rem]">
-          <ButtonOrange
-            displayName="CHECKOUT"
-            onClick={navigateToCheckout}
-          />
+          <ButtonOrange displayName="CHECKOUT" onClick={navigateToCheckout} />
         </div>
       </div>
     </div>
