@@ -1,23 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import useFetch from "../customHooks/useFetch";
-
-import CheckoutHeader from "./checkout/CheckoutHeader";
-import CheckoutProgressBar from "./checkout/CheckoutProgressBar";
-import CheckoutContact from "./checkout/CheckoutContact";
-import CheckoutDeliveryMethod from "./checkout/CheckoutDeliveryMethod";
-import CheckoutDeliveryAddress from "./checkout/CheckoutDeliveryAddress";
-import CheckoutFooter from "./checkout/CheckoutFooter";
-import CheckoutCartTotal from "./checkout/CheckoutCartTotal";
-import CheckoutPaymentTotal from "./checkout/CheckoutPaymentTotal";
-import CheckoutPaymentMethod from "./checkout/CheckoutPaymentMethod";
-
 import CheckoutPage1 from "./checkout/CheckoutPage1";
 import CheckoutPage2 from "./checkout/CheckoutPage2";
 import CheckoutPage3 from "./checkout/CheckoutPage3";
 import CheckoutPage4 from "./checkout/CheckoutPage4";
-
-import { BiArrowBack } from "react-icons/bi";
-import { Link } from "react-router-dom";
 import DataContext from "./context/DataContext";
 import { useNavigate } from "react-router-dom";
 
@@ -28,15 +14,9 @@ const Checkout = ({
   setShowNav,
   setShowFooter,
 }) => {
-  const { fetchData, isLoading, data, error } = useFetch();
+  const { fetchData, data } = useFetch();
   const navigate = useNavigate();
   const [hasSubmitted, setHasSubmitted] = useState(false);
-
-  useEffect(() => {
-    // setShowShipAlert(false);
-    // setShowNav(false);
-    // setShowFooter(false);
-  }, []);
 
   const [step, setStep] = useState(1);
   const [checkoutInput, setCheckoutInput] = useState({

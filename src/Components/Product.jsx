@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import useFetch from "../customHooks/useFetch";
 import { useParams, useNavigate } from "react-router-dom";
 import { productImages } from "../Varlables/Constants";
-
 import ButtonOrange from "./reusables/ButtonOrange";
 import ButtonWhite from "./reusables/ButtonWhite";
 import ButtonSelected from "./reusables/ButtonSelected";
@@ -10,10 +9,10 @@ import ButtonDisabled from "./reusables/ButtonDisabled";
 import ButtonAddMinus from "./reusables/ButtonAddMinus";
 import ProductPopup from "./ProductPopup";
 
-const Product = ({ shoppingCart, handleAddToCart }) => {
-  /////////////
-  // FUNCTIONS
-  /////////////
+const Product = ({ handleAddToCart }) => {
+  /*
+   ** FUNCTIONS
+   */
   function isObject(value) {
     return typeof value === "object" && value !== null && !Array.isArray(value);
   }
@@ -93,8 +92,6 @@ const Product = ({ shoppingCart, handleAddToCart }) => {
   const navigateToShop = () => {
     navigate("/shop");
   };
-  // Navigate to view cart page (view cart button in modal)
-  const navigateToCart = () => {};
 
   ///////////////
   // custom Hook

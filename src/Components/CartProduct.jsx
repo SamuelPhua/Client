@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import placeholderImg from "../assets/imagesAboutUs/CartPage-KraftPouch.jpg";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import DataContext from "./context/DataContext";
 

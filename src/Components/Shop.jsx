@@ -4,11 +4,9 @@ import { productImages } from "../Varlables/Constants";
 import Banner from "./reusables/Banner";
 import useFetch from "../customHooks/useFetch";
 
-const numberOfImages = 12;
-
 function Shop() {
   const navigate = useNavigate();
-  const { fetchData, isLoading, data, error } = useFetch();
+  const { fetchData, data } = useFetch();
   const [showName, setShowName] = useState("");
 
   const navigateToProduct = (productName) => {

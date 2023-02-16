@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ButtonOrange from "./reusables/ButtonOrange";
 import CartProduct from "./CartProduct";
-import { groupShoppingCart } from "../helper/groupShoppingCart";
 
 const Cart = ({
   shoppingCart,
