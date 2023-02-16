@@ -18,6 +18,7 @@ const ContactUs = () => {
         </p>
         <div className="flex flex-col sm:mx-auto md:flex-row justify-between w-10/12 2xl:w-8/12 mb-40">
           <ContactForm />
+
           <ContactInfo />
         </div>
       </div>

@@ -47,7 +47,7 @@ const ContactForm = () => {
   return (
     <form
       id="contactForm"
-      className="flex flex-col basis-1/2 tracking-wide font-montserrat text-darkBlueFont text-xs"
+      className="flex flex-col basis-1/2 tracking-wide font-montserrat text-darkBlueFont text-xs "
       onSubmit={handleFormSubmission}
     >
       <div className="flex flex-col md:flex-row">
