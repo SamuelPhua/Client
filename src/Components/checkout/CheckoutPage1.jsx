@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import CheckoutHeader from "./CheckoutHeader";
 import CheckoutProgressBar from "./CheckoutProgressBar";
 import CheckoutContact from "./CheckoutContact";

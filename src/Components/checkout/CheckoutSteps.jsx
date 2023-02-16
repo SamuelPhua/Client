@@ -1,10 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  AiOutlineShoppingCart,
-  AiOutlineForm,
-  AiOutlineCreditCard,
-} from "react-icons/ai";
-import { BsBox } from "react-icons/bs";
 
 const CheckoutSteps = ({ steps, currentStep }) => {
   const [newStep, setNewStep] = useState([]);

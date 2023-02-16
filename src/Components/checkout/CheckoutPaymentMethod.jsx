@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import DataContext from "../context/DataContext";
 import { useNavigate } from "react-router-dom";
-import ButtonOrange from "../reusables/ButtonOrange";
 
 const CheckoutPaymentMethod = () => {
   const navigate = useNavigate();

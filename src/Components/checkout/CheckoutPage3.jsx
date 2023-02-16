@@ -4,12 +4,7 @@ import { Link } from "react-router-dom";
 import CheckoutPaymentTotal from "./CheckoutPaymentTotal";
 import CheckoutPaymentMethod from "./CheckoutPaymentMethod";
 
-const CheckoutPage3 = ({
-  setShowShipAlert,
-  setShowNav,
-  setShowFooter,
-  handleNext,
-}) => {
+const CheckoutPage3 = () => {
   return (
     <div>
       <div className="grid grid-cols-3 h-screen">

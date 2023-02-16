@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import useFetch from "../customHooks/useFetch";
 import CheckoutPage1 from "./checkout/CheckoutPage1";
 import CheckoutPage2 from "./checkout/CheckoutPage2";
