@@ -1,4 +1,4 @@
-## Intro
+# Flour Power
 
 Flour Power is a homegrown bakery in Singapore who specialises in cookie creations. Founded in 2016, they are also a social enterprise that advocates for inclusive practices in the workplace and society at large. As such, they work alongside individuals with special needs or those recovering from mental illness to create their delectable bakes.
 
@@ -20,7 +20,7 @@ In this application, a user will be able to navigate the various pages to unders
 
 3. React Slick for carousels on HomePage and About Us pages
 
-# Initial Discussions
+## Initial Discussions
 
 ![msg319094010-305882](https://user-images.githubusercontent.com/100138598/215382931-89f94bf7-ed34-467c-9f09-b2c4b2b48ed4.jpg)
 
@@ -59,15 +59,18 @@ The other group of users are people who are interested in bulk orders or customi
 
 ## General Approach
 
+The backend comprises of product information that are available to the users, as well as user inputs that are collected upon checkout and submission of enquiry form.
+
 Backend
 <ul>
    <li>Product: contains product details with get all and get 1 product for the Shop & Product pages</li>
    <li>Checkout: contains checkout information created by the user, including delivery information, payment options & cart added by them.</li>
    <li>Enquiry Form: contains enquiry details provided by the user in the Contact Us page.</li>
 </ul>
-Frontend
 
-1. Common components
+The frontend guides the user to navigate between general information, shopping of individual cookies for purchase and enquiry form. We split the components into 3 kinds - common, static and dynamic.
+
+1. Common components:
 <ul>
    <li>Shipping information</li>
    <li>Navbar: Home (logo), Shop, About Us, Bulk Orders, Contact Us, Cart (icon)</li>
@@ -79,10 +82,23 @@ Frontend
    <li>ButtonDisabled (for disabled option)</li>
 </ul>
 
-2. Common components
+2. Pages/components for general information:
 <ul>
-   <li>Shipping info
+   <li>Home</li>
+   <li>About Us</li>
+   <li>Bulk Order</li>
 </ul>
+
+3. Pages/components with more user interactions and backend communication:
+<ul>
+   <li>Shop</li>
+   <li>Product</li>
+   <li>Cart</li>
+   <li>Checkout</li>
+   <li>Contact Us</li>
+</ul>
+
+How the components sit together and communicate with one another can be seen in the next section.
 
 ## Wireframe
 
