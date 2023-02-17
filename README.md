@@ -61,11 +61,25 @@ The other group of users are people who are interested in bulk orders or customi
 ## General Approach
 
 1. Backend
-   a. Product: contains product name, description, about information, and price options with weight and packaging combination, as well as image of packaging options
-   b. Checkout
-   c. Enquiry Form
+
+<ul>
+   <li>Product: contains product details with get all and get 1 product for the Shop & Product pages</li>
+   <li>Checkout: contains checkout information created by the user, including delivery information, payment options & cart added by them.</li>
+   <li>Enquiry Form: contains enquiry details provided by the user in the Contact Us page.</li>
+</ul>
 
 3. Frontend
+
+<ul>Common components
+   <li>Shipping information</li>
+   <li>Navbar: Home (logo), Shop, About Us, Bulk Orders, Contact Us, Cart (icon)</li>
+   <li>Footer</li>
+   <li>Banner: display page title with full width background image</li>
+   <li>ButtonOrange (for submitting)</li>
+   <li>ButtonWhite (for toggling options)</li>
+   <li>ButtonSelected (for selected option)</li>
+   <li>ButtonDisabled (for disabled option)</li>
+</ul>
 
 ## Limitations & Future work
 
