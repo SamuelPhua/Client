@@ -6,6 +6,8 @@ As part of the UX Team's project, they have came up with a protoype of revamping
 
 In this application, a user will be able to navigate the various pages to understand more about Flour Power and its offerings and moreso, to browse the delectable bakes available for purchase.
 
+This repository contains the frontend application, the backend repository may be found [here](https://github.com/SamuelPhua/Flower_Pour_Server).
+
 ## Technologies Used
 
 1. Built using React, Express, MongoDB and Node
