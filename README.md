@@ -99,6 +99,16 @@ The frontend guides the user to navigate between general information, shopping o
 </ul>
 
 Here are some snapshots of the interactive pages:
+![01-ShopAllPage](https://user-images.githubusercontent.com/118900713/219595257-ba30626e-e2ee-4333-9d43-f7f434368e96.png)
+![02-IndividualCookieCart](https://user-images.githubusercontent.com/118900713/219595281-830a504f-9a7d-41ab-8eaa-59ac8110ffc9.png)
+![03-ProductPopUp](https://user-images.githubusercontent.com/118900713/219595295-6c9af153-06a3-4e48-91e5-e1df5a769f7a.png)
+![04-CartProducts](https://user-images.githubusercontent.com/118900713/219595305-42bc8a17-0949-42e5-9b8c-ab3ec4e516d0.png)
+![05-Checkout01](https://user-images.githubusercontent.com/118900713/219595319-141f0319-096a-42be-a030-35e6dc41cbf5.png)
+![06-CheckoutFinal](https://user-images.githubusercontent.com/118900713/219595336-a216f399-4367-4b1e-800a-698f33bd3d2f.png)
+
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="1604" alt="shop all page" src="https://user-images.githubusercontent.com/118900713/219595257-ba30626e-e2ee-4333-9d43-f7f434368e96.png">  Shop |  <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595281-830a504f-9a7d-41ab-8eaa-59ac8110ffc9.png">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595295-6c9af153-06a3-4e48-91e5-e1df5a769f7a.png">|
+|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595305-42bc8a17-0949-42e5-9b8c-ab3ec4e516d0.png">  |  <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595319-141f0319-096a-42be-a030-35e6dc41cbf5.png">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595336-a216f399-4367-4b1e-800a-698f33bd3d2f.png">|
 
 ## Challenges
 
