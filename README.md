@@ -109,7 +109,7 @@ Navigation from Shop page to individual cookie selection to cart. Product image 
 
 ![cart-to-checkout-pages](https://user-images.githubusercontent.com/118900713/219602863-2b447681-1c8c-405a-9e62-b12be09ce101.png)
 Navigation from cart summary to checkout information and payment confirmation. Update in quantity and deletion can be done on the cart summary page.
-|:-------------------------:|:-------------------------:|:-------------------------:|
+
 
 ## Challenges
 
