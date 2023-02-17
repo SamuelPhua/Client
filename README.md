@@ -104,10 +104,25 @@ Here are some snapshots of the interactive pages:
 
 Bulk of the challenge of this project stems from the e-commerce requirement of having a cart for checkout. Here is a summary of considerations required for the cart and checkout interactions:
 
-1. The product page itself requires all the options that are selectable by the user. In order to do that, multiple react states are required to keep track of what are the options clicked and information to rerender when selected, i.e., product price and product image. 
-2. After the user has decided on the options, adding to cart button will trigger a pop up that displays the added cart information. 
-3. After navigating to the view cart page, the added product should be combined with existing added products if the options are identical.
-4. The product's quantity can also be updated on the view cart page, and removed completely if the user desires.
+1. Cart:
+
+<ul>
+   <li>Product component: requires all the options that are selectable by the user. In order to do that, multiple react states are required to keep track of what are the options clicked and information to rerender when selected, i.e., product price and product image.</li>
+
+   <li>ProductPopup component: after the user has decided on the options, adding to cart button will trigger a pop up that displays the added cart information.</li>
+
+   <li>Cart component: after navigating to the view cart page, the added product should be combined with existing added products if the options are identical.</li>
+
+   <li>Cart component: the product's quantity can also be updated on the view cart page, and removed completely if the user desires.</li>
+</ul>
+
+2. Checkout:
+
+<ul>
+
+   <li>Checkout pages progress bar</li>
+   
+</ul>   
 
 ## Limitations & Future work
 
