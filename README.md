@@ -99,6 +99,7 @@ The frontend guides the user to navigate between general information, shopping o
 </ul>
 
 Here are some snapshots of the interactive pages:
+
 ![shop-to-product-pages](https://user-images.githubusercontent.com/118900713/219602839-02053d02-6bf2-47ad-a195-ceea6adb13c4.png)
 Navigation from Shop page to individual cookie selection to cart. Product image and unit price updates on selected options (light green buttons)
 
