@@ -21,10 +21,12 @@ In this application, a user will be able to navigate the various pages to unders
 3. React Slick for carousels on HomePage and About Us pages
 
 ## Hierarchy
+(https://user-images.githubusercontent.com/115027854/219590066-74ed53c1-c7b9-4ec5-bb2e-c07ecab131b4.png)
 
 ![Checkout component hierarchy](./local_images/Checkout_Hierarchy.png)
 
-## Wireframe
+## Wireframe![Home Page]
+
 
 # Initial Discussions
 
