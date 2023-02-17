@@ -1,4 +1,4 @@
-## Intro
+# Flour Power
 
 Flour Power is a homegrown bakery in Singapore who specialises in cookie creations. Founded in 2016, they are also a social enterprise that advocates for inclusive practices in the workplace and society at large. As such, they work alongside individuals with special needs or those recovering from mental illness to create their delectable bakes.
 
@@ -20,27 +20,29 @@ In this application, a user will be able to navigate the various pages to unders
 
 3. React Slick for carousels on HomePage and About Us pages
 
+## Initial Discussions
 ## Hierarchy
+(https://user-images.githubusercontent.com/115027854/219590066-74ed53c1-c7b9-4ec5-bb2e-c07ecab131b4.png)
 
 ![Checkout component hierarchy](./local_images/Checkout_Hierarchy.png)
 
-## Wireframe
-
-# Initial Discussions
+## Wireframe![Home Page]
 
 ![msg319094010-305882](https://user-images.githubusercontent.com/100138598/215382931-89f94bf7-ed34-467c-9f09-b2c4b2b48ed4.jpg)
 
 ## User Stories
 
-User should be able to:
+We have 2 main groups of users. In general, users should be able to:
 
 1. Navigate through the various pages via the navbar
 
 2. Interact with the website via buttons that bring them to relevant sections of other pages
 
+The first group are users who are shopping for cookies and would like a fuss free shopping experience through the website. To add on, they should be able to:
+
 3. Browse all bakes available for purchases
 
-4. Select various offerings for each bake, such as specific packaging and weights of some cookies
+4. Select various offerings for each bake, such as specific packaging, weight and quantity of some cookies
 
 5. View the cart of what has been added so far
 
@@ -113,6 +115,7 @@ Here are some snapshots of the interactive pages:
 ![06-CheckoutFinal](https://user-images.githubusercontent.com/118900713/219595336-a216f399-4367-4b1e-800a-698f33bd3d2f.png)
 
 |:-------------------------:|:-------------------------:|:-------------------------:|
+
 |<img width="1604" alt="shop all page" src="https://user-images.githubusercontent.com/118900713/219595257-ba30626e-e2ee-4333-9d43-f7f434368e96.png"> Shop | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595281-830a504f-9a7d-41ab-8eaa-59ac8110ffc9.png">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595295-6c9af153-06a3-4e48-91e5-e1df5a769f7a.png">|
 |<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595305-42bc8a17-0949-42e5-9b8c-ab3ec4e516d0.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595319-141f0319-096a-42be-a030-35e6dc41cbf5.png">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595336-a216f399-4367-4b1e-800a-698f33bd3d2f.png">|
 
@@ -153,3 +156,5 @@ Due to the time frame of 5 days given to complete this project, there were a few
 3. The payment methods listed are not connected to any payment gateways.
 
 4. There is no client model authentication where client can log in to upload / edit product offerings.
+
+5. Images are not encoded in the database and fetched for display yet.
