@@ -99,11 +99,11 @@ The frontend guides the user to navigate between general information, shopping o
 </ul>
 
 Here are some snapshots of the interactive pages:
-|
-:-------------------------:|:-------------------------:
-|<img width="888" alt="shop all page" src="https://user-images.githubusercontent.com/118900713/219595257-ba30626e-e2ee-4333-9d43-f7f434368e96.png">  Shop |<img width="888" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595281-830a504f-9a7d-41ab-8eaa-59ac8110ffc9.png">|
-|<img width="888" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595295-6c9af153-06a3-4e48-91e5-e1df5a769f7a.png">|<img width="888" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595305-42bc8a17-0949-42e5-9b8c-ab3ec4e516d0.png">  
-|<img width="888" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595319-141f0319-096a-42be-a030-35e6dc41cbf5.png">|<img width="888" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595336-a216f399-4367-4b1e-800a-698f33bd3d2f.png">|
+![shop-to-product-pages](https://user-images.githubusercontent.com/118900713/219602839-02053d02-6bf2-47ad-a195-ceea6adb13c4.png)
+Navigation from Shop page to individual cookie selection to cart. Product image and unit price updates on selected options (light green buttons)
+
+![cart-to-checkout-pages](https://user-images.githubusercontent.com/118900713/219602863-2b447681-1c8c-405a-9e62-b12be09ce101.png)
+Navigation from cart summary to checkout information and payment confirmation. Update in quantity and deletion can be done on the cart summary page.
 
 ## Challenges
 
