@@ -32,15 +32,17 @@ In this application, a user will be able to navigate the various pages to unders
 
 ## User Stories
 
-User should be able to:
+We have 2 main groups of users. In general, users should be able to:
 
 1. Navigate through the various pages via the navbar
 
 2. Interact with the website via buttons that bring them to relevant sections of other pages
 
+The first group are users who are shopping for cookies and would like a fuss free shopping experience through the website. To add on, they should be able to:
+
 3. Browse all bakes available for purchases
 
-4. Select various offerings for each bake, such as specific packaging and weights of some cookies
+4. Select various offerings for each bake, such as specific packaging, weight and quantity of some cookies
 
 5. View the cart of what has been added so far
 
@@ -50,7 +52,36 @@ User should be able to:
 
 8. Select payment methods and receive a confirmation upon success
 
-## Limitations
+The other group of users are people who are interested in bulk orders or customization options. They would need a clear direction to information they need and quick access to send out enquiry requests for their purchase. They should be able to:
+
+3. Understand the options available for bulk orders, as well as customization examples
+
+4. Guided to a comprehensive enquiry form that cater to their needs
+
+## General Approach
+
+1. Backend
+
+<ul>
+   <li>Product: contains product details with get all and get 1 product for the Shop & Product pages</li>
+   <li>Checkout: contains checkout information created by the user, including delivery information, payment options & cart added by them.</li>
+   <li>Enquiry Form: contains enquiry details provided by the user in the Contact Us page.</li>
+</ul>
+
+3. Frontend
+
+<ul>Common components
+   <li>Shipping information</li>
+   <li>Navbar: Home (logo), Shop, About Us, Bulk Orders, Contact Us, Cart (icon)</li>
+   <li>Footer</li>
+   <li>Banner: display page title with full width background image</li>
+   <li>ButtonOrange (for submitting)</li>
+   <li>ButtonWhite (for toggling options)</li>
+   <li>ButtonSelected (for selected option)</li>
+   <li>ButtonDisabled (for disabled option)</li>
+</ul>
+
+## Limitations & Future work
 
 Due to the time frame of 5 days given to complete this project, there were a few items which we would love to complete but was unable to do so. Refer to the following:
 
@@ -61,3 +92,5 @@ Due to the time frame of 5 days given to complete this project, there were a few
 3. The payment methods listed are not connected to any payment gateways.
 
 4. There is no client model authentication where client can log in to upload / edit product offerings.
+
+5. Images are not encoded in the database and fetched for display yet.
