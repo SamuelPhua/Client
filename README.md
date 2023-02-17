@@ -128,7 +128,9 @@ Bulk of the challenge of this project stems from the e-commerce requirement of h
 
 <ul>
 
-   <li>Checkout pages progress bar</li>
+   <li>Checkout pages progress bar: requires each step to be monitored in order to reflect the current step of the multi-step checkout form.</li>
+
+   <li>Good To Have: (as of 17 Feb 2023) form validation has not been incorporated. Error message will be thrown if required information is not available after the createOrder endpoint is called.</li>
    
 </ul>   
 
@@ -138,7 +140,7 @@ Due to the time frame of 5 days given to complete this project, there were a few
 
 1. In the "Shop" page, some products' quantity, packaging and price have been mocked up Hence to align to reality, we would need to obtain the exact offerings offered by the shop and replace them.
 
-2. The application of 'Gift card or discount code' is currently not enabled.
+2. The application of 'Gift card or discount code' is currently not enabled as validation logic was not provided.
 
 3. The payment methods listed are not connected to any payment gateways.
 
