@@ -4,7 +4,7 @@ Flour Power is a homegrown bakery in Singapore who specialises in cookie creatio
 
 As part of the UX Team's project, they have came up with a protoype of revamping the website, so as to create and raise more awareness for Flour Power and their mission. We, a team of 5, have received the final protoype from UX Team and have endeavour to build out a working application closely aligned to the final prototype.
 
-In this application, a user will be able to navigate the various pages to understand more about Flour Power and its offerings and moreso, to browse the delectable bakes available for purchase. 
+In this application, a user will be able to navigate the various pages to understand more about Flour Power and its offerings and moreso, to browse the delectable bakes available for purchase.
 
 ## Technologies Used
 
@@ -22,9 +22,12 @@ In this application, a user will be able to navigate the various pages to unders
 
 ## Hierarchy
 
+![Checkout component hierarchy](./local_images/Checkout_Hierarchy.png)
+
 ## Wireframe
 
 # Initial Discussions
+
 ![msg319094010-305882](https://user-images.githubusercontent.com/100138598/215382931-89f94bf7-ed34-467c-9f09-b2c4b2b48ed4.jpg)
 
 ## User Stories
