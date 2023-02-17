@@ -20,12 +20,6 @@ In this application, a user will be able to navigate the various pages to unders
 
 3. React Slick for carousels on HomePage and About Us pages
 
-## Hierarchy
-
-![Checkout component hierarchy](./local_images/Checkout_Hierarchy.png)
-
-## Wireframe
-
 # Initial Discussions
 
 ![msg319094010-305882](https://user-images.githubusercontent.com/100138598/215382931-89f94bf7-ed34-467c-9f09-b2c4b2b48ed4.jpg)
@@ -58,19 +52,23 @@ The other group of users are people who are interested in bulk orders or customi
 
 4. Guided to a comprehensive enquiry form that cater to their needs
 
+## Hierarchy
+
+![hierachy](https://user-images.githubusercontent.com/118900713/219584574-2169620f-2c64-4e77-80bb-84ecdc121f11.svg)
+<!-- ![Checkout component hierarchy](./local_images/Checkout_Hierarchy.png) -->
+
 ## General Approach
 
-1. Backend
-
+Backend
 <ul>
    <li>Product: contains product details with get all and get 1 product for the Shop & Product pages</li>
    <li>Checkout: contains checkout information created by the user, including delivery information, payment options & cart added by them.</li>
    <li>Enquiry Form: contains enquiry details provided by the user in the Contact Us page.</li>
 </ul>
+Frontend
 
-3. Frontend
-
-<ul>Common components
+1. Common components
+<ul>
    <li>Shipping information</li>
    <li>Navbar: Home (logo), Shop, About Us, Bulk Orders, Contact Us, Cart (icon)</li>
    <li>Footer</li>
@@ -80,6 +78,19 @@ The other group of users are people who are interested in bulk orders or customi
    <li>ButtonSelected (for selected option)</li>
    <li>ButtonDisabled (for disabled option)</li>
 </ul>
+
+2. Common components
+<ul>
+   <li>Shipping info
+</ul>
+
+## Wireframe
+
+## Challenges
+
+Bulk of the challenge of this project stems from the e-commerce requirement of having a cart for checkout.
+
+1. 
 
 ## Limitations & Future work
 
