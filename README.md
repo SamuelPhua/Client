@@ -61,6 +61,7 @@ The other group of users are people who are interested in bulk orders or customi
 ## Hierarchy
 
 ![hierachy](https://user-images.githubusercontent.com/118900713/219584574-2169620f-2c64-4e77-80bb-84ecdc121f11.svg)
+
 <!-- ![Checkout component hierarchy](./local_images/Checkout_Hierarchy.png) -->
 
 ## General Approach
@@ -68,6 +69,7 @@ The other group of users are people who are interested in bulk orders or customi
 The backend comprises of product information that are available to the users, as well as user inputs that are collected upon checkout and submission of enquiry form.
 
 Backend
+
 <ul>
    <li>Product: contains product details with get all and get 1 product for the Shop & Product pages</li>
    <li>Checkout: contains checkout information created by the user, including delivery information, payment options & cart added by them.</li>
@@ -113,8 +115,9 @@ Here are some snapshots of the interactive pages:
 ![06-CheckoutFinal](https://user-images.githubusercontent.com/118900713/219595336-a216f399-4367-4b1e-800a-698f33bd3d2f.png)
 
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="1604" alt="shop all page" src="https://user-images.githubusercontent.com/118900713/219595257-ba30626e-e2ee-4333-9d43-f7f434368e96.png">  Shop |  <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595281-830a504f-9a7d-41ab-8eaa-59ac8110ffc9.png">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595295-6c9af153-06a3-4e48-91e5-e1df5a769f7a.png">|
-|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595305-42bc8a17-0949-42e5-9b8c-ab3ec4e516d0.png">  |  <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595319-141f0319-096a-42be-a030-35e6dc41cbf5.png">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595336-a216f399-4367-4b1e-800a-698f33bd3d2f.png">|
+
+|<img width="1604" alt="shop all page" src="https://user-images.githubusercontent.com/118900713/219595257-ba30626e-e2ee-4333-9d43-f7f434368e96.png"> Shop | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595281-830a504f-9a7d-41ab-8eaa-59ac8110ffc9.png">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595295-6c9af153-06a3-4e48-91e5-e1df5a769f7a.png">|
+|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595305-42bc8a17-0949-42e5-9b8c-ab3ec4e516d0.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595319-141f0319-096a-42be-a030-35e6dc41cbf5.png">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://user-images.githubusercontent.com/118900713/219595336-a216f399-4367-4b1e-800a-698f33bd3d2f.png">|
 
 ## Challenges
 
@@ -136,9 +139,11 @@ Bulk of the challenge of this project stems from the e-commerce requirement of h
 
 <ul>
 
-   <li>Checkout pages progress bar</li>
+   <li>Checkout pages progress bar: requires each step to be monitored in order to reflect the current step of the multi-step checkout form.</li>
+
+   <li>Good To Have: (as of 17 Feb 2023) form validation has not been incorporated. Error message will be thrown if required information is not available after the createOrder endpoint is called.</li>
    
-</ul>   
+</ul>
 
 ## Limitations & Future work
 
@@ -146,7 +151,7 @@ Due to the time frame of 5 days given to complete this project, there were a few
 
 1. In the "Shop" page, some products' quantity, packaging and price have been mocked up Hence to align to reality, we would need to obtain the exact offerings offered by the shop and replace them.
 
-2. The application of 'Gift card or discount code' is currently not enabled.
+2. The application of 'Gift card or discount code' is currently not enabled as validation logic was not provided.
 
 3. The payment methods listed are not connected to any payment gateways.
 
